@@ -33,9 +33,9 @@ public class Config_Inicial_Admin extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txt_clave_admin = new javax.swing.JTextField();
-        txt_confirmarclave_admin = new javax.swing.JTextField();
-        txt_correo_admin = new javax.swing.JTextField();
+        txt_clave_usuario = new javax.swing.JTextField();
+        txt_confirmarclave_usuario = new javax.swing.JTextField();
+        txt_correo_persona = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -70,9 +70,9 @@ public class Config_Inicial_Admin extends javax.swing.JDialog {
 
         jLabel4.setText("Confirmar clave:");
 
-        txt_clave_admin.addActionListener(new java.awt.event.ActionListener() {
+        txt_clave_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_clave_adminActionPerformed(evt);
+                txt_clave_usuarioActionPerformed(evt);
             }
         });
 
@@ -88,9 +88,9 @@ public class Config_Inicial_Admin extends javax.swing.JDialog {
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txt_correo_admin, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                    .addComponent(txt_clave_admin)
-                    .addComponent(txt_confirmarclave_admin))
+                    .addComponent(txt_correo_persona, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                    .addComponent(txt_clave_usuario)
+                    .addComponent(txt_confirmarclave_usuario))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -99,15 +99,15 @@ public class Config_Inicial_Admin extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txt_correo_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_correo_persona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txt_clave_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_clave_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txt_confirmarclave_admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_confirmarclave_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -232,9 +232,9 @@ public class Config_Inicial_Admin extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_clave_adminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_clave_adminActionPerformed
+    private void txt_clave_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_clave_usuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_clave_adminActionPerformed
+    }//GEN-LAST:event_txt_clave_usuarioActionPerformed
 
     private void btn_finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finalizarActionPerformed
         // TODO add your handling code here:
@@ -301,10 +301,10 @@ public class Config_Inicial_Admin extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txt_clave_admin;
-    private javax.swing.JTextField txt_confirmarclave_admin;
-    private javax.swing.JTextField txt_correo_admin;
+    private javax.swing.JTextField txt_clave_usuario;
+    private javax.swing.JTextField txt_confirmarclave_usuario;
     private javax.swing.JTextField txt_correo_institucion;
+    private javax.swing.JTextField txt_correo_persona;
     private javax.swing.JTextArea txt_direccion_institucion;
     private javax.swing.JTextField txt_nombre_institucion;
     // End of variables declaration//GEN-END:variables

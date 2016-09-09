@@ -27,23 +27,23 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_ayuda = new javax.swing.JButton();
+        btn_configuracion = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        btn_inventario = new javax.swing.JMenu();
+        btn_registrar_mantenimiento = new javax.swing.JMenuItem();
+        btn_asignar_activo = new javax.swing.JMenuItem();
+        btn_activos_responsable = new javax.swing.JMenuItem();
+        btn_gestion_areas = new javax.swing.JMenuItem();
+        btn_recursos_humanos = new javax.swing.JMenu();
+        btn_mantenimiento = new javax.swing.JMenu();
+        btn_solicitar_mantenimiento = new javax.swing.JMenuItem();
+        btn_actualizar_solicitudes = new javax.swing.JMenuItem();
+        btn_control_entregas = new javax.swing.JMenuItem();
+        btn_cuenta = new javax.swing.JMenu();
+        btn_mi_cuenta = new javax.swing.JMenuItem();
+        btn_cambiar_clave = new javax.swing.JMenuItem();
+        btn_cerrar_sesion = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowStateListener(new java.awt.event.WindowStateListener() {
@@ -52,72 +52,86 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Aiudaa");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_ayuda.setText("ayuda");
+        btn_ayuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_ayudaActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Config");
+        btn_configuracion.setText("Config");
 
-        jMenuBar2.setBackground(new java.awt.Color(102, 153, 255));
+        jMenuBar2.setBackground(new java.awt.Color(117, 213, 255));
+        jMenuBar2.setBorder(null);
+        jMenuBar2.setToolTipText("");
+        jMenuBar2.setBorderPainted(false);
+        jMenuBar2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jMenuBar2.setOpaque(false);
+        jMenuBar2.setPreferredSize(new java.awt.Dimension(470, 50));
 
-        jMenu4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\add-new-file (1).png")); // NOI18N
-        jMenu4.setText("Inventario");
+        btn_inventario.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\formulario (1).png")); // NOI18N
+        btn_inventario.setText("Inventario");
 
-        jMenuItem1.setText("Registrar Mantenimiento");
-        jMenu4.add(jMenuItem1);
+        btn_registrar_mantenimiento.setText("Registrar Mantenimiento");
+        btn_inventario.add(btn_registrar_mantenimiento);
 
-        jMenuItem2.setText("Asignar Activo");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        btn_asignar_activo.setText("Asignar Activo");
+        btn_asignar_activo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                btn_asignar_activoActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem2);
+        btn_inventario.add(btn_asignar_activo);
 
-        jMenuItem3.setText("Activos por responsable");
-        jMenu4.add(jMenuItem3);
-
-        jMenuItem4.setText("Gestion de areas");
-        jMenu4.add(jMenuItem4);
-
-        jMenuBar2.add(jMenu4);
-
-        jMenu5.setText("Recursos Humanos");
-        jMenuBar2.add(jMenu5);
-
-        jMenu1.setText("Mantenimiento");
-
-        jMenuItem5.setText("Solicitar Mantenimiento");
-        jMenu1.add(jMenuItem5);
-
-        jMenuItem6.setText("Actualizar solicitudes");
-        jMenu1.add(jMenuItem6);
-
-        jMenuItem7.setText("Control de entregas");
-        jMenu1.add(jMenuItem7);
-
-        jMenuBar2.add(jMenu1);
-
-        jMenu2.setText("Mi Cuenta");
-
-        jMenuItem8.setText("Mi Cuenta");
-        jMenu2.add(jMenuItem8);
-
-        jMenuItem9.setText("Cambiar Clave");
-        jMenu2.add(jMenuItem9);
-
-        jMenuItem10.setText("Cerrar Sesion");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+        btn_activos_responsable.setText("Activos por responsable");
+        btn_activos_responsable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
+                btn_activos_responsableActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem10);
+        btn_inventario.add(btn_activos_responsable);
 
-        jMenuBar2.add(jMenu2);
+        btn_gestion_areas.setText("Gestion de areas");
+        btn_inventario.add(btn_gestion_areas);
+
+        jMenuBar2.add(btn_inventario);
+
+        btn_recursos_humanos.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\grupo (1).png")); // NOI18N
+        btn_recursos_humanos.setText("Recursos Humanos");
+        jMenuBar2.add(btn_recursos_humanos);
+
+        btn_mantenimiento.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\repairing-service (1).png")); // NOI18N
+        btn_mantenimiento.setText("Mantenimiento");
+
+        btn_solicitar_mantenimiento.setText("Solicitar Mantenimiento");
+        btn_mantenimiento.add(btn_solicitar_mantenimiento);
+
+        btn_actualizar_solicitudes.setText("Actualizar solicitudes");
+        btn_mantenimiento.add(btn_actualizar_solicitudes);
+
+        btn_control_entregas.setText("Control de entregas");
+        btn_mantenimiento.add(btn_control_entregas);
+
+        jMenuBar2.add(btn_mantenimiento);
+
+        btn_cuenta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\usuario (1).png")); // NOI18N
+        btn_cuenta.setText("Mi Cuenta");
+
+        btn_mi_cuenta.setText("Mi Cuenta");
+        btn_cuenta.add(btn_mi_cuenta);
+
+        btn_cambiar_clave.setText("Cambiar Clave");
+        btn_cuenta.add(btn_cambiar_clave);
+
+        btn_cerrar_sesion.setText("Cerrar Sesion");
+        btn_cerrar_sesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cerrar_sesionActionPerformed(evt);
+            }
+        });
+        btn_cuenta.add(btn_cerrar_sesion);
+
+        jMenuBar2.add(btn_cuenta);
 
         setJMenuBar(jMenuBar2);
 
@@ -125,19 +139,21 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 629, Short.MAX_VALUE)
-                .addComponent(jButton3)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(622, Short.MAX_VALUE)
+                .addComponent(btn_configuracion)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2))
+                .addComponent(btn_ayuda)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(0, 376, Short.MAX_VALUE))
+                    .addComponent(btn_ayuda)
+                    .addComponent(btn_configuracion))
+                .addContainerGap(441, Short.MAX_VALUE))
         );
 
         pack();
@@ -147,17 +163,21 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowStateChanged
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void btn_asignar_activoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignar_activoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_btn_asignar_activoActionPerformed
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+    private void btn_cerrar_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrar_sesionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
+    }//GEN-LAST:event_btn_cerrar_sesionActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_ayudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ayudaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_ayudaActionPerformed
+
+    private void btn_activos_responsableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_activos_responsableActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_activos_responsableActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,27 +210,28 @@ public class Principal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Principal().setVisible(true);
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenuItem btn_activos_responsable;
+    private javax.swing.JMenuItem btn_actualizar_solicitudes;
+    private javax.swing.JMenuItem btn_asignar_activo;
+    private javax.swing.JButton btn_ayuda;
+    private javax.swing.JMenuItem btn_cambiar_clave;
+    private javax.swing.JMenuItem btn_cerrar_sesion;
+    private javax.swing.JButton btn_configuracion;
+    private javax.swing.JMenuItem btn_control_entregas;
+    private javax.swing.JMenu btn_cuenta;
+    private javax.swing.JMenuItem btn_gestion_areas;
+    private javax.swing.JMenu btn_inventario;
+    private javax.swing.JMenu btn_mantenimiento;
+    private javax.swing.JMenuItem btn_mi_cuenta;
+    private javax.swing.JMenu btn_recursos_humanos;
+    private javax.swing.JMenuItem btn_registrar_mantenimiento;
+    private javax.swing.JMenuItem btn_solicitar_mantenimiento;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
 }

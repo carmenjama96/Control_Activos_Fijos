@@ -366,7 +366,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btn_imprimir" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_salir" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_regresar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Component id="jPanel7" alignment="1" max="32767" attributes="0"/>
@@ -379,7 +379,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btn_imprimir" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btn_actualizar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_salir" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btn_regresar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="21" max="32767" attributes="0"/>
                       <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
@@ -437,7 +437,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_actualizarActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btn_salir">
+            <Component class="javax.swing.JButton" name="btn_regresar">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\logout (1).png"/>
@@ -474,13 +474,13 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btn_enviar_mantenimiento" min="-2" max="-2" attributes="0"/>
+                              <Component id="btn_enviar_solicitud" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btn_editar_mantenimiento" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btn_registrar_mantenimiento" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btn_eliminar_mantenimiento" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btn_editar_solicitud" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btn_registrar_solicitud" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btn_eliminar_solicitud" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -493,20 +493,20 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btn_editar_mantenimiento" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_editar_solicitud" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="btn_eliminar_mantenimiento" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_eliminar_solicitud" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_enviar_mantenimiento" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_enviar_solicitud" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_registrar_mantenimiento" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_registrar_solicitud" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btn_editar_mantenimiento">
+            <Component class="javax.swing.JButton" name="btn_editar_solicitud">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\1\pencil (1).png"/>
@@ -519,7 +519,7 @@
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btn_registrar_mantenimiento">
+            <Component class="javax.swing.JButton" name="btn_registrar_solicitud">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\1\archive (1).png"/>
@@ -531,7 +531,7 @@
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btn_enviar_mantenimiento">
+            <Component class="javax.swing.JButton" name="btn_enviar_solicitud">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\1\forward-arrow (1).png"/>
@@ -543,7 +543,7 @@
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btn_eliminar_mantenimiento">
+            <Component class="javax.swing.JButton" name="btn_eliminar_solicitud">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\1\rubbish-bin (2).png"/>

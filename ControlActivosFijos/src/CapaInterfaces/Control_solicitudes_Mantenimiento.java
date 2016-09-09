@@ -51,13 +51,13 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
         btn_imprimir = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         btn_actualizar = new javax.swing.JButton();
-        btn_salir = new javax.swing.JButton();
+        btn_regresar = new javax.swing.JButton();
         btn_buscar_solicitudes = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        btn_editar_mantenimiento = new javax.swing.JButton();
-        btn_registrar_mantenimiento = new javax.swing.JButton();
-        btn_enviar_mantenimiento = new javax.swing.JButton();
-        btn_eliminar_mantenimiento = new javax.swing.JButton();
+        btn_editar_solicitud = new javax.swing.JButton();
+        btn_registrar_solicitud = new javax.swing.JButton();
+        btn_enviar_solicitud = new javax.swing.JButton();
+        btn_eliminar_solicitud = new javax.swing.JButton();
         txt_codigoInternoInsticucional_activo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -183,11 +183,11 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
             }
         });
 
-        btn_salir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\logout (1).png")); // NOI18N
-        btn_salir.setText("Salir");
-        btn_salir.setBorder(null);
-        btn_salir.setBorderPainted(false);
-        btn_salir.setContentAreaFilled(false);
+        btn_regresar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\logout (1).png")); // NOI18N
+        btn_regresar.setText("Salir");
+        btn_regresar.setBorder(null);
+        btn_regresar.setBorderPainted(false);
+        btn_regresar.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -199,7 +199,7 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(btn_imprimir)
                 .addGap(18, 18, 18)
-                .addComponent(btn_salir)
+                .addComponent(btn_regresar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -210,7 +210,7 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_imprimir)
                     .addComponent(btn_actualizar)
-                    .addComponent(btn_salir))
+                    .addComponent(btn_regresar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -220,26 +220,26 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
         btn_buscar_solicitudes.setBorderPainted(false);
         btn_buscar_solicitudes.setContentAreaFilled(false);
 
-        btn_editar_mantenimiento.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\pencil (1).png")); // NOI18N
-        btn_editar_mantenimiento.setToolTipText("");
-        btn_editar_mantenimiento.setBorder(null);
-        btn_editar_mantenimiento.setBorderPainted(false);
-        btn_editar_mantenimiento.setContentAreaFilled(false);
+        btn_editar_solicitud.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\pencil (1).png")); // NOI18N
+        btn_editar_solicitud.setToolTipText("");
+        btn_editar_solicitud.setBorder(null);
+        btn_editar_solicitud.setBorderPainted(false);
+        btn_editar_solicitud.setContentAreaFilled(false);
 
-        btn_registrar_mantenimiento.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\archive (1).png")); // NOI18N
-        btn_registrar_mantenimiento.setBorder(null);
-        btn_registrar_mantenimiento.setBorderPainted(false);
-        btn_registrar_mantenimiento.setContentAreaFilled(false);
+        btn_registrar_solicitud.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\archive (1).png")); // NOI18N
+        btn_registrar_solicitud.setBorder(null);
+        btn_registrar_solicitud.setBorderPainted(false);
+        btn_registrar_solicitud.setContentAreaFilled(false);
 
-        btn_enviar_mantenimiento.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\forward-arrow (1).png")); // NOI18N
-        btn_enviar_mantenimiento.setBorder(null);
-        btn_enviar_mantenimiento.setBorderPainted(false);
-        btn_enviar_mantenimiento.setContentAreaFilled(false);
+        btn_enviar_solicitud.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\forward-arrow (1).png")); // NOI18N
+        btn_enviar_solicitud.setBorder(null);
+        btn_enviar_solicitud.setBorderPainted(false);
+        btn_enviar_solicitud.setContentAreaFilled(false);
 
-        btn_eliminar_mantenimiento.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\rubbish-bin (2).png")); // NOI18N
-        btn_eliminar_mantenimiento.setBorder(null);
-        btn_eliminar_mantenimiento.setBorderPainted(false);
-        btn_eliminar_mantenimiento.setContentAreaFilled(false);
+        btn_eliminar_solicitud.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\rubbish-bin (2).png")); // NOI18N
+        btn_eliminar_solicitud.setBorder(null);
+        btn_eliminar_solicitud.setBorderPainted(false);
+        btn_eliminar_solicitud.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -250,12 +250,12 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btn_enviar_mantenimiento))
+                        .addComponent(btn_enviar_solicitud))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_editar_mantenimiento)
-                            .addComponent(btn_registrar_mantenimiento)
-                            .addComponent(btn_eliminar_mantenimiento))
+                            .addComponent(btn_editar_solicitud)
+                            .addComponent(btn_registrar_solicitud)
+                            .addComponent(btn_eliminar_solicitud))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -263,13 +263,13 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_editar_mantenimiento)
+                .addComponent(btn_editar_solicitud)
                 .addGap(18, 18, 18)
-                .addComponent(btn_eliminar_mantenimiento)
+                .addComponent(btn_eliminar_solicitud)
                 .addGap(18, 18, 18)
-                .addComponent(btn_enviar_mantenimiento)
+                .addComponent(btn_enviar_solicitud)
                 .addGap(18, 18, 18)
-                .addComponent(btn_registrar_mantenimiento)
+                .addComponent(btn_registrar_solicitud)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -430,12 +430,12 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_actualizar;
     private javax.swing.JButton btn_buscar_solicitudes;
-    private javax.swing.JButton btn_editar_mantenimiento;
-    private javax.swing.JButton btn_eliminar_mantenimiento;
-    private javax.swing.JButton btn_enviar_mantenimiento;
+    private javax.swing.JButton btn_editar_solicitud;
+    private javax.swing.JButton btn_eliminar_solicitud;
+    private javax.swing.JButton btn_enviar_solicitud;
     private javax.swing.JButton btn_imprimir;
-    private javax.swing.JButton btn_registrar_mantenimiento;
-    private javax.swing.JButton btn_salir;
+    private javax.swing.JButton btn_registrar_solicitud;
+    private javax.swing.JButton btn_regresar;
     private javax.swing.JComboBox combo_descripcion_area;
     private javax.swing.JComboBox combo_idResponsable_area;
     private javax.swing.JComboBox combo_tipo_area;

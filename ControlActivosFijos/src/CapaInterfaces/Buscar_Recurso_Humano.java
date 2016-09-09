@@ -97,6 +97,11 @@ public class Buscar_Recurso_Humano extends javax.swing.JDialog {
         btn_eliminar_persona.setBorder(null);
         btn_eliminar_persona.setBorderPainted(false);
         btn_eliminar_persona.setContentAreaFilled(false);
+        btn_eliminar_persona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminar_personaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -254,6 +259,10 @@ public class Buscar_Recurso_Humano extends javax.swing.JDialog {
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void btn_eliminar_personaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminar_personaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_eliminar_personaActionPerformed
 
     /**
      * @param args the command line arguments

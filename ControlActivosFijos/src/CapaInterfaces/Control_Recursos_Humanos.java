@@ -53,7 +53,7 @@ public class Control_Recursos_Humanos extends javax.swing.JDialog {
         btn_buscar = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         btn_actualizar = new javax.swing.JButton();
-        btn_salir = new javax.swing.JButton();
+        btn_regresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -182,11 +182,11 @@ public class Control_Recursos_Humanos extends javax.swing.JDialog {
             }
         });
 
-        btn_salir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\logout (1).png")); // NOI18N
-        btn_salir.setText("Salir");
-        btn_salir.setBorder(null);
-        btn_salir.setBorderPainted(false);
-        btn_salir.setContentAreaFilled(false);
+        btn_regresar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\logout (1).png")); // NOI18N
+        btn_regresar.setText("Regresar");
+        btn_regresar.setBorder(null);
+        btn_regresar.setBorderPainted(false);
+        btn_regresar.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -202,7 +202,7 @@ public class Control_Recursos_Humanos extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(btn_actualizar)
                 .addGap(18, 18, 18)
-                .addComponent(btn_salir)
+                .addComponent(btn_regresar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -215,7 +215,7 @@ public class Control_Recursos_Humanos extends javax.swing.JDialog {
                     .addComponent(btn_guardar)
                     .addComponent(btn_buscar)
                     .addComponent(btn_actualizar)
-                    .addComponent(btn_salir))
+                    .addComponent(btn_regresar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -360,7 +360,7 @@ public class Control_Recursos_Humanos extends javax.swing.JDialog {
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_nuevo;
-    private javax.swing.JButton btn_salir;
+    private javax.swing.JButton btn_regresar;
     private javax.swing.JComboBox combo_tipo_usuario;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -116,9 +116,9 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="txt_correo_admin" pref="190" max="32767" attributes="0"/>
-                      <Component id="txt_clave_admin" max="32767" attributes="0"/>
-                      <Component id="txt_confirmarclave_admin" max="32767" attributes="0"/>
+                      <Component id="txt_correo_persona" pref="190" max="32767" attributes="0"/>
+                      <Component id="txt_clave_usuario" max="32767" attributes="0"/>
+                      <Component id="txt_confirmarclave_usuario" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="14" max="32767" attributes="0"/>
               </Group>
@@ -130,17 +130,17 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_correo_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_correo_persona" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_clave_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_clave_usuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_confirmarclave_admin" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_confirmarclave_usuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -163,14 +163,14 @@
             <Property name="text" type="java.lang.String" value="Confirmar clave:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txt_clave_admin">
+        <Component class="javax.swing.JTextField" name="txt_clave_usuario">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_clave_adminActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_clave_usuarioActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txt_confirmarclave_admin">
+        <Component class="javax.swing.JTextField" name="txt_confirmarclave_usuario">
         </Component>
-        <Component class="javax.swing.JTextField" name="txt_correo_admin">
+        <Component class="javax.swing.JTextField" name="txt_correo_persona">
         </Component>
       </SubComponents>
     </Container>

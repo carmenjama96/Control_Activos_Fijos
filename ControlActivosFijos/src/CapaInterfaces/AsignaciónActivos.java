@@ -65,7 +65,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         txt_serie_activo = new javax.swing.JTextField();
         txt_codigoInternoInsticucional_activo = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tabla_activo = new javax.swing.JTable();
+        tabla_activoSinResponsable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btn_limpiar = new javax.swing.JButton();
@@ -312,8 +312,8 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         jScrollPane3.setBorder(null);
         jScrollPane3.setToolTipText("");
 
-        tabla_activo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tabla_activo.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_activoSinResponsable.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tabla_activoSinResponsable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null},
@@ -333,8 +333,8 @@ public class AsignaciónActivos extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(tabla_activo);
-        tabla_activo.getAccessibleContext().setAccessibleName("Tabla_Busqueda_Sin_Responsable");
+        jScrollPane3.setViewportView(tabla_activoSinResponsable);
+        tabla_activoSinResponsable.getAccessibleContext().setAccessibleName("Tabla_Busqueda_Sin_Responsable");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Búsqueda de activos sin responsable");
@@ -589,7 +589,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     private javax.swing.JRadioButton rbtn_procesador;
     private javax.swing.JRadioButton rbtn_serie;
     private javax.swing.JRadioButton rbtn_tipo;
-    private javax.swing.JTable tabla_activo;
+    private javax.swing.JTable tabla_activoSinResponsable;
     private javax.swing.JTextField txt_codigoInternoInsticucional_activo;
     private javax.swing.JComboBox txt_discoduro_activo;
     private javax.swing.JComboBox txt_memoria_activo;
