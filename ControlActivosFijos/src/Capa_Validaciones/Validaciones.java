@@ -1,3 +1,4 @@
+package Capa_Validaciones;
 
 public class Validaciones {
     //Esta funcion se utiliza para validar tanto modelo como serie en activos
