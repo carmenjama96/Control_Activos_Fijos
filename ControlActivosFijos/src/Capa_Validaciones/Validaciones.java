@@ -1,5 +1,7 @@
 package Capa_Validaciones;
 
+import javax.swing.JOptionPane;
+
 public class Validaciones {
     //Esta funcion se utiliza para validar tanto modelo como serie en activos
     public static String validarmayusculasynumeros(String texto){
@@ -152,8 +154,26 @@ public class Validaciones {
     }
     return cedulaCorrecta;
     }
-    
-    
 
     
+    
+    
+  //PaulDelgado
+  //Metodo que valida la complejidad de un campo contraseña
+     public boolean ComplejidadClave(String contraseña) {                        
+                contraseña = contraseña.trim();
+                if(contraseña.matches("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$")){ //Utiliza una expresion regular para validar la comlejidad . 
+                                                                                    //(?=.*\d)verifica la existencia de un caracter numerico, 
+                                                                                    //(?=.*[a-z]) la de una letra minuscula
+                                                                                    //(?=.*[A-Z]) la de una letra en mayusculas. Verifica la longitud{6,15}.
+                    return true;                                                   
+                }else{JOptionPane.showMessageDialog(null,"Alerta de seguridad! la contraseña debe tener entre 6-15 caracteres. Debe incluir al menos una letra mayuscula y un numero");}
+                return false;
+     }
+    //PaulDelgado
+    //Metodo que verifica la igualdad de dos campos 
+    public boolean IgualdadCampos(String campo1, String campo2){
+      if (campo1==campo2){return true;}
+      JOptionPane.showMessageDialog(null,"no coninciden los campos"); return false ;                   
+    }   
 }
