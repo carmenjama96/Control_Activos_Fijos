@@ -269,6 +269,10 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.ButtonGroup" name="GrupoCriterioBusquedaActivosNoAsignados">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="GrupoBusquedaPorTipo">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
@@ -342,7 +346,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="22" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="btn_buscar_activo" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -390,6 +394,9 @@
       <SubComponents>
         <Component class="javax.swing.JRadioButton" name="rbtn_tipo">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="GrupoCriterioBusquedaActivosNoAsignados"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Tipo"/>
           </Properties>
           <AccessibilityProperties>
@@ -398,6 +405,9 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbtn_serie">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="GrupoCriterioBusquedaActivosNoAsignados"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Serie"/>
           </Properties>
           <AccessibilityProperties>
@@ -406,6 +416,9 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButton12">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="GrupoCriterioBusquedaActivosNoAsignados"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="C&#xf3;digo Institucional"/>
           </Properties>
           <AccessibilityProperties>
@@ -470,6 +483,9 @@
           <SubComponents>
             <Component class="javax.swing.JRadioButton" name="rbtn_marca">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="GrupoBusquedaPorTipo"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Marca"/>
               </Properties>
               <AccessibilityProperties>
@@ -481,6 +497,9 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbtn_procesador">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="GrupoBusquedaPorTipo"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Procesador"/>
               </Properties>
               <AccessibilityProperties>
@@ -489,6 +508,9 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbtn_memoria">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="GrupoBusquedaPorTipo"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Memoria"/>
               </Properties>
               <AccessibilityProperties>
@@ -497,6 +519,9 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbtn_discoduro">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="GrupoBusquedaPorTipo"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Disco Duro"/>
               </Properties>
               <AccessibilityProperties>
@@ -582,7 +607,7 @@
               </StringArray>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor Por defecto"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
           <AccessibilityProperties>
@@ -754,9 +779,6 @@
           <SubComponents>
             <Component class="javax.swing.JButton" name="btn_limpiar">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\add-new-file (1).png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Limpiar"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -767,9 +789,6 @@
             </Component>
             <Component class="javax.swing.JButton" name="btn_asignar">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\new-user (1).png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Asignar"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -780,9 +799,6 @@
             </Component>
             <Component class="javax.swing.JButton" name="btn_regresar">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\logout (1).png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Regresar"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -815,9 +831,6 @@
         </Container>
         <Component class="javax.swing.JButton" name="btn_buscar_activo">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\magnifier-tool (1).png"/>
-            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
