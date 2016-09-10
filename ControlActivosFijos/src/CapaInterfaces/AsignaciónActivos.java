@@ -5,6 +5,10 @@
  */
 package CapaInterfaces;
 
+import com.sun.glass.events.KeyEvent;
+import java.awt.Event;
+import java.awt.event.InputEvent;
+
 /**
  *
  * @author Alejandro
@@ -14,11 +18,13 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     /**
      * Creates new form AsignaciónActivos
      */
+    int banderaOculta = 0;
     public AsignaciónActivos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        panelBusquedaTipo.setVisible(false);
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,8 +59,8 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         rbtn_tipo = new javax.swing.JRadioButton();
         rbtn_serie = new javax.swing.JRadioButton();
-        jRadioButton12 = new javax.swing.JRadioButton();
-        jPanel5 = new javax.swing.JPanel();
+        rbtn_codigoInstitucional = new javax.swing.JRadioButton();
+        panelBusquedaTipo = new javax.swing.JPanel();
         rbtn_marca = new javax.swing.JRadioButton();
         rbtn_procesador = new javax.swing.JRadioButton();
         rbtn_memoria = new javax.swing.JRadioButton();
@@ -221,21 +227,40 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         jPanel4.setBackground(new java.awt.Color(232, 232, 232));
 
         GrupoCriterioBusquedaActivosNoAsignados.add(rbtn_tipo);
-        rbtn_tipo.setSelected(true);
         rbtn_tipo.setText("Tipo");
-
-        GrupoCriterioBusquedaActivosNoAsignados.add(rbtn_serie);
-        rbtn_serie.setText("Serie");
-
-        GrupoCriterioBusquedaActivosNoAsignados.add(jRadioButton12);
-        jRadioButton12.setText("Código Institucional");
-        jRadioButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton12ActionPerformed(evt);
+        rbtn_tipo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rbtn_tipoMouseClicked(evt);
             }
         });
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        GrupoCriterioBusquedaActivosNoAsignados.add(rbtn_serie);
+        rbtn_serie.setText("Serie");
+        rbtn_serie.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rbtn_serieMouseClicked(evt);
+            }
+        });
+        rbtn_serie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtn_serieActionPerformed(evt);
+            }
+        });
+
+        GrupoCriterioBusquedaActivosNoAsignados.add(rbtn_codigoInstitucional);
+        rbtn_codigoInstitucional.setText("Código Institucional");
+        rbtn_codigoInstitucional.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rbtn_codigoInstitucionalMouseClicked(evt);
+            }
+        });
+        rbtn_codigoInstitucional.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtn_codigoInstitucionalActionPerformed(evt);
+            }
+        });
+
+        panelBusquedaTipo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         GrupoBusquedaPorTipo.add(rbtn_marca);
         rbtn_marca.setText("Marca");
@@ -262,11 +287,11 @@ public class AsignaciónActivos extends javax.swing.JDialog {
 
         txt_discoduro_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelBusquedaTipoLayout = new javax.swing.GroupLayout(panelBusquedaTipo);
+        panelBusquedaTipo.setLayout(panelBusquedaTipoLayout);
+        panelBusquedaTipoLayout.setHorizontalGroup(
+            panelBusquedaTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBusquedaTipoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(rbtn_marca)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -285,11 +310,11 @@ public class AsignaciónActivos extends javax.swing.JDialog {
                 .addComponent(txt_discoduro_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        panelBusquedaTipoLayout.setVerticalGroup(
+            panelBusquedaTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBusquedaTipoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelBusquedaTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbtn_marca)
                     .addComponent(rbtn_procesador)
                     .addComponent(rbtn_memoria)
@@ -313,18 +338,32 @@ public class AsignaciónActivos extends javax.swing.JDialog {
 
         combo_tipo_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
         combo_tipo_activo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        combo_tipo_activo.setEnabled(false);
         combo_tipo_activo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combo_tipo_activoActionPerformed(evt);
             }
         });
 
+        txt_serie_activo.setEnabled(false);
+        txt_serie_activo.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txt_serie_activoPropertyChange(evt);
+            }
+        });
         txt_serie_activo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_serie_activoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_serie_activoKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_serie_activoKeyTyped(evt);
             }
         });
 
+        txt_codigoInternoInsticucional_activo.setEnabled(false);
         txt_codigoInternoInsticucional_activo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_codigoInternoInsticucional_activoKeyTyped(evt);
@@ -355,6 +394,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
+        tabla_activoSinResponsable.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tabla_activoSinResponsable);
         tabla_activoSinResponsable.getAccessibleContext().setAccessibleName("Tabla_Busqueda_Sin_Responsable");
 
@@ -367,6 +407,11 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         btn_limpiar.setBorder(null);
         btn_limpiar.setBorderPainted(false);
         btn_limpiar.setContentAreaFilled(false);
+        btn_limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limpiarActionPerformed(evt);
+            }
+        });
 
         btn_asignar.setText("Asignar");
         btn_asignar.setBorder(null);
@@ -432,7 +477,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(panelBusquedaTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(rbtn_tipo)
@@ -446,7 +491,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(txt_serie_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(36, 36, 36)
-                                        .addComponent(jRadioButton12)
+                                        .addComponent(rbtn_codigoInstitucional)
                                         .addGap(18, 18, 18)
                                         .addComponent(txt_codigoInternoInsticucional_activo)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -469,12 +514,12 @@ public class AsignaciónActivos extends javax.swing.JDialog {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbtn_tipo)
                             .addComponent(rbtn_serie)
-                            .addComponent(jRadioButton12)
+                            .addComponent(rbtn_codigoInstitucional)
                             .addComponent(combo_tipo_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_serie_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_codigoInternoInsticucional_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(panelBusquedaTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addComponent(btn_buscar_activo)
@@ -485,7 +530,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
 
         rbtn_tipo.getAccessibleContext().setAccessibleName("rb_Tipo");
         rbtn_serie.getAccessibleContext().setAccessibleName("rb_Serie");
-        jRadioButton12.getAccessibleContext().setAccessibleName("rb_Código_Institucional");
+        rbtn_codigoInstitucional.getAccessibleContext().setAccessibleName("rb_Código_Institucional");
         combo_tipo_activo.getAccessibleContext().setAccessibleName("cb_tipo");
         txt_serie_activo.getAccessibleContext().setAccessibleName("txt_Serie");
         txt_codigoInternoInsticucional_activo.getAccessibleContext().setAccessibleName("txt_Código_Institucional");
@@ -512,9 +557,9 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton5ActionPerformed
 
-    private void jRadioButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton12ActionPerformed
+    private void rbtn_codigoInstitucionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_codigoInstitucionalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton12ActionPerformed
+    }//GEN-LAST:event_rbtn_codigoInstitucionalActionPerformed
 
     private void rbtn_marcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_marcaActionPerformed
         // TODO add your handling code here:
@@ -527,31 +572,78 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     private void txt_serie_activoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_serie_activoKeyTyped
         char c=evt.getKeyChar(); 
           
-         if(!Character.isDigit(c)) {  
-              if(Character.isLetter(c)) {
-                    evt.setKeyChar(Character.toUpperCase(c));
-                }else{
+         if(!Character.isDigit(c)) {  //Si el dato ingresado no es un número verificará:
+              if(Character.isLetter(c)) {//si es una letra
+                    evt.setKeyChar(Character.toUpperCase(c));//la registra pero como mayúscula
+                }else{//todo lo demás será ignorado
                     evt.consume();
                 } 
           }
          
-         if (txt_serie_activo.getText().length()>=150){
+         if (txt_serie_activo.getText().length()>=150){//Si el dato ingresado pasa del limite no se registrara en el campo
             evt.consume();     
         }
     }//GEN-LAST:event_txt_serie_activoKeyTyped
 
     private void txt_codigoInternoInsticucional_activoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoInternoInsticucional_activoKeyTyped
         Character c = evt.getKeyChar();
-        if(Character.isLetter(c)) {
+        if(Character.isLetter(c)) {//Si el dato ingresado es una letra se mostrará
             evt.setKeyChar(c);
-        }else{                  
+        }else{                  //caso contrario no lo tomará en cuenta
                 evt.consume();
         }
         
-        if (txt_codigoInternoInsticucional_activo.getText().length()>=200){
+        if (txt_codigoInternoInsticucional_activo.getText().length()>=200){//Si el dato ingresado pasa del limite no se registrara en el campo
             evt.consume();     
         }
     }//GEN-LAST:event_txt_codigoInternoInsticucional_activoKeyTyped
+
+    private void txt_serie_activoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txt_serie_activoPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_serie_activoPropertyChange
+
+    private void rbtn_serieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_serieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtn_serieActionPerformed
+
+    private void rbtn_serieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtn_serieMouseClicked
+        if (rbtn_serie.isSelected()) {
+            panelBusquedaTipo.setVisible(false);  
+            txt_serie_activo.setEnabled(true);
+            txt_codigoInternoInsticucional_activo.setEnabled(false);
+            combo_tipo_activo.setEnabled(false);
+        } 
+    }//GEN-LAST:event_rbtn_serieMouseClicked
+
+    private void rbtn_codigoInstitucionalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtn_codigoInstitucionalMouseClicked
+        if (rbtn_codigoInstitucional.isSelected()) {
+            panelBusquedaTipo.setVisible(false); 
+            txt_codigoInternoInsticucional_activo.setEnabled(true);
+            txt_serie_activo.setEnabled(false);
+            combo_tipo_activo.setEnabled(false);
+        } 
+    }//GEN-LAST:event_rbtn_codigoInstitucionalMouseClicked
+
+    private void rbtn_tipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtn_tipoMouseClicked
+        if (rbtn_tipo.isSelected()) {
+            panelBusquedaTipo.setVisible(true); 
+            txt_serie_activo.setEnabled(false);
+            combo_tipo_activo.setEnabled(true);
+            txt_codigoInternoInsticucional_activo.setEnabled(false);
+        } 
+    }//GEN-LAST:event_rbtn_tipoMouseClicked
+
+    private void txt_serie_activoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_serie_activoKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_serie_activoKeyReleased
+
+    private void txt_serie_activoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_serie_activoKeyPressed
+        
+    }//GEN-LAST:event_txt_serie_activoKeyPressed
+
+    private void btn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarActionPerformed
+        
+    }//GEN-LAST:event_btn_limpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -616,10 +708,8 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton12;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
@@ -632,6 +722,8 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel panelBusquedaTipo;
+    private javax.swing.JRadioButton rbtn_codigoInstitucional;
     private javax.swing.JRadioButton rbtn_discoduro;
     private javax.swing.JRadioButton rbtn_marca;
     private javax.swing.JRadioButton rbtn_memoria;
@@ -639,10 +731,10 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     private javax.swing.JRadioButton rbtn_serie;
     private javax.swing.JRadioButton rbtn_tipo;
     private javax.swing.JTable tabla_activoSinResponsable;
-    private javax.swing.JTextField txt_codigoInternoInsticucional_activo;
+    public javax.swing.JTextField txt_codigoInternoInsticucional_activo;
     private javax.swing.JComboBox txt_discoduro_activo;
     private javax.swing.JComboBox txt_memoria_activo;
     private javax.swing.JComboBox txt_procesador_activo;
-    private javax.swing.JTextField txt_serie_activo;
+    public javax.swing.JTextField txt_serie_activo;
     // End of variables declaration//GEN-END:variables
 }

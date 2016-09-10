@@ -5,6 +5,8 @@
  */
 package CapaInterfaces;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author Alejandro
@@ -48,27 +50,35 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        txt_responsable.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_responsableKeyTyped(evt);
+            }
+        });
+
         tabla_activos_responsable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Tipo ", "Marca", "Procesador", "Memoria ", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Cod. Institucional"
+                "Id", "Tipo ", "Marca", "Procesador", "Memoria ", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Cod. Institucional"
             }
         ));
+        tabla_activos_responsable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tabla_activos_responsable.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tabla_activos_responsable);
 
         check_oficio.setText("Oficio");
@@ -82,19 +92,16 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(117, 214, 255));
 
-        btn_actualizar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\refresh-page-arrow-button (1).png")); // NOI18N
         btn_actualizar.setText("Actualizar");
         btn_actualizar.setBorder(null);
         btn_actualizar.setBorderPainted(false);
         btn_actualizar.setContentAreaFilled(false);
 
-        btn_imprimir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\printer- (1).png")); // NOI18N
         btn_imprimir.setText("Imprimir");
         btn_imprimir.setBorder(null);
         btn_imprimir.setBorderPainted(false);
         btn_imprimir.setContentAreaFilled(false);
 
-        btn_regresar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\logout (1).png")); // NOI18N
         btn_regresar.setText("Regresar");
         btn_regresar.setBorder(null);
         btn_regresar.setBorderPainted(false);
@@ -139,18 +146,15 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        btn_buscar_responsable.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\magnifier-tool (1).png")); // NOI18N
         btn_buscar_responsable.setBorder(null);
         btn_buscar_responsable.setBorderPainted(false);
         btn_buscar_responsable.setContentAreaFilled(false);
 
-        btn_editar_responsable.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\pencil (1).png")); // NOI18N
         btn_editar_responsable.setToolTipText("");
         btn_editar_responsable.setBorder(null);
         btn_editar_responsable.setBorderPainted(false);
         btn_editar_responsable.setContentAreaFilled(false);
 
-        btn_eliminar_responsable.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\rubbish-bin (2).png")); // NOI18N
         btn_eliminar_responsable.setBorder(null);
         btn_eliminar_responsable.setBorderPainted(false);
         btn_eliminar_responsable.setContentAreaFilled(false);
@@ -244,6 +248,15 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_responsableKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_responsableKeyTyped
+        Character c = evt.getKeyChar();
+                if(Character.isLetter(c) || c == KeyEvent.VK_SPACE) {
+                    evt.setKeyChar(c);
+                }else{                    
+                    evt.consume();
+                }
+    }//GEN-LAST:event_txt_responsableKeyTyped
 
     /**
      * @param args the command line arguments
