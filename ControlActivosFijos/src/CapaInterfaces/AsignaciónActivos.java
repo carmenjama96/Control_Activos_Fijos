@@ -221,6 +221,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         jPanel4.setBackground(new java.awt.Color(232, 232, 232));
 
         GrupoCriterioBusquedaActivosNoAsignados.add(rbtn_tipo);
+        rbtn_tipo.setSelected(true);
         rbtn_tipo.setText("Tipo");
 
         GrupoCriterioBusquedaActivosNoAsignados.add(rbtn_serie);
@@ -315,6 +316,18 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         combo_tipo_activo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 combo_tipo_activoActionPerformed(evt);
+            }
+        });
+
+        txt_serie_activo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_serie_activoKeyTyped(evt);
+            }
+        });
+
+        txt_codigoInternoInsticucional_activo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_codigoInternoInsticucional_activoKeyTyped(evt);
             }
         });
 
@@ -510,6 +523,35 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     private void combo_tipo_activoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_tipo_activoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combo_tipo_activoActionPerformed
+
+    private void txt_serie_activoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_serie_activoKeyTyped
+        char c=evt.getKeyChar(); 
+          
+         if(!Character.isDigit(c)) {  
+              if(Character.isLetter(c)) {
+                    evt.setKeyChar(Character.toUpperCase(c));
+                }else{
+                    evt.consume();
+                } 
+          }
+         
+         if (txt_serie_activo.getText().length()>=150){
+            evt.consume();     
+        }
+    }//GEN-LAST:event_txt_serie_activoKeyTyped
+
+    private void txt_codigoInternoInsticucional_activoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoInternoInsticucional_activoKeyTyped
+        Character c = evt.getKeyChar();
+        if(Character.isLetter(c)) {
+            evt.setKeyChar(c);
+        }else{                  
+                evt.consume();
+        }
+        
+        if (txt_codigoInternoInsticucional_activo.getText().length()>=200){
+            evt.consume();     
+        }
+    }//GEN-LAST:event_txt_codigoInternoInsticucional_activoKeyTyped
 
     /**
      * @param args the command line arguments
