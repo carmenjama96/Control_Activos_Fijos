@@ -128,23 +128,24 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
 
         tabla_solicitudes_mantenimiento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Código Interno", "Fecha Solicitud", "Cédula Solicitante", "Nombre Solicitante", "Apellidos Solicitante"
+                "Id", "Código Interno", "Fecha Solicitud", "Cédula Solicitante", "Nombre Solicitante", "Apellidos Solicitante"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                true, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        tabla_solicitudes_mantenimiento.removeColumn(tabla_solicitudes_mantenimiento.getColumnModel().getColumn(0));
         jScrollPane1.setViewportView(tabla_solicitudes_mantenimiento);
 
         label3.setAlignment(java.awt.Label.CENTER);
@@ -272,8 +273,6 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
                 .addComponent(btn_registrar_solicitud)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        txt_codigoInternoInsticucional_activo.setText("jTextField1");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
