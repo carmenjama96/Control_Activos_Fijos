@@ -5,6 +5,10 @@
  */
 package CapaInterfaces;
 
+import com.sun.glass.events.KeyEvent;
+import java.awt.Event;
+import java.awt.event.InputEvent;
+
 /**
  *
  * @author Alejandro
@@ -348,6 +352,12 @@ public class AsignaciónActivos extends javax.swing.JDialog {
             }
         });
         txt_serie_activo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_serie_activoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_serie_activoKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txt_serie_activoKeyTyped(evt);
             }
@@ -384,6 +394,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
                 return types [columnIndex];
             }
         });
+        tabla_activoSinResponsable.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tabla_activoSinResponsable);
         tabla_activoSinResponsable.getAccessibleContext().setAccessibleName("Tabla_Busqueda_Sin_Responsable");
 
@@ -396,6 +407,11 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         btn_limpiar.setBorder(null);
         btn_limpiar.setBorderPainted(false);
         btn_limpiar.setContentAreaFilled(false);
+        btn_limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limpiarActionPerformed(evt);
+            }
+        });
 
         btn_asignar.setText("Asignar");
         btn_asignar.setBorder(null);
@@ -616,6 +632,18 @@ public class AsignaciónActivos extends javax.swing.JDialog {
             txt_codigoInternoInsticucional_activo.setEnabled(false);
         } 
     }//GEN-LAST:event_rbtn_tipoMouseClicked
+
+    private void txt_serie_activoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_serie_activoKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_serie_activoKeyReleased
+
+    private void txt_serie_activoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_serie_activoKeyPressed
+        
+    }//GEN-LAST:event_txt_serie_activoKeyPressed
+
+    private void btn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarActionPerformed
+        
+    }//GEN-LAST:event_btn_limpiarActionPerformed
 
     /**
      * @param args the command line arguments
