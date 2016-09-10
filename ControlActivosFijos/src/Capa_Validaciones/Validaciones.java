@@ -162,12 +162,12 @@ public class Validaciones {
   //Metodo que valida la complejidad de un campo contraseña
      public boolean ComplejidadClave(String contraseña) {                        
                 contraseña = contraseña.trim();
-                if(contraseña.matches("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$")){ //Utiliza una expresion regular para validar la comlejidad . 
+                if(contraseña.matches("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,16}$")){ //Utiliza una expresion regular para validar la comlejidad . 
                                                                                     //(?=.*\d)verifica la existencia de un caracter numerico, 
                                                                                     //(?=.*[a-z]) la de una letra minuscula
                                                                                     //(?=.*[A-Z]) la de una letra en mayusculas. Verifica la longitud{6,15}.
                     return true;                                                   
-                }else{JOptionPane.showMessageDialog(null,"Alerta de seguridad! la contraseña debe tener entre 6-15 caracteres. Debe incluir al menos una letra mayuscula y un numero");}
+                }else{JOptionPane.showMessageDialog(null,"Alerta de seguridad! la contraseña debe tener entre 6-16 caracteres. Debe incluir al menos una letra mayuscula y un numero");}
                 return false;
      }
     //PaulDelgado
