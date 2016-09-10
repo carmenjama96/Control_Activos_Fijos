@@ -49,7 +49,7 @@ public class BusquedaActivo extends javax.swing.JDialog {
         txt_serie_activo = new javax.swing.JTextField();
         txt_codigoInternoInsticucional_activo = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        table_activo = new javax.swing.JTable();
+        tabla_activo = new javax.swing.JTable();
         rbtn_estado_activo = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -61,6 +61,8 @@ public class BusquedaActivo extends javax.swing.JDialog {
         jPanel4 = new javax.swing.JPanel();
         btn_editar_activo = new javax.swing.JButton();
         btn_eliminar_activo = new javax.swing.JButton();
+        btn_restaurar = new javax.swing.JButton();
+        btn_darbaja = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -169,28 +171,29 @@ public class BusquedaActivo extends javax.swing.JDialog {
 
         combo_estado_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        table_activo.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_activo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Tipo ", "Marca", "Procesador", "Memoria ", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Cod. Institucional"
+                "Id", "Tipo ", "Marca", "Procesador", "Memoria ", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Cod. Institucional"
             }
         ));
-        jScrollPane3.setViewportView(table_activo);
+        tabla_activo.removeColumn(tabla_activo.getColumnModel().getColumn(0));
+        jScrollPane3.setViewportView(tabla_activo);
 
         rbtn_estado_activo.setText("Estado");
 
@@ -272,6 +275,16 @@ public class BusquedaActivo extends javax.swing.JDialog {
         btn_eliminar_activo.setBorderPainted(false);
         btn_eliminar_activo.setContentAreaFilled(false);
 
+        btn_restaurar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\pulgar-hacia-arriba (1).png")); // NOI18N
+        btn_restaurar.setBorder(null);
+        btn_restaurar.setBorderPainted(false);
+        btn_restaurar.setContentAreaFilled(false);
+
+        btn_darbaja.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\pulgar-abajo (1).png")); // NOI18N
+        btn_darbaja.setBorder(null);
+        btn_darbaja.setBorderPainted(false);
+        btn_darbaja.setContentAreaFilled(false);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -279,9 +292,16 @@ public class BusquedaActivo extends javax.swing.JDialog {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_editar_activo)
-                    .addComponent(btn_eliminar_activo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_restaurar))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_editar_activo)
+                            .addComponent(btn_eliminar_activo)
+                            .addComponent(btn_darbaja))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,7 +310,11 @@ public class BusquedaActivo extends javax.swing.JDialog {
                 .addComponent(btn_editar_activo)
                 .addGap(18, 18, 18)
                 .addComponent(btn_eliminar_activo)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btn_restaurar)
+                .addGap(18, 18, 18)
+                .addComponent(btn_darbaja)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -327,7 +351,7 @@ public class BusquedaActivo extends javax.swing.JDialog {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_buscar_activo)
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -352,10 +376,10 @@ public class BusquedaActivo extends javax.swing.JDialog {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btn_buscar_activo))
                 .addGap(64, 64, 64)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(41, 41, 41))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         rbtn_tipo.getAccessibleContext().setAccessibleName("rb_Tipo");
@@ -439,11 +463,13 @@ public class BusquedaActivo extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_buscar_activo;
+    private javax.swing.JButton btn_darbaja;
     private javax.swing.JButton btn_editar_activo;
     private javax.swing.JButton btn_eliminar_activo;
     private javax.swing.JButton btn_imprimir;
     private javax.swing.JButton btn_limpiar;
     private javax.swing.JButton btn_regresar;
+    private javax.swing.JButton btn_restaurar;
     private javax.swing.JComboBox combo_discoduro_activo;
     private javax.swing.JComboBox combo_estado_activo;
     private javax.swing.JComboBox combo_marca_activo;
@@ -468,7 +494,7 @@ public class BusquedaActivo extends javax.swing.JDialog {
     private javax.swing.JRadioButton rbtn_procesador_activo;
     private javax.swing.JRadioButton rbtn_serie_activo;
     private javax.swing.JRadioButton rbtn_tipo;
-    private javax.swing.JTable table_activo;
+    private javax.swing.JTable tabla_activo;
     private javax.swing.JTextField txt_codigoInternoInsticucional_activo;
     private javax.swing.JTextField txt_serie_activo;
     // End of variables declaration//GEN-END:variables

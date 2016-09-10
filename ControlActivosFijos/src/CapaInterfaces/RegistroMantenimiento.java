@@ -254,17 +254,18 @@ public class RegistroMantenimiento extends javax.swing.JDialog {
 
         tabla_especificaciones_activos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Tipo", "Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie"
+                "Id", "Tipo", "Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie"
             }
         ));
+        tabla_especificaciones_activos.removeColumn(tabla_especificaciones_activos.getColumnModel().getColumn(0));
         jScrollPane2.setViewportView(tabla_especificaciones_activos);
-        tabla_especificaciones_activos.getAccessibleContext().setAccessibleName("tb_especificaciones");
+        tabla_especificaciones_activos.getAccessibleContext().setAccessibleName("");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Especificaciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
         jPanel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N

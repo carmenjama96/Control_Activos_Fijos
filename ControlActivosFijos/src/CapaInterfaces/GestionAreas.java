@@ -213,25 +213,26 @@ public class GestionAreas extends javax.swing.JDialog {
 
         table_area.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Tipo", "Descripción", "Cédula Responsable", "Nombres Responsable", "Apellidos Responsable"
+                "Id", "Tipo", "Descripción", "Cédula Responsable", "Nombres Responsable", "Apellidos Responsable"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                true, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        table_area.removeColumn(table_area.getColumnModel().getColumn(0));
         jScrollPane1.setViewportView(table_area);
-        table_area.getAccessibleContext().setAccessibleName("tb_busqueda_area");
+        table_area.getAccessibleContext().setAccessibleName("");
 
         jPanel4.setBackground(new java.awt.Color(117, 214, 255));
 

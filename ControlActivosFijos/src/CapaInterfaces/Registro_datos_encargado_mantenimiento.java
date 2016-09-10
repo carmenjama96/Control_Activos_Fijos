@@ -60,23 +60,24 @@ public class Registro_datos_encargado_mantenimiento extends javax.swing.JDialog 
 
         table_nombres_mantenimiento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Cédula", "Nombres", "Apellidos"
+                "Id", "Cédula", "Nombres", "Apellidos"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                true, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        table_nombres_mantenimiento.removeColumn(table_nombres_mantenimiento.getColumnModel().getColumn(0));
         jScrollPane1.setViewportView(table_nombres_mantenimiento);
 
         label3.setAlignment(java.awt.Label.CENTER);

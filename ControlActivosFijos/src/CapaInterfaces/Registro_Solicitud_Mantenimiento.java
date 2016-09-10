@@ -56,6 +56,7 @@ public class Registro_Solicitud_Mantenimiento extends javax.swing.JDialog {
         jPanel5 = new javax.swing.JPanel();
         btn_editar_activosMantenimiento = new javax.swing.JButton();
         btn_eliminar_activosMantenimiento = new javax.swing.JButton();
+        btn_seleccionar_todo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro de Solicitud de Mantenimiento");
@@ -94,23 +95,24 @@ public class Registro_Solicitud_Mantenimiento extends javax.swing.JDialog {
 
         tabla_solicitud_mantenimiento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Tipo", "Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Cod. Institucional"
+                "Id", "Tipo", "Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Cod. Institucional"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                true, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        tabla_solicitud_mantenimiento.removeColumn(tabla_solicitud_mantenimiento.getColumnModel().getColumn(0));
         jScrollPane1.setViewportView(tabla_solicitud_mantenimiento);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Detalles Búsqueda", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
@@ -241,6 +243,11 @@ public class Registro_Solicitud_Mantenimiento extends javax.swing.JDialog {
         btn_eliminar_activosMantenimiento.setBorderPainted(false);
         btn_eliminar_activosMantenimiento.setContentAreaFilled(false);
 
+        btn_seleccionar_todo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\seleccione-todos (1).png")); // NOI18N
+        btn_seleccionar_todo.setBorder(null);
+        btn_seleccionar_todo.setBorderPainted(false);
+        btn_seleccionar_todo.setContentAreaFilled(false);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -249,7 +256,8 @@ public class Registro_Solicitud_Mantenimiento extends javax.swing.JDialog {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_editar_activosMantenimiento)
-                    .addComponent(btn_eliminar_activosMantenimiento))
+                    .addComponent(btn_eliminar_activosMantenimiento)
+                    .addComponent(btn_seleccionar_todo))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -259,6 +267,8 @@ public class Registro_Solicitud_Mantenimiento extends javax.swing.JDialog {
                 .addComponent(btn_editar_activosMantenimiento)
                 .addGap(18, 18, 18)
                 .addComponent(btn_eliminar_activosMantenimiento)
+                .addGap(18, 18, 18)
+                .addComponent(btn_seleccionar_todo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -327,10 +337,10 @@ public class Registro_Solicitud_Mantenimiento extends javax.swing.JDialog {
                             .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txt_motivo_docSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton5)
                     .addComponent(jButton4)
@@ -417,6 +427,7 @@ public class Registro_Solicitud_Mantenimiento extends javax.swing.JDialog {
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_nuevo;
     private javax.swing.JButton btn_salir;
+    private javax.swing.JButton btn_seleccionar_todo;
     private com.toedter.calendar.JDateChooser date_fecha_docSolicitud;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

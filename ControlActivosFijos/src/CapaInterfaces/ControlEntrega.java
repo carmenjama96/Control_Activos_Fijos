@@ -71,15 +71,16 @@ public class ControlEntrega extends javax.swing.JDialog {
 
         tabla_solicitudes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Fecha solicitud", "Estado", "Cédula solicitante", "Nombres Solicitante", "Apellidos Solicitante", "N Oficio Solicitud"
+                "Id", "Fecha solicitud", "Estado", "Cédula solicitante", "Nombres Solicitante", "Apellidos Solicitante", "N Oficio Solicitud"
             }
         ));
+        tabla_solicitudes.removeColumn(tabla_solicitudes.getColumnModel().getColumn(0));
         jScrollPane1.setViewportView(tabla_solicitudes);
 
         label1.setAlignment(java.awt.Label.CENTER);
