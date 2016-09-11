@@ -5,9 +5,15 @@
  */
 package CapaInterfaces;
 
+import Capa_ConexionBD.Conexion;
 import com.sun.glass.events.KeyEvent;
 import java.awt.Event;
 import java.awt.event.InputEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,13 +24,14 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     /**
      * Creates new form AsignaciónActivos
      */
-    int banderaOculta = 0;
     public AsignaciónActivos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         panelBusquedaTipo.setVisible(false);
+        cargar();
     }
     
+    Conexion conexion = new Conexion();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -548,7 +555,29 @@ public class AsignaciónActivos extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void cargar(){
+    if (conexion.crearConexion()) {
+                combo_tipo_activo.removeAllItems(); //Vaciamos el JComboBox
+                ArrayList<String> resultat;
+                ArrayList<String> ls = new ArrayList<String>();
+                String sql="select nombre_tipoactivo from tmaetaccon";
+                ResultSet rs = conexion.ejecutarSQLSelect(sql);
+                try {
+                    while(rs.next()){
+                        
+                        ls.add(rs.getString("nombre_tipoactivo"));
+                    }               
+                } catch (SQLException ex) {
+                }
+                resultat = ls;//La consulta tiene que retornar un ArrayList
+                
+                for(int i=0; i<resultat.size();i++){
+                    combo_tipo_activo.addItem(resultat.get(i));
+                }
+        }
+    }
+    
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton4ActionPerformed
