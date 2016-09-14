@@ -239,9 +239,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_buscar_persona">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\magnifier-tool (1).png"/>
-            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -297,9 +294,6 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="btn_nuevo">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\add-new-file (1).png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Nuevo"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -313,9 +307,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_guardar">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\save (1).png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Guardar"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -346,9 +337,6 @@
         </Container>
         <Component class="javax.swing.JButton" name="btn_actualizar">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\refresh-page-arrow-button (1).png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Actualizar"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -362,9 +350,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_salir">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\logout (1).png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Salir"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>

@@ -80,7 +80,6 @@ public class RegistroEntregaActivos extends javax.swing.JDialog {
         txt_nombre_persona.setEditable(false);
         txt_nombre_persona.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        btn_buscar_persona.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\magnifier-tool (1).png")); // NOI18N
         btn_buscar_persona.setBorder(null);
         btn_buscar_persona.setBorderPainted(false);
         btn_buscar_persona.setContentAreaFilled(false);
@@ -128,7 +127,6 @@ public class RegistroEntregaActivos extends javax.swing.JDialog {
 
         jPanel4.setBackground(new java.awt.Color(117, 214, 255));
 
-        btn_nuevo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\add-new-file (1).png")); // NOI18N
         btn_nuevo.setText("Nuevo");
         btn_nuevo.setBorder(null);
         btn_nuevo.setBorderPainted(false);
@@ -139,7 +137,6 @@ public class RegistroEntregaActivos extends javax.swing.JDialog {
             }
         });
 
-        btn_guardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\save (1).png")); // NOI18N
         btn_guardar.setText("Guardar");
         btn_guardar.setBorder(null);
         btn_guardar.setBorderPainted(false);
@@ -158,7 +155,6 @@ public class RegistroEntregaActivos extends javax.swing.JDialog {
             .addGap(0, 15, Short.MAX_VALUE)
         );
 
-        btn_actualizar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\refresh-page-arrow-button (1).png")); // NOI18N
         btn_actualizar.setText("Actualizar");
         btn_actualizar.setBorder(null);
         btn_actualizar.setBorderPainted(false);
@@ -169,7 +165,6 @@ public class RegistroEntregaActivos extends javax.swing.JDialog {
             }
         });
 
-        btn_salir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\logout (1).png")); // NOI18N
         btn_salir.setText("Salir");
         btn_salir.setBorder(null);
         btn_salir.setBorderPainted(false);

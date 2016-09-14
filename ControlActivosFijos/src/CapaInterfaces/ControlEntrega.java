@@ -89,19 +89,16 @@ public class ControlEntrega extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(117, 214, 255));
 
-        btn_actualizar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\refresh-page-arrow-button (1).png")); // NOI18N
         btn_actualizar.setText("Actualizar");
         btn_actualizar.setBorder(null);
         btn_actualizar.setBorderPainted(false);
         btn_actualizar.setContentAreaFilled(false);
 
-        btn_imprimir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\printer- (1).png")); // NOI18N
         btn_imprimir.setText("Imprimir");
         btn_imprimir.setBorder(null);
         btn_imprimir.setBorderPainted(false);
         btn_imprimir.setContentAreaFilled(false);
 
-        btn_regresar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\logout (1).png")); // NOI18N
         btn_regresar.setText("Regresar");
         btn_regresar.setBorder(null);
         btn_regresar.setBorderPainted(false);
@@ -146,18 +143,15 @@ public class ControlEntrega extends javax.swing.JDialog {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        btn_editar_entrega.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\pencil (1).png")); // NOI18N
         btn_editar_entrega.setToolTipText("");
         btn_editar_entrega.setBorder(null);
         btn_editar_entrega.setBorderPainted(false);
         btn_editar_entrega.setContentAreaFilled(false);
 
-        btn_eliminar_entrega.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\rubbish-bin (2).png")); // NOI18N
         btn_eliminar_entrega.setBorder(null);
         btn_eliminar_entrega.setBorderPainted(false);
         btn_eliminar_entrega.setContentAreaFilled(false);
 
-        btn_entregar_activo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\forward-arrow (1).png")); // NOI18N
         btn_entregar_activo.setBorder(null);
         btn_entregar_activo.setBorderPainted(false);
         btn_entregar_activo.setContentAreaFilled(false);
