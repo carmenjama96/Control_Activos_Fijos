@@ -6,14 +6,10 @@
 package CapaInterfaces;
 
 import Capa_ConexionBD.Conexion;
-import com.sun.glass.events.KeyEvent;
-import java.awt.Event;
-import java.awt.event.InputEvent;
+import java.awt.GridBagLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -28,6 +24,8 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         panelBusquedaTipo.setVisible(false);
+        this.setLocationRelativeTo(null);
+        //this.getContentPane().setLayout (new GridBagLayout());
         cargar();
     }
     
@@ -63,31 +61,35 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         jTable2 = new javax.swing.JTable();
         GrupoCriterioBusquedaActivosNoAsignados = new javax.swing.ButtonGroup();
         GrupoBusquedaPorTipo = new javax.swing.ButtonGroup();
+        jPanel6 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        rbtn_tipo = new javax.swing.JRadioButton();
-        rbtn_serie = new javax.swing.JRadioButton();
-        rbtn_codigoInstitucional = new javax.swing.JRadioButton();
-        panelBusquedaTipo = new javax.swing.JPanel();
-        rbtn_marca = new javax.swing.JRadioButton();
-        rbtn_procesador = new javax.swing.JRadioButton();
-        rbtn_memoria = new javax.swing.JRadioButton();
-        rbtn_discoduro = new javax.swing.JRadioButton();
-        combo_marca_activo = new javax.swing.JComboBox();
-        txt_procesador_activo = new javax.swing.JComboBox();
-        txt_memoria_activo = new javax.swing.JComboBox();
-        txt_discoduro_activo = new javax.swing.JComboBox();
-        combo_tipo_activo = new javax.swing.JComboBox();
-        txt_serie_activo = new javax.swing.JTextField();
-        txt_codigoInternoInsticucional_activo = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla_activoSinResponsable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        btn_limpiar = new javax.swing.JButton();
+        btn_buscar_activo = new javax.swing.JButton();
+        panelBusquedaTipo = new javax.swing.JPanel();
+        rbtn_marca_activo = new javax.swing.JRadioButton();
+        rbtn_procesador_activo = new javax.swing.JRadioButton();
+        rbtn_memoria_activo = new javax.swing.JRadioButton();
+        rbtn_discoduro_activo = new javax.swing.JRadioButton();
+        combo_marca_activo = new javax.swing.JComboBox();
+        combo_procesador_activo = new javax.swing.JComboBox();
+        combo_memoria_activo = new javax.swing.JComboBox();
+        combo_discoduro_activo = new javax.swing.JComboBox();
+        rbtn_tipo = new javax.swing.JRadioButton();
+        combo_tipo_activo = new javax.swing.JComboBox();
+        rbtn_serie_activo = new javax.swing.JRadioButton();
+        txt_serie_activo = new javax.swing.JTextField();
+        rbtn_codigoinstitucional_activo = new javax.swing.JRadioButton();
+        txt_codigoInternoInsticucional_activo = new javax.swing.JTextField();
+        jButton9 = new javax.swing.JButton();
+        jToolBar1 = new javax.swing.JToolBar();
+        btn_nuevo = new javax.swing.JButton();
         btn_asignar = new javax.swing.JButton();
         btn_regresar = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
-        btn_buscar_activo = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        btn_seleccionar = new javax.swing.JButton();
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Detalles de Búsqueda"));
 
@@ -228,208 +230,6 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Asignación de Activos ");
-
-        jPanel4.setBackground(new java.awt.Color(232, 232, 232));
-
-        GrupoCriterioBusquedaActivosNoAsignados.add(rbtn_tipo);
-        rbtn_tipo.setText("Tipo");
-        rbtn_tipo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rbtn_tipoMouseClicked(evt);
-            }
-        });
-
-        GrupoCriterioBusquedaActivosNoAsignados.add(rbtn_serie);
-        rbtn_serie.setText("Serie");
-        rbtn_serie.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rbtn_serieMouseClicked(evt);
-            }
-        });
-        rbtn_serie.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtn_serieActionPerformed(evt);
-            }
-        });
-
-        GrupoCriterioBusquedaActivosNoAsignados.add(rbtn_codigoInstitucional);
-        rbtn_codigoInstitucional.setText("Código Institucional");
-        rbtn_codigoInstitucional.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rbtn_codigoInstitucionalMouseClicked(evt);
-            }
-        });
-        rbtn_codigoInstitucional.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtn_codigoInstitucionalActionPerformed(evt);
-            }
-        });
-
-        panelBusquedaTipo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        GrupoBusquedaPorTipo.add(rbtn_marca);
-        rbtn_marca.setText("Marca");
-        rbtn_marca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbtn_marcaActionPerformed(evt);
-            }
-        });
-
-        GrupoBusquedaPorTipo.add(rbtn_procesador);
-        rbtn_procesador.setText("Procesador");
-
-        GrupoBusquedaPorTipo.add(rbtn_memoria);
-        rbtn_memoria.setText("Memoria");
-
-        GrupoBusquedaPorTipo.add(rbtn_discoduro);
-        rbtn_discoduro.setText("Disco Duro");
-
-        combo_marca_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        txt_procesador_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        txt_memoria_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        txt_discoduro_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        javax.swing.GroupLayout panelBusquedaTipoLayout = new javax.swing.GroupLayout(panelBusquedaTipo);
-        panelBusquedaTipo.setLayout(panelBusquedaTipoLayout);
-        panelBusquedaTipoLayout.setHorizontalGroup(
-            panelBusquedaTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBusquedaTipoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(rbtn_marca)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(combo_marca_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(rbtn_procesador)
-                .addGap(10, 10, 10)
-                .addComponent(txt_procesador_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(rbtn_memoria)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_memoria_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(rbtn_discoduro)
-                .addGap(18, 18, 18)
-                .addComponent(txt_discoduro_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelBusquedaTipoLayout.setVerticalGroup(
-            panelBusquedaTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelBusquedaTipoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelBusquedaTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbtn_marca)
-                    .addComponent(rbtn_procesador)
-                    .addComponent(rbtn_memoria)
-                    .addComponent(rbtn_discoduro)
-                    .addComponent(combo_marca_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_procesador_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_memoria_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_discoduro_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        rbtn_marca.getAccessibleContext().setAccessibleName("rb_Marca");
-        rbtn_procesador.getAccessibleContext().setAccessibleName("rb_Procesador");
-        rbtn_memoria.getAccessibleContext().setAccessibleName("rb_Memoria");
-        rbtn_discoduro.getAccessibleContext().setAccessibleName("rb_Disco_Duro");
-        rbtn_discoduro.getAccessibleContext().setAccessibleDescription("");
-        combo_marca_activo.getAccessibleContext().setAccessibleName("cb_Marca");
-        txt_procesador_activo.getAccessibleContext().setAccessibleName("cb_Procesador");
-        txt_memoria_activo.getAccessibleContext().setAccessibleName("cb_Memoria");
-        txt_discoduro_activo.getAccessibleContext().setAccessibleName("cb_Disco_Duro");
-
-        combo_tipo_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
-        combo_tipo_activo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        combo_tipo_activo.setEnabled(false);
-        combo_tipo_activo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combo_tipo_activoActionPerformed(evt);
-            }
-        });
-
-        txt_serie_activo.setEnabled(false);
-        txt_serie_activo.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                txt_serie_activoPropertyChange(evt);
-            }
-        });
-        txt_serie_activo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txt_serie_activoKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_serie_activoKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_serie_activoKeyTyped(evt);
-            }
-        });
-
-        txt_codigoInternoInsticucional_activo.setEnabled(false);
-        txt_codigoInternoInsticucional_activo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txt_codigoInternoInsticucional_activoKeyTyped(evt);
-            }
-        });
-
-        jScrollPane3.setBorder(null);
-        jScrollPane3.setToolTipText("");
-
-        tabla_activoSinResponsable.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tabla_activoSinResponsable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Tipo ", "Marca", "Procesador", "Memoria ", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Cod. Institucional", ""
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        tabla_activoSinResponsable.getTableHeader().setReorderingAllowed(false);
-        jScrollPane3.setViewportView(tabla_activoSinResponsable);
-        tabla_activoSinResponsable.getAccessibleContext().setAccessibleName("Tabla_Busqueda_Sin_Responsable");
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Búsqueda de activos sin responsable");
-
-        jPanel1.setBackground(new java.awt.Color(117, 214, 255));
-
-        btn_limpiar.setText("Limpiar");
-        btn_limpiar.setBorder(null);
-        btn_limpiar.setBorderPainted(false);
-        btn_limpiar.setContentAreaFilled(false);
-        btn_limpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_limpiarActionPerformed(evt);
-            }
-        });
-
-        btn_asignar.setText("Asignar");
-        btn_asignar.setBorder(null);
-        btn_asignar.setBorderPainted(false);
-        btn_asignar.setContentAreaFilled(false);
-
-        btn_regresar.setText("Regresar");
-        btn_regresar.setBorder(null);
-        btn_regresar.setBorderPainted(false);
-        btn_regresar.setContentAreaFilled(false);
-
         jPanel6.setBackground(new java.awt.Color(68, 69, 69));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -443,110 +243,334 @@ public class AsignaciónActivos extends javax.swing.JDialog {
             .addGap(0, 15, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_limpiar)
-                .addGap(18, 18, 18)
-                .addComponent(btn_asignar)
-                .addGap(18, 18, 18)
-                .addComponent(btn_regresar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_limpiar)
-                    .addComponent(btn_asignar)
-                    .addComponent(btn_regresar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Asignación de Activos ");
+        setResizable(false);
+
+        jPanel4.setBackground(new java.awt.Color(232, 232, 232));
+
+        jScrollPane3.setBorder(null);
+        jScrollPane3.setToolTipText("");
+
+        tabla_activoSinResponsable.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tabla_activoSinResponsable.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        tabla_activoSinResponsable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Tipo ", "Marca", "Procesador", "Memoria ", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Cod. Institucional", ""
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabla_activoSinResponsable.setNextFocusableComponent(btn_asignar);
+        tabla_activoSinResponsable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(tabla_activoSinResponsable);
+        tabla_activoSinResponsable.getAccessibleContext().setAccessibleName("Tabla_Busqueda_Sin_Responsable");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Búsqueda de activos sin responsable");
 
         btn_buscar_activo.setBorder(null);
         btn_buscar_activo.setBorderPainted(false);
         btn_buscar_activo.setContentAreaFilled(false);
 
+        panelBusquedaTipo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        rbtn_marca_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        rbtn_marca_activo.setText("Marca");
+        rbtn_marca_activo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtn_marca_activoActionPerformed(evt);
+            }
+        });
+
+        rbtn_procesador_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        rbtn_procesador_activo.setText("Procesador");
+
+        rbtn_memoria_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        rbtn_memoria_activo.setText("Memoria");
+
+        rbtn_discoduro_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        rbtn_discoduro_activo.setText("Disco Duro");
+
+        combo_marca_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        combo_marca_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_marca_activo.setNextFocusableComponent(btn_buscar_activo);
+
+        combo_procesador_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        combo_procesador_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_procesador_activo.setNextFocusableComponent(btn_buscar_activo);
+
+        combo_memoria_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        combo_memoria_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_memoria_activo.setName(""); // NOI18N
+        combo_memoria_activo.setNextFocusableComponent(btn_buscar_activo);
+
+        combo_discoduro_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        combo_discoduro_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_discoduro_activo.setNextFocusableComponent(btn_buscar_activo);
+
+        javax.swing.GroupLayout panelBusquedaTipoLayout = new javax.swing.GroupLayout(panelBusquedaTipo);
+        panelBusquedaTipo.setLayout(panelBusquedaTipoLayout);
+        panelBusquedaTipoLayout.setHorizontalGroup(
+            panelBusquedaTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBusquedaTipoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelBusquedaTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelBusquedaTipoLayout.createSequentialGroup()
+                        .addComponent(rbtn_marca_activo)
+                        .addGap(18, 18, 18)
+                        .addComponent(combo_marca_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelBusquedaTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(panelBusquedaTipoLayout.createSequentialGroup()
+                            .addComponent(rbtn_memoria_activo)
+                            .addGap(36, 36, 36)
+                            .addComponent(combo_memoria_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelBusquedaTipoLayout.createSequentialGroup()
+                            .addComponent(rbtn_procesador_activo)
+                            .addGap(18, 18, 18)
+                            .addComponent(combo_procesador_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelBusquedaTipoLayout.createSequentialGroup()
+                            .addComponent(rbtn_discoduro_activo)
+                            .addGap(18, 18, 18)
+                            .addComponent(combo_discoduro_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(43, 43, 43))
+        );
+        panelBusquedaTipoLayout.setVerticalGroup(
+            panelBusquedaTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBusquedaTipoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelBusquedaTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbtn_marca_activo)
+                    .addComponent(combo_marca_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelBusquedaTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbtn_procesador_activo)
+                    .addComponent(combo_procesador_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelBusquedaTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbtn_memoria_activo)
+                    .addComponent(combo_memoria_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelBusquedaTipoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rbtn_discoduro_activo)
+                    .addComponent(combo_discoduro_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        rbtn_tipo.setBackground(new java.awt.Color(232, 232, 232));
+        rbtn_tipo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        rbtn_tipo.setText("Tipo");
+        rbtn_tipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtn_tipoActionPerformed(evt);
+            }
+        });
+
+        combo_tipo_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        combo_tipo_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_tipo_activo.setNextFocusableComponent(combo_marca_activo);
+
+        rbtn_serie_activo.setBackground(new java.awt.Color(232, 232, 232));
+        rbtn_serie_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        rbtn_serie_activo.setText("Serie");
+
+        txt_serie_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        txt_serie_activo.setNextFocusableComponent(btn_buscar_activo);
+
+        rbtn_codigoinstitucional_activo.setBackground(new java.awt.Color(232, 232, 232));
+        rbtn_codigoinstitucional_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        rbtn_codigoinstitucional_activo.setText("Código Institucional");
+        rbtn_codigoinstitucional_activo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtn_codigoinstitucional_activoActionPerformed(evt);
+            }
+        });
+
+        txt_codigoInternoInsticucional_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        txt_codigoInternoInsticucional_activo.setNextFocusableComponent(btn_buscar_activo);
+
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icon_buscar(1).png"))); // NOI18N
+        jButton9.setBorder(null);
+        jButton9.setContentAreaFilled(false);
+        jButton9.setNextFocusableComponent(btn_asignar);
+        jButton9.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icon_buscar(1).png"))); // NOI18N
+        jButton9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icon_buscar.png"))); // NOI18N
+
+        jToolBar1.setBackground(new java.awt.Color(117, 214, 255));
+        jToolBar1.setFloatable(false);
+        jToolBar1.setRollover(true);
+
+        btn_nuevo.setBackground(new java.awt.Color(117, 214, 255));
+        btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add-new-file (1).png"))); // NOI18N
+        btn_nuevo.setText("   Nuevo   ");
+        btn_nuevo.setFocusable(false);
+        btn_nuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_nuevo.setNextFocusableComponent(combo_tipo_activo);
+        btn_nuevo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btn_nuevo);
+
+        btn_asignar.setBackground(new java.awt.Color(117, 214, 255));
+        btn_asignar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/new-user (1).png"))); // NOI18N
+        btn_asignar.setText("   Asignar   ");
+        btn_asignar.setFocusable(false);
+        btn_asignar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_asignar.setNextFocusableComponent(btn_nuevo);
+        btn_asignar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_asignar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_asignarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btn_asignar);
+
+        btn_regresar.setBackground(new java.awt.Color(117, 214, 255));
+        btn_regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/logout (1).png"))); // NOI18N
+        btn_regresar.setText("   Regresar");
+        btn_regresar.setFocusable(false);
+        btn_regresar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_regresar.setNextFocusableComponent(btn_nuevo);
+        btn_regresar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btn_regresar);
+
+        jPanel7.setBackground(new java.awt.Color(68, 69, 69));
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 15, Short.MAX_VALUE)
+        );
+
+        jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        btn_seleccionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/1/seleccionar.png"))); // NOI18N
+        btn_seleccionar.setContentAreaFilled(false);
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_seleccionar)
+                .addContainerGap())
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_seleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelBusquedaTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(panelBusquedaTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
                                 .addComponent(rbtn_tipo)
                                 .addGap(18, 18, 18)
-                                .addComponent(combo_tipo_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(rbtn_serie)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(txt_serie_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(36, 36, 36)
-                                        .addComponent(rbtn_codigoInstitucional)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txt_codigoInternoInsticucional_activo)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_buscar_activo))
+                                .addComponent(combo_tipo_activo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_buscar_activo, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(rbtn_serie_activo)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txt_serie_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addComponent(rbtn_codigoinstitucional_activo)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txt_codigoInternoInsticucional_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addComponent(jScrollPane3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rbtn_tipo)
-                            .addComponent(rbtn_serie)
-                            .addComponent(rbtn_codigoInstitucional)
-                            .addComponent(combo_tipo_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_serie_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_codigoInternoInsticucional_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(combo_tipo_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rbtn_tipo))
+                        .addGap(18, 18, 18)
                         .addComponent(panelBusquedaTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rbtn_serie_activo)
+                            .addComponent(txt_serie_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rbtn_codigoinstitucional_activo)
+                            .addComponent(txt_codigoInternoInsticucional_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_buscar_activo)
-                        .addGap(44, 44, 44)))
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton9)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
-
-        rbtn_tipo.getAccessibleContext().setAccessibleName("rb_Tipo");
-        rbtn_serie.getAccessibleContext().setAccessibleName("rb_Serie");
-        rbtn_codigoInstitucional.getAccessibleContext().setAccessibleName("rb_Código_Institucional");
-        combo_tipo_activo.getAccessibleContext().setAccessibleName("cb_tipo");
-        txt_serie_activo.getAccessibleContext().setAccessibleName("txt_Serie");
-        txt_codigoInternoInsticucional_activo.getAccessibleContext().setAccessibleName("txt_Código_Institucional");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -586,93 +610,25 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton5ActionPerformed
 
-    private void rbtn_codigoInstitucionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_codigoInstitucionalActionPerformed
+    private void rbtn_marca_activoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_marca_activoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rbtn_codigoInstitucionalActionPerformed
+    }//GEN-LAST:event_rbtn_marca_activoActionPerformed
 
-    private void rbtn_marcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_marcaActionPerformed
+    private void rbtn_tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_tipoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rbtn_marcaActionPerformed
+    }//GEN-LAST:event_rbtn_tipoActionPerformed
 
-    private void combo_tipo_activoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_tipo_activoActionPerformed
+    private void rbtn_codigoinstitucional_activoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_codigoinstitucional_activoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_combo_tipo_activoActionPerformed
+    }//GEN-LAST:event_rbtn_codigoinstitucional_activoActionPerformed
 
-    private void txt_serie_activoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_serie_activoKeyTyped
-        char c=evt.getKeyChar(); 
-          
-         if(!Character.isDigit(c)) {  //Si el dato ingresado no es un número verificará:
-              if(Character.isLetter(c)) {//si es una letra
-                    evt.setKeyChar(Character.toUpperCase(c));//la registra pero como mayúscula
-                }else{//todo lo demás será ignorado
-                    evt.consume();
-                } 
-          }
-         
-         if (txt_serie_activo.getText().length()>=150){//Si el dato ingresado pasa del limite no se registrara en el campo
-            evt.consume();     
-        }
-    }//GEN-LAST:event_txt_serie_activoKeyTyped
+    private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btn_regresarActionPerformed
 
-    private void txt_codigoInternoInsticucional_activoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoInternoInsticucional_activoKeyTyped
-        Character c = evt.getKeyChar();
-        if(Character.isLetter(c)) {//Si el dato ingresado es una letra se mostrará
-            evt.setKeyChar(c);
-        }else{                  //caso contrario no lo tomará en cuenta
-                evt.consume();
-        }
-        
-        if (txt_codigoInternoInsticucional_activo.getText().length()>=200){//Si el dato ingresado pasa del limite no se registrara en el campo
-            evt.consume();     
-        }
-    }//GEN-LAST:event_txt_codigoInternoInsticucional_activoKeyTyped
-
-    private void txt_serie_activoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txt_serie_activoPropertyChange
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_serie_activoPropertyChange
-
-    private void rbtn_serieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_serieActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbtn_serieActionPerformed
-
-    private void rbtn_serieMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtn_serieMouseClicked
-        if (rbtn_serie.isSelected()) {
-            panelBusquedaTipo.setVisible(false);  
-            txt_serie_activo.setEnabled(true);
-            txt_codigoInternoInsticucional_activo.setEnabled(false);
-            combo_tipo_activo.setEnabled(false);
-        } 
-    }//GEN-LAST:event_rbtn_serieMouseClicked
-
-    private void rbtn_codigoInstitucionalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtn_codigoInstitucionalMouseClicked
-        if (rbtn_codigoInstitucional.isSelected()) {
-            panelBusquedaTipo.setVisible(false); 
-            txt_codigoInternoInsticucional_activo.setEnabled(true);
-            txt_serie_activo.setEnabled(false);
-            combo_tipo_activo.setEnabled(false);
-        } 
-    }//GEN-LAST:event_rbtn_codigoInstitucionalMouseClicked
-
-    private void rbtn_tipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtn_tipoMouseClicked
-        if (rbtn_tipo.isSelected()) {
-            panelBusquedaTipo.setVisible(true); 
-            txt_serie_activo.setEnabled(false);
-            combo_tipo_activo.setEnabled(true);
-            txt_codigoInternoInsticucional_activo.setEnabled(false);
-        } 
-    }//GEN-LAST:event_rbtn_tipoMouseClicked
-
-    private void txt_serie_activoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_serie_activoKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_serie_activoKeyReleased
-
-    private void txt_serie_activoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_serie_activoKeyPressed
-        
-    }//GEN-LAST:event_txt_serie_activoKeyPressed
-
-    private void btn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarActionPerformed
-        
-    }//GEN-LAST:event_btn_limpiarActionPerformed
+    private void btn_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarActionPerformed
+        new RegistroDocumentoAsignacion( this, true).setVisible(true);
+    }//GEN-LAST:event_btn_asignarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -722,10 +678,15 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     private javax.swing.ButtonGroup GrupoCriterioBusquedaActivosNoAsignados;
     private javax.swing.JButton btn_asignar;
     private javax.swing.JButton btn_buscar_activo;
-    private javax.swing.JButton btn_limpiar;
+    private javax.swing.JButton btn_nuevo;
     private javax.swing.JButton btn_regresar;
+    private javax.swing.JButton btn_seleccionar;
+    private javax.swing.JComboBox combo_discoduro_activo;
     private javax.swing.JComboBox combo_marca_activo;
+    private javax.swing.JComboBox combo_memoria_activo;
+    private javax.swing.JComboBox combo_procesador_activo;
     private javax.swing.JComboBox combo_tipo_activo;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
@@ -733,11 +694,12 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     private javax.swing.JComboBox jComboBox5;
     private javax.swing.JComboBox jComboBox6;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
@@ -751,19 +713,17 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JPanel panelBusquedaTipo;
-    private javax.swing.JRadioButton rbtn_codigoInstitucional;
-    private javax.swing.JRadioButton rbtn_discoduro;
-    private javax.swing.JRadioButton rbtn_marca;
-    private javax.swing.JRadioButton rbtn_memoria;
-    private javax.swing.JRadioButton rbtn_procesador;
-    private javax.swing.JRadioButton rbtn_serie;
+    private javax.swing.JRadioButton rbtn_codigoinstitucional_activo;
+    private javax.swing.JRadioButton rbtn_discoduro_activo;
+    private javax.swing.JRadioButton rbtn_marca_activo;
+    private javax.swing.JRadioButton rbtn_memoria_activo;
+    private javax.swing.JRadioButton rbtn_procesador_activo;
+    private javax.swing.JRadioButton rbtn_serie_activo;
     private javax.swing.JRadioButton rbtn_tipo;
     private javax.swing.JTable tabla_activoSinResponsable;
-    public javax.swing.JTextField txt_codigoInternoInsticucional_activo;
-    private javax.swing.JComboBox txt_discoduro_activo;
-    private javax.swing.JComboBox txt_memoria_activo;
-    private javax.swing.JComboBox txt_procesador_activo;
-    public javax.swing.JTextField txt_serie_activo;
+    private javax.swing.JTextField txt_codigoInternoInsticucional_activo;
+    private javax.swing.JTextField txt_serie_activo;
     // End of variables declaration//GEN-END:variables
 }
