@@ -16,6 +16,7 @@ public class Ingreso extends javax.swing.JFrame {
      */
     public Ingreso() {
         initComponents();
+        //Prueba
     }
 
     /**
