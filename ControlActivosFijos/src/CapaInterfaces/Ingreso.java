@@ -174,7 +174,7 @@ public class Ingreso extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ingresarActionPerformed
 
     private void btn_cambiar_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiar_claveActionPerformed
-         new CambiarClave( this, true).setVisible(true);
+         new CambiarClave(this, true).setVisible(true);
     }//GEN-LAST:event_btn_cambiar_claveActionPerformed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed

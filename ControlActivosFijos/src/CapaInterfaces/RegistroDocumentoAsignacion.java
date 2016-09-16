@@ -151,6 +151,7 @@ public class RegistroDocumentoAsignacion extends javax.swing.JDialog {
         });
         tabla_documentos_asignacion.removeColumn(tabla_documentos_asignacion.getColumnModel().getColumn(0));
         tabla_documentos_asignacion.setNextFocusableComponent(btn_eliminar);
+        tabla_documentos_asignacion.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane3.setViewportView(tabla_documentos_asignacion);
         tabla_documentos_asignacion.getAccessibleContext().setAccessibleName("");
 

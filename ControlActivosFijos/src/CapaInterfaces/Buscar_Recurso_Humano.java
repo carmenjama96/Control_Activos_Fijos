@@ -85,6 +85,7 @@ public class Buscar_Recurso_Humano extends javax.swing.JDialog {
             }
         });
         tabla_persona.setNextFocusableComponent(btn_modificar2);
+        tabla_persona.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tabla_persona.removeColumn(tabla_persona.getColumnModel().getColumn(0));
         jScrollPane1.setViewportView(tabla_persona);
 

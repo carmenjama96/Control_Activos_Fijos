@@ -87,7 +87,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="btn_registrar_rrhh">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Registrar Recurso Humano"/>
+                <Property name="text" type="java.lang.String" value="Control Recursos Humanos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_registrar_rrhhActionPerformed"/>

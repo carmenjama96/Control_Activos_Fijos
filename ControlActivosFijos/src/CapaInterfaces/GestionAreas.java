@@ -104,7 +104,7 @@ public class GestionAreas extends javax.swing.JDialog {
         jLabel4.setText("Cédula");
 
         txt_cedula_persona.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-        txt_cedula_persona.setNextFocusableComponent(btn_nuevo);
+        txt_cedula_persona.setNextFocusableComponent(btn_guardar);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         jLabel5.setText("Nombres y Apellidos");
@@ -250,6 +250,7 @@ public class GestionAreas extends javax.swing.JDialog {
             }
         });
         table_area.setNextFocusableComponent(btn_modificar);
+        table_area.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         table_area.removeColumn(table_area.getColumnModel().getColumn(0));
         jScrollPane1.setViewportView(table_area);
 
@@ -383,7 +384,7 @@ public class GestionAreas extends javax.swing.JDialog {
                                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 7, Short.MAX_VALUE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 796, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(

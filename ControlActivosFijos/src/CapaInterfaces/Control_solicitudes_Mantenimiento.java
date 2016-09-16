@@ -5,6 +5,8 @@
  */
 package CapaInterfaces;
 
+import java.awt.GridBagLayout;
+
 /**
  *
  * @author Dayanna Luna
@@ -17,6 +19,9 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
     public Control_solicitudes_Mantenimiento(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.getContentPane().setLayout (new GridBagLayout());
+        this.setLocationRelativeTo(null);
+        tabla_solicitudes_mantenimiento.getTableHeader().setReorderingAllowed(false);
     }
 
     /**
@@ -37,8 +42,6 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
         rbtn_tipo_area = new javax.swing.JRadioButton();
         combo_descripcion_area = new javax.swing.JComboBox();
         combo_idResponsable_area = new javax.swing.JComboBox();
-        label6 = new java.awt.Label();
-        label7 = new java.awt.Label();
         jPanel3 = new javax.swing.JPanel();
         rbtn_solicitud_pendiente = new javax.swing.JRadioButton();
         rbtn_solicitud_enProceso = new javax.swing.JRadioButton();
@@ -47,118 +50,167 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
         tabla_solicitudes_mantenimiento = new javax.swing.JTable();
         label3 = new java.awt.Label();
         date_fecha_docSolicitud = new com.toedter.calendar.JDateChooser();
-        jPanel4 = new javax.swing.JPanel();
-        btn_imprimir = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
-        btn_actualizar = new javax.swing.JButton();
-        btn_regresar = new javax.swing.JButton();
         btn_buscar_solicitudes = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
-        btn_editar_solicitud = new javax.swing.JButton();
-        btn_registrar_solicitud = new javax.swing.JButton();
-        btn_enviar_solicitud = new javax.swing.JButton();
-        btn_eliminar_solicitud = new javax.swing.JButton();
         txt_codigoInternoInsticucional_activo = new javax.swing.JTextField();
+        jToolBar1 = new javax.swing.JToolBar();
+        btn_nuevo = new javax.swing.JButton();
+        btn_imprimir = new javax.swing.JButton();
+        btn_regresar = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btn_buscar = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        btn_modificarSolicitud = new javax.swing.JButton();
+        btn_modificarEncargadooMantenimiento = new javax.swing.JButton();
+        btn_eliminar = new javax.swing.JButton();
+        btn_enviarMantenimiento = new javax.swing.JButton();
+        btn_registrarMantenimiento = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Control de Solicitudes de Mantenimiento");
         setResizable(false);
 
-        rbtn_condigo_institucional.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        rbtn_condigo_institucional.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_condigo_institucional.setText("Código Institucional");
 
+        combo_tipo_area.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         combo_tipo_area.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_tipo_area.setNextFocusableComponent(combo_descripcion_area);
 
-        rbtn_fecha_docSolicitud.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        rbtn_fecha_docSolicitud.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_fecha_docSolicitud.setText("Fecha de solicitud");
 
-        rbtn_estado_docSolicitud.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        rbtn_estado_docSolicitud.setText("Tipo");
+        rbtn_estado_docSolicitud.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        rbtn_estado_docSolicitud.setText("Estado");
+        rbtn_estado_docSolicitud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtn_estado_docSolicitudActionPerformed(evt);
+            }
+        });
 
         jButton3.setBorder(null);
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        rbtn_tipo_area.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        rbtn_tipo_area.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_tipo_area.setText("Tipo de Área");
 
+        combo_descripcion_area.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         combo_descripcion_area.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_descripcion_area.setNextFocusableComponent(combo_idResponsable_area);
 
+        combo_idResponsable_area.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         combo_idResponsable_area.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_idResponsable_area.setNextFocusableComponent(btn_buscar);
 
-        label6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label6.setText("Descripción");
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 17))); // NOI18N
 
-        label7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        label7.setText("RRHH");
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tipo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
-
-        rbtn_solicitud_pendiente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        rbtn_solicitud_pendiente.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_solicitud_pendiente.setText("Pendiente");
+        rbtn_solicitud_pendiente.setNextFocusableComponent(rbtn_solicitud_enProceso);
 
-        rbtn_solicitud_enProceso.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        rbtn_solicitud_enProceso.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_solicitud_enProceso.setText("En Proceso");
+        rbtn_solicitud_enProceso.setNextFocusableComponent(rbtn_solicitud_realizado);
 
-        rbtn_solicitud_realizado.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        rbtn_solicitud_realizado.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_solicitud_realizado.setText("Realizado");
+        rbtn_solicitud_realizado.setNextFocusableComponent(btn_buscar);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(rbtn_solicitud_pendiente)
                     .addComponent(rbtn_solicitud_enProceso)
                     .addComponent(rbtn_solicitud_realizado))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGap(27, 27, 27))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(rbtn_solicitud_pendiente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(rbtn_solicitud_enProceso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rbtn_solicitud_realizado)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addComponent(rbtn_solicitud_realizado))
         );
 
         tabla_solicitudes_mantenimiento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Id", "Código Interno", "Fecha Solicitud", "Cédula Solicitante", "Nombre Solicitante", "Apellidos Solicitante"
+                "Id", "Código Interno", "Fecha Solicitud", "Cédula Solicitante", "Solicitante", "Motivos"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        tabla_solicitudes_mantenimiento.setNextFocusableComponent(btn_modificarSolicitud);
+        tabla_solicitudes_mantenimiento.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tabla_solicitudes_mantenimiento.removeColumn(tabla_solicitudes_mantenimiento.getColumnModel().getColumn(0));
         jScrollPane1.setViewportView(tabla_solicitudes_mantenimiento);
 
         label3.setAlignment(java.awt.Label.CENTER);
-        label3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        label3.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         label3.setText("Control de Solicitudes de Mantenimiento");
 
-        jPanel4.setBackground(new java.awt.Color(117, 214, 255));
+        date_fecha_docSolicitud.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        date_fecha_docSolicitud.setNextFocusableComponent(btn_buscar);
 
-        btn_imprimir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\printer- (1).png")); // NOI18N
-        btn_imprimir.setText("Imprimir");
-        btn_imprimir.setBorder(null);
-        btn_imprimir.setBorderPainted(false);
-        btn_imprimir.setContentAreaFilled(false);
+        btn_buscar_solicitudes.setBorder(null);
+        btn_buscar_solicitudes.setBorderPainted(false);
+        btn_buscar_solicitudes.setContentAreaFilled(false);
+
+        txt_codigoInternoInsticucional_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        txt_codigoInternoInsticucional_activo.setNextFocusableComponent(btn_buscar);
+
+        jToolBar1.setBackground(new java.awt.Color(117, 214, 255));
+        jToolBar1.setFloatable(false);
+        jToolBar1.setRollover(true);
+
+        btn_nuevo.setBackground(new java.awt.Color(117, 214, 255));
+        btn_nuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add-new-file (1).png"))); // NOI18N
+        btn_nuevo.setText("   Nuevo   ");
+        btn_nuevo.setFocusable(false);
+        btn_nuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_nuevo.setNextFocusableComponent(txt_codigoInternoInsticucional_activo);
+        btn_nuevo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btn_nuevo);
+
+        btn_imprimir.setBackground(new java.awt.Color(117, 214, 255));
+        btn_imprimir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/printer- (1).png"))); // NOI18N
+        btn_imprimir.setText("   Imprimir   ");
+        btn_imprimir.setFocusable(false);
+        btn_imprimir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_imprimir.setNextFocusableComponent(btn_nuevo);
+        btn_imprimir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(btn_imprimir);
+
+        btn_regresar.setBackground(new java.awt.Color(117, 214, 255));
+        btn_regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/logout (1).png"))); // NOI18N
+        btn_regresar.setText("   Regresar");
+        btn_regresar.setFocusable(false);
+        btn_regresar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_regresar.setName(""); // NOI18N
+        btn_regresar.setNextFocusableComponent(btn_nuevo);
+        btn_regresar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btn_regresar);
 
         jPanel7.setBackground(new java.awt.Color(68, 69, 69));
 
@@ -173,104 +225,106 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
             .addGap(0, 15, Short.MAX_VALUE)
         );
 
-        btn_actualizar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\refresh-page-arrow-button (1).png")); // NOI18N
-        btn_actualizar.setText("Actualizar");
-        btn_actualizar.setBorder(null);
-        btn_actualizar.setBorderPainted(false);
-        btn_actualizar.setContentAreaFilled(false);
-        btn_actualizar.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        jLabel1.setText("Descripción");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        jLabel2.setText("RR.HH");
+
+        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icon_buscar(1).png"))); // NOI18N
+        btn_buscar.setBorder(null);
+        btn_buscar.setContentAreaFilled(false);
+        btn_buscar.setNextFocusableComponent(btn_imprimir);
+        btn_buscar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icon_buscar(1).png"))); // NOI18N
+        btn_buscar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icon_buscar.png"))); // NOI18N
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_actualizarActionPerformed(evt);
+                btn_buscarActionPerformed(evt);
             }
         });
 
-        btn_regresar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\logout (1).png")); // NOI18N
-        btn_regresar.setText("Salir");
-        btn_regresar.setBorder(null);
-        btn_regresar.setBorderPainted(false);
-        btn_regresar.setContentAreaFilled(false);
+        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        btn_modificarSolicitud.setBackground(new java.awt.Color(255, 255, 255));
+        btn_modificarSolicitud.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/1/pencil.png"))); // NOI18N
+        btn_modificarSolicitud.setContentAreaFilled(false);
+        btn_modificarSolicitud.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btn_modificarSolicitud.setNextFocusableComponent(btn_enviarMantenimiento);
+        btn_modificarSolicitud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modificarSolicitudActionPerformed(evt);
+            }
+        });
+
+        btn_modificarEncargadooMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/mod_persona_mant.png"))); // NOI18N
+        btn_modificarEncargadooMantenimiento.setToolTipText("");
+        btn_modificarEncargadooMantenimiento.setContentAreaFilled(false);
+        btn_modificarEncargadooMantenimiento.setNextFocusableComponent(btn_registrarMantenimiento);
+        btn_modificarEncargadooMantenimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modificarEncargadooMantenimientoActionPerformed(evt);
+            }
+        });
+
+        btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/1/rubbish-bin (1).png"))); // NOI18N
+        btn_eliminar.setToolTipText("");
+        btn_eliminar.setContentAreaFilled(false);
+        btn_eliminar.setNextFocusableComponent(tabla_solicitudes_mantenimiento);
+        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarActionPerformed(evt);
+            }
+        });
+
+        btn_enviarMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/servicio (2).png"))); // NOI18N
+        btn_enviarMantenimiento.setContentAreaFilled(false);
+        btn_enviarMantenimiento.setNextFocusableComponent(btn_modificarEncargadooMantenimiento);
+        btn_enviarMantenimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_enviarMantenimientoActionPerformed(evt);
+            }
+        });
+
+        btn_registrarMantenimiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/1/archive.png"))); // NOI18N
+        btn_registrarMantenimiento.setToolTipText("");
+        btn_registrarMantenimiento.setContentAreaFilled(false);
+        btn_registrarMantenimiento.setNextFocusableComponent(btn_eliminar);
+        btn_registrarMantenimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_registrarMantenimientoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_actualizar)
-                .addGap(18, 18, 18)
-                .addComponent(btn_imprimir)
-                .addGap(18, 18, 18)
-                .addComponent(btn_regresar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_imprimir)
-                    .addComponent(btn_actualizar)
-                    .addComponent(btn_regresar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        btn_buscar_solicitudes.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\magnifier-tool (1).png")); // NOI18N
-        btn_buscar_solicitudes.setBorder(null);
-        btn_buscar_solicitudes.setBorderPainted(false);
-        btn_buscar_solicitudes.setContentAreaFilled(false);
-
-        btn_editar_solicitud.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\pencil (1).png")); // NOI18N
-        btn_editar_solicitud.setToolTipText("");
-        btn_editar_solicitud.setBorder(null);
-        btn_editar_solicitud.setBorderPainted(false);
-        btn_editar_solicitud.setContentAreaFilled(false);
-
-        btn_registrar_solicitud.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\archive (1).png")); // NOI18N
-        btn_registrar_solicitud.setBorder(null);
-        btn_registrar_solicitud.setBorderPainted(false);
-        btn_registrar_solicitud.setContentAreaFilled(false);
-
-        btn_enviar_solicitud.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\forward-arrow (1).png")); // NOI18N
-        btn_enviar_solicitud.setBorder(null);
-        btn_enviar_solicitud.setBorderPainted(false);
-        btn_enviar_solicitud.setContentAreaFilled(false);
-
-        btn_eliminar_solicitud.setIcon(new javax.swing.ImageIcon("C:\\Users\\Erick\\Documents\\NetBeansProjects\\Control_Activos_Fijos\\ControlActivosFijos\\src\\Icons\\1\\rubbish-bin (2).png")); // NOI18N
-        btn_eliminar_solicitud.setBorder(null);
-        btn_eliminar_solicitud.setBorderPainted(false);
-        btn_eliminar_solicitud.setContentAreaFilled(false);
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btn_enviar_solicitud))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_editar_solicitud)
-                            .addComponent(btn_registrar_solicitud)
-                            .addComponent(btn_eliminar_solicitud))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_eliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_modificarSolicitud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_modificarEncargadooMantenimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_enviarMantenimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btn_registrarMantenimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_editar_solicitud)
-                .addGap(18, 18, 18)
-                .addComponent(btn_eliminar_solicitud)
-                .addGap(18, 18, 18)
-                .addComponent(btn_enviar_solicitud)
-                .addGap(18, 18, 18)
-                .addComponent(btn_registrar_solicitud)
+                .addComponent(btn_modificarSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_enviarMantenimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_modificarEncargadooMantenimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_registrarMantenimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -278,110 +332,154 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(rbtn_tipo_area)
-                                    .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(combo_descripcion_area, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(combo_tipo_area, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(combo_idResponsable_area, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(rbtn_fecha_docSolicitud)
-                                .addGap(18, 18, 18)
-                                .addComponent(date_fecha_docSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(rbtn_condigo_institucional)
-                                .addGap(18, 18, 18)
-                                .addComponent(txt_codigoInternoInsticucional_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(118, 118, 118)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbtn_estado_docSolicitud))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_buscar_solicitudes, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(100, 100, 100))
+                    .addComponent(label3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(rbtn_condigo_institucional)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txt_codigoInternoInsticucional_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(rbtn_fecha_docSolicitud)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(date_fecha_docSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(rbtn_tipo_area)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(combo_tipo_area, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel1))
+                                        .addGap(31, 31, 31)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(combo_idResponsable_area, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(combo_descripcion_area, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(18, 18, 18)
+                                .addComponent(rbtn_estado_docSolicitud)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(btn_buscar))
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 861, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_buscar_solicitudes)))
+                        .addGap(0, 2, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
                 .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbtn_condigo_institucional)
+                .addGap(23, 23, 23)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(rbtn_fecha_docSolicitud)
+                                .addComponent(date_fecha_docSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(rbtn_condigo_institucional)
+                                .addComponent(txt_codigoInternoInsticucional_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(rbtn_tipo_area)
+                                    .addComponent(combo_tipo_area, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(jButton3))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(combo_descripcion_area, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1))
+                                .addGap(13, 13, 13)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(combo_idResponsable_area, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2)))))
                     .addComponent(rbtn_estado_docSolicitud)
-                    .addComponent(txt_codigoInternoInsticucional_activo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jButton3)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_buscar)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_buscar_solicitudes))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(rbtn_fecha_docSolicitud)
-                            .addComponent(date_fecha_docSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rbtn_tipo_area)
-                            .addComponent(combo_tipo_area, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(combo_descripcion_area, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(combo_idResponsable_area, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                        .addComponent(btn_buscar_solicitudes)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(128, 128, 128))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 30, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_actualizarActionPerformed
+    }//GEN-LAST:event_btn_buscarActionPerformed
+
+    private void btn_modificarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarSolicitudActionPerformed
+        new Registro_Solicitud_Mantenimiento(this, true).setVisible(true);
+    }//GEN-LAST:event_btn_modificarSolicitudActionPerformed
+
+    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_eliminarActionPerformed
+
+    private void btn_registrarMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrarMantenimientoActionPerformed
+        new RegistroMantenimiento(this, true).setVisible(true);
+    }//GEN-LAST:event_btn_registrarMantenimientoActionPerformed
+
+    private void rbtn_estado_docSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_estado_docSolicitudActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtn_estado_docSolicitudActionPerformed
+
+    private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btn_regresarActionPerformed
+
+    private void btn_enviarMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarMantenimientoActionPerformed
+        new Registro_datos_encargado_mantenimiento(this, true).setVisible(true);
+    }//GEN-LAST:event_btn_enviarMantenimientoActionPerformed
+
+    private void btn_modificarEncargadooMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarEncargadooMantenimientoActionPerformed
+        new Registro_datos_encargado_mantenimiento(this, true).setVisible(true);
+    }//GEN-LAST:event_btn_modificarEncargadooMantenimientoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -427,28 +525,32 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_actualizar;
+    private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_buscar_solicitudes;
-    private javax.swing.JButton btn_editar_solicitud;
-    private javax.swing.JButton btn_eliminar_solicitud;
-    private javax.swing.JButton btn_enviar_solicitud;
+    private javax.swing.JButton btn_eliminar;
+    private javax.swing.JButton btn_enviarMantenimiento;
     private javax.swing.JButton btn_imprimir;
-    private javax.swing.JButton btn_registrar_solicitud;
+    private javax.swing.JButton btn_modificar;
+    private javax.swing.JButton btn_modificarEncargadooMantenimiento;
+    private javax.swing.JButton btn_modificarSolicitud;
+    private javax.swing.JButton btn_nuevo;
+    private javax.swing.JButton btn_registrarMantenimiento;
     private javax.swing.JButton btn_regresar;
     private javax.swing.JComboBox combo_descripcion_area;
     private javax.swing.JComboBox combo_idResponsable_area;
     private javax.swing.JComboBox combo_tipo_area;
     private com.toedter.calendar.JDateChooser date_fecha_docSolicitud;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToolBar jToolBar1;
     private java.awt.Label label3;
-    private java.awt.Label label6;
-    private java.awt.Label label7;
     private javax.swing.JRadioButton rbtn_condigo_institucional;
     private javax.swing.JRadioButton rbtn_estado_docSolicitud;
     private javax.swing.JRadioButton rbtn_fecha_docSolicitud;

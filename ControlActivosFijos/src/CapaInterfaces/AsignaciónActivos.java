@@ -278,6 +278,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
             }
         });
         tabla_activoSinResponsable.setNextFocusableComponent(btn_asignar);
+        tabla_activoSinResponsable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tabla_activoSinResponsable.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tabla_activoSinResponsable);
         tabla_activoSinResponsable.getAccessibleContext().setAccessibleName("Tabla_Busqueda_Sin_Responsable");

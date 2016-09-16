@@ -170,7 +170,7 @@ public class Principal extends javax.swing.JFrame {
         btn_recursos_humanos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/grupo (1).png"))); // NOI18N
         btn_recursos_humanos.setText("Recursos Humanos");
 
-        btn_registrar_rrhh.setText("Registrar Recurso Humano");
+        btn_registrar_rrhh.setText("Control Recursos Humanos");
         btn_registrar_rrhh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_registrar_rrhhActionPerformed(evt);
@@ -276,15 +276,15 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowStateChanged(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowStateChanged
-        // TODO add your handling code here:
+         //TODO add your handling code here:
     }//GEN-LAST:event_formWindowStateChanged
 
     private void btn_registrar_activoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrar_activoActionPerformed
-        new RegistroActivos( this, true).setVisible(true);
+        new RegistroActivos(this, true).setVisible(true);
     }//GEN-LAST:event_btn_registrar_activoActionPerformed
 
     private void btn_control_entregasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_control_entregasActionPerformed
-        new ControlEntrega( this, true).setVisible(true);
+        new ControlEntrega(this, true).setVisible(true);
     }//GEN-LAST:event_btn_control_entregasActionPerformed
 
     private void btn_cerrar_sesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cerrar_sesionActionPerformed
@@ -305,11 +305,11 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_gestion_areasActionPerformed
 
     private void btn_registrar_rrhhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registrar_rrhhActionPerformed
-        new Control_Recursos_Humanos( this, true).setVisible(true);
+        new Control_Recursos_Humanos(this, true).setVisible(true);
     }//GEN-LAST:event_btn_registrar_rrhhActionPerformed
 
     private void btn_solicitar_mantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_solicitar_mantenimientoActionPerformed
-        new Registro_Solicitud_Mantenimiento( this, true).setVisible(true);
+        new Solicitar_Mantenimiento( this, true).setVisible(true);
     }//GEN-LAST:event_btn_solicitar_mantenimientoActionPerformed
 
     private void btn_actualizar_solicitudesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizar_solicitudesActionPerformed
