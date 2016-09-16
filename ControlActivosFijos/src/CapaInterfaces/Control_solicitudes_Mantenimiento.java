@@ -6,6 +6,7 @@
 package CapaInterfaces;
 
 import java.awt.GridBagLayout;
+import javax.swing.ButtonGroup;
 
 /**
  *
@@ -19,11 +20,50 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
     public Control_solicitudes_Mantenimiento(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        radio();
+        activarCampos();        
         this.getContentPane().setLayout (new GridBagLayout());
         this.setLocationRelativeTo(null);
         tabla_solicitudes_mantenimiento.getTableHeader().setReorderingAllowed(false);
     }
-
+    public void radio(){
+        ButtonGroup btngGrupoConsulta = new ButtonGroup();
+        ButtonGroup btngGrupoEstado = new ButtonGroup();
+        btngGrupoConsulta.add(rbtn_condigo_institucional);
+        btngGrupoConsulta.add(rbtn_fecha_docSolicitud);
+        btngGrupoConsulta.add(rbtn_estado_docSolicitud);
+        btngGrupoConsulta.add(rbtn_tipo_area);        
+        btngGrupoEstado.add(rbtn_solicitud_enProceso);
+        btngGrupoEstado.add(rbtn_solicitud_pendiente);
+        btngGrupoEstado.add(rbtn_solicitud_realizado);        
+    }
+    public void activarCampos(){        
+        txt_codigoInternoInsticucional_activo.setEnabled(false);
+        date_fecha_docSolicitud.setEnabled(false);
+        combo_tipo_area.setEnabled(false);
+        combo_idResponsable_area.setEnabled(false);
+        combo_descripcion_area.setEnabled(false);
+        rbtn_solicitud_enProceso.setEnabled(false);
+        rbtn_solicitud_pendiente.setEnabled(false); 
+        rbtn_solicitud_realizado.setEnabled(false);
+        if(rbtn_condigo_institucional.isSelected()){
+            txt_codigoInternoInsticucional_activo.setEnabled(true);            
+        }
+        if(rbtn_fecha_docSolicitud.isSelected()){
+            date_fecha_docSolicitud.setEnabled(true);            
+        }
+        if(rbtn_tipo_area.isSelected()){            
+            combo_tipo_area.setEnabled(true);
+            combo_idResponsable_area.setEnabled(true);
+            combo_descripcion_area.setEnabled(true);            
+        }
+        if(rbtn_estado_docSolicitud.isSelected()){
+            rbtn_solicitud_realizado.setEnabled(true);
+            rbtn_solicitud_enProceso.setEnabled(true);
+            rbtn_solicitud_pendiente.setEnabled(true);            
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,6 +113,11 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
 
         rbtn_condigo_institucional.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_condigo_institucional.setText("Código Institucional");
+        rbtn_condigo_institucional.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rbtn_condigo_institucionalMouseClicked(evt);
+            }
+        });
 
         combo_tipo_area.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         combo_tipo_area.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -80,6 +125,11 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
 
         rbtn_fecha_docSolicitud.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_fecha_docSolicitud.setText("Fecha de solicitud");
+        rbtn_fecha_docSolicitud.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rbtn_fecha_docSolicitudMouseClicked(evt);
+            }
+        });
 
         rbtn_estado_docSolicitud.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_estado_docSolicitud.setText("Estado");
@@ -90,7 +140,7 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
         });
 
         jButton3.setBorder(null);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         rbtn_tipo_area.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_tipo_area.setText("Tipo de Área");
@@ -481,6 +531,14 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
         new Registro_datos_encargado_mantenimiento(this, true).setVisible(true);
     }//GEN-LAST:event_btn_modificarEncargadooMantenimientoActionPerformed
 
+    private void rbtn_condigo_institucionalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtn_condigo_institucionalMouseClicked
+            activarCampos();
+    }//GEN-LAST:event_rbtn_condigo_institucionalMouseClicked
+
+    private void rbtn_fecha_docSolicitudMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtn_fecha_docSolicitudMouseClicked
+        activarCampos();
+    }//GEN-LAST:event_rbtn_fecha_docSolicitudMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -530,7 +588,6 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
     private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_enviarMantenimiento;
     private javax.swing.JButton btn_imprimir;
-    private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_modificarEncargadooMantenimiento;
     private javax.swing.JButton btn_modificarSolicitud;
     private javax.swing.JButton btn_nuevo;
@@ -545,7 +602,6 @@ public class Control_solicitudes_Mantenimiento extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
