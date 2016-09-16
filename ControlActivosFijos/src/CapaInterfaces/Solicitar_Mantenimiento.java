@@ -9,7 +9,8 @@ import java.awt.GridBagLayout;
 
 /** 
  *
- * @author Dayanna Luna
+ * @author Grupo 3
+ * yisus
  */
 public class Solicitar_Mantenimiento extends javax.swing.JDialog {
 
