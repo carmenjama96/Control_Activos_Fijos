@@ -7,7 +7,7 @@ package CapaInterfaces;
 
 import java.awt.GridBagLayout;
 
-/**
+/** 
  *
  * @author Dayanna Luna
  */
