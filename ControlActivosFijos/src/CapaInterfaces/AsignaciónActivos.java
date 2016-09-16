@@ -20,6 +20,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     /**
      * Creates new form AsignaciónActivos
      */
+     int banderaOculta = 0;
     public AsignaciónActivos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -27,6 +28,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         //this.getContentPane().setLayout (new GridBagLayout());
         cargar();
+            
     }
     
     Conexion conexion = new Conexion();
@@ -62,6 +64,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         GrupoCriterioBusquedaActivosNoAsignados = new javax.swing.ButtonGroup();
         GrupoBusquedaPorTipo = new javax.swing.ButtonGroup();
         jPanel6 = new javax.swing.JPanel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla_activoSinResponsable = new javax.swing.JTable();
@@ -248,6 +251,11 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         setResizable(false);
 
         jPanel4.setBackground(new java.awt.Color(232, 232, 232));
+        jPanel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPanel4MouseMoved(evt);
+            }
+        });
 
         jScrollPane3.setBorder(null);
         jScrollPane3.setToolTipText("");
@@ -293,6 +301,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
 
         panelBusquedaTipo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        GrupoBusquedaPorTipo.add(rbtn_marca_activo);
         rbtn_marca_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_marca_activo.setText("Marca");
         rbtn_marca_activo.addActionListener(new java.awt.event.ActionListener() {
@@ -301,12 +310,15 @@ public class AsignaciónActivos extends javax.swing.JDialog {
             }
         });
 
+        GrupoBusquedaPorTipo.add(rbtn_procesador_activo);
         rbtn_procesador_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_procesador_activo.setText("Procesador");
 
+        GrupoBusquedaPorTipo.add(rbtn_memoria_activo);
         rbtn_memoria_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_memoria_activo.setText("Memoria");
 
+        GrupoBusquedaPorTipo.add(rbtn_discoduro_activo);
         rbtn_discoduro_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_discoduro_activo.setText("Disco Duro");
 
@@ -376,8 +388,14 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         );
 
         rbtn_tipo.setBackground(new java.awt.Color(232, 232, 232));
+        GrupoCriterioBusquedaActivosNoAsignados.add(rbtn_tipo);
         rbtn_tipo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_tipo.setText("Tipo");
+        rbtn_tipo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rbtn_tipoMouseClicked(evt);
+            }
+        });
         rbtn_tipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtn_tipoActionPerformed(evt);
@@ -387,17 +405,66 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         combo_tipo_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         combo_tipo_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
         combo_tipo_activo.setNextFocusableComponent(combo_marca_activo);
+        combo_tipo_activo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                combo_tipo_activoItemStateChanged(evt);
+            }
+        });
+        combo_tipo_activo.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                combo_tipo_activoMouseMoved(evt);
+            }
+        });
+        combo_tipo_activo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                combo_tipo_activoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                combo_tipo_activoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                combo_tipo_activoMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                combo_tipo_activoMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                combo_tipo_activoMouseReleased(evt);
+            }
+        });
+        combo_tipo_activo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_tipo_activoActionPerformed(evt);
+            }
+        });
 
         rbtn_serie_activo.setBackground(new java.awt.Color(232, 232, 232));
+        GrupoCriterioBusquedaActivosNoAsignados.add(rbtn_serie_activo);
         rbtn_serie_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_serie_activo.setText("Serie");
+        rbtn_serie_activo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rbtn_serie_activoMouseClicked(evt);
+            }
+        });
 
         txt_serie_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         txt_serie_activo.setNextFocusableComponent(btn_buscar_activo);
+        txt_serie_activo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_serie_activoKeyTyped(evt);
+            }
+        });
 
         rbtn_codigoinstitucional_activo.setBackground(new java.awt.Color(232, 232, 232));
+        GrupoCriterioBusquedaActivosNoAsignados.add(rbtn_codigoinstitucional_activo);
         rbtn_codigoinstitucional_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_codigoinstitucional_activo.setText("Código Institucional");
+        rbtn_codigoinstitucional_activo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rbtn_codigoinstitucional_activoMouseClicked(evt);
+            }
+        });
         rbtn_codigoinstitucional_activo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtn_codigoinstitucional_activoActionPerformed(evt);
@@ -406,6 +473,11 @@ public class AsignaciónActivos extends javax.swing.JDialog {
 
         txt_codigoInternoInsticucional_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         txt_codigoInternoInsticucional_activo.setNextFocusableComponent(btn_buscar_activo);
+        txt_codigoInternoInsticucional_activo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_codigoInternoInsticucional_activoKeyTyped(evt);
+            }
+        });
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icon_buscar(1).png"))); // NOI18N
         jButton9.setBorder(null);
@@ -601,6 +673,8 @@ public class AsignaciónActivos extends javax.swing.JDialog {
                     combo_tipo_activo.addItem(resultat.get(i));
                 }
         }
+        
+    
     }
     
     private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
@@ -630,6 +704,138 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     private void btn_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarActionPerformed
         new RegistroDocumentoAsignacion( this, true).setVisible(true);
     }//GEN-LAST:event_btn_asignarActionPerformed
+
+    private void txt_serie_activoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_serie_activoKeyTyped
+        char c=evt.getKeyChar(); 
+           
+          if(!Character.isDigit(c)) {  //Si el dato ingresado no es un número verificará:
+               if(Character.isLetter(c)) {//si es una letra
+                     evt.setKeyChar(Character.toUpperCase(c));//la registra pero como mayúscula
+                 }else{//todo lo demás será ignorado
+                     evt.consume();
+                 } 
+           }
+          
+          if (txt_serie_activo.getText().length()>=150){//Si el dato ingresado pasa del limite no se registrara en el campo
+             evt.consume();     
+         }
+    }//GEN-LAST:event_txt_serie_activoKeyTyped
+
+    private void txt_codigoInternoInsticucional_activoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoInternoInsticucional_activoKeyTyped
+        Character c = evt.getKeyChar();
+         if(Character.isLetter(c)) {//Si el dato ingresado es una letra se mostrará
+             evt.setKeyChar(c);
+         }else{                  //caso contrario no lo tomará en cuenta
+                 evt.consume();
+         }
+         
+         if (txt_codigoInternoInsticucional_activo.getText().length()>=200){//Si el dato ingresado pasa del limite no se registrara en el campo
+             evt.consume();     
+         }
+    }//GEN-LAST:event_txt_codigoInternoInsticucional_activoKeyTyped
+
+    private void rbtn_tipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtn_tipoMouseClicked
+        if (rbtn_tipo.isSelected()) {
+            if (!panelBusquedaTipo.isVisible()) {
+               panelBusquedaTipo.setVisible(true);  
+            } else{
+                panelBusquedaTipo.setVisible(false); 
+            }            
+         } 
+    }//GEN-LAST:event_rbtn_tipoMouseClicked
+
+    private void rbtn_serie_activoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtn_serie_activoMouseClicked
+        if (rbtn_serie_activo.isSelected()) {
+             panelBusquedaTipo.setVisible(false);  
+         } 
+    }//GEN-LAST:event_rbtn_serie_activoMouseClicked
+
+    private void rbtn_codigoinstitucional_activoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtn_codigoinstitucional_activoMouseClicked
+        if (rbtn_codigoinstitucional_activo.isSelected()) {
+             panelBusquedaTipo.setVisible(false);             
+         } 
+    }//GEN-LAST:event_rbtn_codigoinstitucional_activoMouseClicked
+
+    private void combo_tipo_activoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combo_tipo_activoMouseClicked
+        
+    }//GEN-LAST:event_combo_tipo_activoMouseClicked
+
+    private void combo_tipo_activoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combo_tipo_activoMousePressed
+        
+    }//GEN-LAST:event_combo_tipo_activoMousePressed
+
+    private void combo_tipo_activoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_tipo_activoActionPerformed
+        
+    }//GEN-LAST:event_combo_tipo_activoActionPerformed
+
+    private void combo_tipo_activoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combo_tipo_activoMouseMoved
+        
+    }//GEN-LAST:event_combo_tipo_activoMouseMoved
+
+    private void combo_tipo_activoMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combo_tipo_activoMouseReleased
+        
+    }//GEN-LAST:event_combo_tipo_activoMouseReleased
+
+    private void combo_tipo_activoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_tipo_activoItemStateChanged
+        
+    }//GEN-LAST:event_combo_tipo_activoItemStateChanged
+
+    private void combo_tipo_activoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combo_tipo_activoMouseEntered
+        if (!combo_tipo_activo.getSelectedItem().equals("Computador") || 
+                !combo_tipo_activo.getSelectedItem().equals("Laptop") ||!combo_tipo_activo.getSelectedItem().equals("CPU")) {
+            combo_procesador_activo.setEnabled(false);
+            combo_memoria_activo.setEnabled(false);
+            combo_discoduro_activo.setEnabled(false);
+            rbtn_procesador_activo.setEnabled(false);
+            rbtn_memoria_activo.setEnabled(false);
+            rbtn_discoduro_activo.setEnabled(false);
+        } else{
+            combo_procesador_activo.setEnabled(true);
+            combo_memoria_activo.setEnabled(true);
+            combo_discoduro_activo.setEnabled(true);
+            rbtn_procesador_activo.setEnabled(true);
+            rbtn_memoria_activo.setEnabled(true);
+            rbtn_discoduro_activo.setEnabled(true);
+        }
+    }//GEN-LAST:event_combo_tipo_activoMouseEntered
+
+    private void combo_tipo_activoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combo_tipo_activoMouseExited
+        if (!combo_tipo_activo.getSelectedItem().equals("Computador") || 
+                !combo_tipo_activo.getSelectedItem().equals("Laptop") ||!combo_tipo_activo.getSelectedItem().equals("CPU")) {
+            combo_procesador_activo.setEnabled(false);
+            combo_memoria_activo.setEnabled(false);
+            combo_discoduro_activo.setEnabled(false);
+            rbtn_procesador_activo.setEnabled(false);
+            rbtn_memoria_activo.setEnabled(false);
+            rbtn_discoduro_activo.setEnabled(false);
+        } else{
+            combo_procesador_activo.setEnabled(true);
+            combo_memoria_activo.setEnabled(true);
+            combo_discoduro_activo.setEnabled(true);
+            rbtn_procesador_activo.setEnabled(true);
+            rbtn_memoria_activo.setEnabled(true);
+            rbtn_discoduro_activo.setEnabled(true);
+        }
+    }//GEN-LAST:event_combo_tipo_activoMouseExited
+
+    private void jPanel4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseMoved
+        if (!combo_tipo_activo.getSelectedItem().equals("Computador") || 
+                !combo_tipo_activo.getSelectedItem().equals("Laptop") ||!combo_tipo_activo.getSelectedItem().equals("CPU")) {
+            combo_procesador_activo.setEnabled(false);
+            combo_memoria_activo.setEnabled(false);
+            combo_discoduro_activo.setEnabled(false);
+            rbtn_procesador_activo.setEnabled(false);
+            rbtn_memoria_activo.setEnabled(false);
+            rbtn_discoduro_activo.setEnabled(false);
+        } else{
+            combo_procesador_activo.setEnabled(true);
+            combo_memoria_activo.setEnabled(true);
+            combo_discoduro_activo.setEnabled(true);
+            rbtn_procesador_activo.setEnabled(true);
+            rbtn_memoria_activo.setEnabled(true);
+            rbtn_discoduro_activo.setEnabled(true);
+        }
+    }//GEN-LAST:event_jPanel4MouseMoved
 
     /**
      * @param args the command line arguments
@@ -682,6 +888,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     private javax.swing.JButton btn_nuevo;
     private javax.swing.JButton btn_regresar;
     private javax.swing.JButton btn_seleccionar;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox combo_discoduro_activo;
     private javax.swing.JComboBox combo_marca_activo;
     private javax.swing.JComboBox combo_memoria_activo;
