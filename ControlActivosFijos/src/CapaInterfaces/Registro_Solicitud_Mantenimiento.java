@@ -6,16 +6,12 @@
 package CapaInterfaces;
 
 import java.awt.GridBagLayout;
+import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Dayanna Luna
- */
 public class Registro_Solicitud_Mantenimiento extends javax.swing.JDialog {
-
-    /**
-     * Creates new form Registro_Solicitud_Mantenimiento
-     */
+   
+    Capa_Mensajes.Mensajes msj = new Capa_Mensajes.Mensajes();
+    
     public Registro_Solicitud_Mantenimiento(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -205,6 +201,11 @@ public class Registro_Solicitud_Mantenimiento extends javax.swing.JDialog {
         btn_guardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_guardar.setNextFocusableComponent(btn_nuevo);
         btn_guardar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_guardarActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btn_guardar);
 
         btn_actualizar.setBackground(new java.awt.Color(117, 214, 255));
@@ -261,6 +262,11 @@ public class Registro_Solicitud_Mantenimiento extends javax.swing.JDialog {
         btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/1/rubbish-bin (1).png"))); // NOI18N
         btn_eliminar.setContentAreaFilled(false);
         btn_eliminar.setNextFocusableComponent(tabla_solicitud_mantenimiento);
+        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -380,6 +386,17 @@ public class Registro_Solicitud_Mantenimiento extends javax.swing.JDialog {
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
         dispose();
     }//GEN-LAST:event_btn_regresarActionPerformed
+
+    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+        String a = "          !Solicitud guardada con éxito¡\n"
+                 + "¿Dese Envir a mantenimiento los activos?";
+        msj.msg_Pregunta(a);
+    }//GEN-LAST:event_btn_guardarActionPerformed
+
+    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
+      DefaultTableModel dtm = (DefaultTableModel) tabla_solicitud_mantenimiento.getModel();
+      dtm.removeRow(tabla_solicitud_mantenimiento.getSelectedRow()); 
+    }//GEN-LAST:event_btn_eliminarActionPerformed
 
     /**
      * @param args the command line arguments

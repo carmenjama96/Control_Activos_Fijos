@@ -20,7 +20,6 @@ public class RegistroMantenimiento extends javax.swing.JDialog {
     public RegistroMantenimiento(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        Activar_Desactivar();
     }
 
     /**
