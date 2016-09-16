@@ -6,6 +6,8 @@
 package CapaInterfaces;
 
 import java.awt.GridBagLayout;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 
 /** 
  *
@@ -13,7 +15,8 @@ import java.awt.GridBagLayout;
  * yisus
  */
 public class Solicitar_Mantenimiento extends javax.swing.JDialog {
-
+     DefaultTableModel model;         
+    Capa_ConexionBD.Conexion conexion = new Capa_ConexionBD.Conexion();
     /**
      * Creates new form Solicitar_Mantenimiento
      */
@@ -23,7 +26,55 @@ public class Solicitar_Mantenimiento extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         this.getContentPane().setLayout (new GridBagLayout());
     }
+    
+    
+    public void combo_Tipo_Area() {
+        combo_tipo_area.removeAllItems();
+        combo_tipo_area.addItem("Laboratorio");
+        combo_tipo_area.addItem("Administrativo");
+        combo_tipo_area.addItem("Docentes");
+    }
+    public void combo_Descripcion(){
+        combo_descripcion_area.removeAll();
+        conexion.crearConexion();        
+        String sql = "select descripcion_area  from tmaearecon where tipo_area='"+combo_tipo_area.getSelectedItem().toString()+"'";
+        ResultSet rs = conexion.ejecutarSQLSelect(sql);
+        try {
+            while (rs.next()) {
+                combo_descripcion_area.addItem(rs.getString(1));               
+            }
+        } catch (Exception ex) {
+            System.out.println("error");
+        }
+    }
+    public void Detalles_Busqueda() {
+        conexion.crearConexion();
+        String msj = "Manco";
+        String[] var1 = new String[10];
+        String[] var2 = {"Tipo", "Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Cod. Institucional"};
+        model = new DefaultTableModel(null, var2);
+        String sql = "select idTipo_activo,marca_activo,precesador_acrtivo,memoria_activo,discoduro_activo,modelo_activo,serie_activo,costo_activo,fechacompra_activo,codigointernoinstitucional_activo from tmovactcon";
+        ResultSet rs = conexion.ejecutarSQLSelect(sql);
+        try {
+            while (rs.next()) {
+                var1[0] = rs.getString(1);
+                var1[1] = rs.getString(2);
+                var1[2] = rs.getString(3);
+                var1[3] = rs.getString(4);
+                var1[4] = rs.getString(5);
+                var1[5] = rs.getString(6);
+                var1[6] = rs.getString(7);
+                var1[7] = rs.getString(8);
+                var1[8] = rs.getString(9);
+                var1[9] = rs.getString(10);
+                model.addRow(var1);
+                tabla_lista_activos.setModel(model);
+            }
+        } catch (Exception ex) {
+            System.out.println("error");
+        }
 
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,10 +114,10 @@ public class Solicitar_Mantenimiento extends javax.swing.JDialog {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jButton5.setBorder(null);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         label1.setAlignment(java.awt.Label.CENTER);
         label1.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
@@ -105,6 +156,11 @@ public class Solicitar_Mantenimiento extends javax.swing.JDialog {
         combo_tipo_area.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         combo_tipo_area.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
         combo_tipo_area.setNextFocusableComponent(combo_descripcion_area);
+        combo_tipo_area.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                combo_tipo_areaFocusGained(evt);
+            }
+        });
 
         jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         jRadioButton1.setText("Tipo de Área");
@@ -125,7 +181,7 @@ public class Solicitar_Mantenimiento extends javax.swing.JDialog {
         jRadioButton3.setText("Recursos Humanos");
 
         jButton3.setBorder(null);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icon_buscar(1).png"))); // NOI18N
         btn_buscar.setBorder(null);
@@ -322,6 +378,12 @@ public class Solicitar_Mantenimiento extends javax.swing.JDialog {
     private void btn_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarActionPerformed
         new Registro_Solicitud_Mantenimiento(this, true).setVisible(true);
     }//GEN-LAST:event_btn_asignarActionPerformed
+
+    private void combo_tipo_areaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_combo_tipo_areaFocusGained
+         if ("Seleccionar...".equals(combo_tipo_area.getSelectedItem().toString())) {
+            combo_Tipo_Area();
+        }    
+    }//GEN-LAST:event_combo_tipo_areaFocusGained
 
     /**
      * @param args the command line arguments
