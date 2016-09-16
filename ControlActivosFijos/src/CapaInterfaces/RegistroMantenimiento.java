@@ -5,6 +5,9 @@
  */
 package CapaInterfaces;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
+
 /**
  *
  * @author Karlita
@@ -17,6 +20,7 @@ public class RegistroMantenimiento extends javax.swing.JDialog {
     public RegistroMantenimiento(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        Activar_Desactivar();
     }
 
     /**
@@ -227,6 +231,16 @@ public class RegistroMantenimiento extends javax.swing.JDialog {
 
         rbtn_mantenimiento_preventivo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_mantenimiento_preventivo.setText("Preventivo");
+        rbtn_mantenimiento_preventivo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                rbtn_mantenimiento_preventivoItemStateChanged(evt);
+            }
+        });
+        rbtn_mantenimiento_preventivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtn_mantenimiento_preventivoActionPerformed(evt);
+            }
+        });
 
         rbtn_mantenimiento_correctivo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         rbtn_mantenimiento_correctivo.setText("Correctivo");
@@ -529,6 +543,14 @@ public class RegistroMantenimiento extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rbtn_mantenimiento_preventivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_mantenimiento_preventivoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtn_mantenimiento_preventivoActionPerformed
+   
+    private void rbtn_mantenimiento_preventivoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rbtn_mantenimiento_preventivoItemStateChanged
+       
+    }//GEN-LAST:event_rbtn_mantenimiento_preventivoItemStateChanged
 
     /**
      * @param args the command line arguments
