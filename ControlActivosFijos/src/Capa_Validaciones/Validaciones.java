@@ -1,6 +1,13 @@
 package Capa_Validaciones;
 
+import CapaInterfaces.Registro_Solicitud_Mantenimiento;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 public class Validaciones {
     //Esta funcion se utiliza para validar tanto modelo como serie en activos
@@ -174,6 +181,73 @@ public class Validaciones {
     //Metodo que verifica la igualdad de dos campos 
     public boolean IgualdadCampos(String campo1, String campo2){
       if (campo1==campo2){return true;}
-      JOptionPane.showMessageDialog(null,"no coninciden los campos"); return false ;                   
-    }   
+      JOptionPane.showMessageDialog(null,"no coninciden los campos"); return false ;  
+      
+    }
+    
+     // Con este metodo validamos la fecha minima y la fecha maxima que se puede ingresar
+    //OJO esto se llama despues del initComponents()
+    public void validaciondefecha(com.toedter.calendar.JDateChooser fecha_docSolicitud ){
+        ((JTextField) fecha_docSolicitud.getDateEditor()).setEditable(false);  
+        SimpleDateFormat simpleDateFormat_formatoFecha = new SimpleDateFormat("d/MM/yyyy");                 
+        Date date_fechaMinima=null;
+        Date date_fechaMaxima = new Date();        
+        try {            
+            date_fechaMinima= simpleDateFormat_formatoFecha.parse("01/01/2015");
+        } catch (ParseException ex) {
+            Logger.getLogger(Registro_Solicitud_Mantenimiento.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+        fecha_docSolicitud.setSelectableDateRange(date_fechaMinima, date_fechaMaxima);
+    }
+    
+    public boolean validadorDeCedula1(String cedula) {
+        boolean cedulaCorrecta = false;
+        try {
+            if (cedula.length() == 10) {
+                int PrimerDigito = Integer.parseInt(cedula.substring(0, 1)),
+                        SegundoDigito = Integer.parseInt(cedula.substring(1, 2));
+                if (PrimerDigito == 2 && SegundoDigito >= 5) {
+                    JOptionPane.showMessageDialog(null, "La Cédula ingresada es Incorrecta ");
+                    return cedulaCorrecta;
+                } else if (PrimerDigito > 3) {
+                    JOptionPane.showMessageDialog(null, "La Cédula ingresada es Incorrecta ");
+                    return cedulaCorrecta;
+                } else if (PrimerDigito < 3) {
+                    int[] coefValCedula = {2, 1, 2, 1, 2, 1, 2, 1, 2};
+                    int verificador = Integer.parseInt(cedula.substring(9, 10));
+                    int suma = 0;
+                    int digito = 0;
+                    for (int i = 0; i < (cedula.length() - 1); i++) {
+                        digito = Integer.parseInt(cedula.substring(i, i + 1)) * coefValCedula[i];
+                        suma += ((digito % 10) + (digito / 10));
+                    }
+                    if ((suma % 10 == 0) && (suma % 10 == verificador)) {
+                        cedulaCorrecta = true;
+                    } else if ((10 - (suma % 10)) == verificador) {
+                        cedulaCorrecta = true;
+
+                    } else {
+                        cedulaCorrecta = false;
+                    }
+                } else {
+                    cedulaCorrecta = false;
+                }
+            } else {
+                cedulaCorrecta = false;
+            }
+
+        } catch (NumberFormatException e) {
+            cedulaCorrecta = false;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Una excepcion ocurrio en el proceso de validadcion");
+            cedulaCorrecta = false;
+        }
+        if (!cedulaCorrecta) {
+            JOptionPane.showMessageDialog(null, "La Cédula ingresada es Incorrecta ");
+
+        }
+
+        return cedulaCorrecta;
+    }
+
 }
