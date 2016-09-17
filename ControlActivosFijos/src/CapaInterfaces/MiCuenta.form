@@ -29,7 +29,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="306" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="313" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -44,218 +44,147 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="169" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                          <Component id="label1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="76" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txt_apellidos_persona" max="32767" attributes="0"/>
+                                      <Component id="txt_correo_persona" pref="356" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="txt_nombre_persona" min="-2" pref="356" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="label2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="label3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="label4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txt_nombre_persona" max="32767" attributes="0"/>
-                              <Component id="txt_apellido_persona" max="32767" attributes="0"/>
-                              <Component id="txt_correo_persona" min="-2" pref="156" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="18" max="-2" attributes="0"/>
+                          <Component id="jLabel1" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
               </Group>
+              <Component id="jToolBar1" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  <Component id="label1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="label2" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_nombre_persona" min="-2" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Component id="jToolBar1" min="-2" pref="80" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_nombre_persona" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="label3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_apellido_persona" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txt_apellidos_persona" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="label4" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_correo_persona" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="txt_correo_persona" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="61" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="java.awt.Label" name="label1">
+        <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="alignment" type="int" value="1"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="18" style="1"/>
+              <Font name="Tahoma" size="21" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Configuraci&#xf3;n de cuenta"/>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Configuraci&#xf3;n de Cuenta"/>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="lb_Configuracion_Cuenta"/>
-          </AccessibilityProperties>
         </Component>
-        <Component class="java.awt.Label" name="label2">
+        <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="0"/>
+              <Font name="Tahoma" size="17" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nombres"/>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="lb_Nombres"/>
-          </AccessibilityProperties>
         </Component>
-        <Component class="java.awt.TextField" name="txt_nombre_persona">
+        <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="0"/>
-            </Property>
-          </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="txt_Nombres"/>
-          </AccessibilityProperties>
-        </Component>
-        <Component class="java.awt.Label" name="label3">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="0"/>
+              <Font name="Tahoma" size="17" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Apellidos"/>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="lb_Apellidos"/>
-          </AccessibilityProperties>
         </Component>
-        <Component class="java.awt.TextField" name="txt_apellido_persona">
+        <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="0"/>
+              <Font name="Tahoma" size="17" style="0"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="Corrreo"/>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="txt_Apellidos"/>
-          </AccessibilityProperties>
         </Component>
-        <Component class="java.awt.Label" name="label4">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Correo"/>
-          </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="lb_Correo"/>
-          </AccessibilityProperties>
+        <Component class="javax.swing.JTextField" name="txt_nombre_persona">
         </Component>
-        <Component class="java.awt.TextField" name="txt_correo_persona">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="12" style="0"/>
-            </Property>
-          </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="txt_Correo"/>
-          </AccessibilityProperties>
+        <Component class="javax.swing.JTextField" name="txt_apellidos_persona">
         </Component>
-        <Container class="javax.swing.JPanel" name="jPanel4">
+        <Component class="javax.swing.JTextField" name="txt_correo_persona">
+        </Component>
+        <Container class="javax.swing.JToolBar" name="jToolBar1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="d6" red="75" type="rgb"/>
             </Property>
+            <Property name="floatable" type="boolean" value="false"/>
+            <Property name="rollover" type="boolean" value="true"/>
           </Properties>
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btn_actualizar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btn_salir" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="jPanel7" alignment="1" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btn_actualizar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btn_salir" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="21" max="32767" attributes="0"/>
-                      <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="jPanel7">
+            <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="45" green="45" red="44" type="rgb"/>
+                  <Color blue="ff" green="d6" red="75" type="rgb"/>
                 </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-            </Container>
-            <Component class="javax.swing.JButton" name="btn_actualizar">
-              <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\refresh-page-arrow-button (1).png"/>
+                  <Image iconType="3" name="/Icons/refresh-page-arrow-button (1).png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Actualizar"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
+                <Property name="text" type="java.lang.String" value="   Actualizar   "/>
+                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton2">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="d6" red="75" type="rgb"/>
                 </Property>
-                <Property name="borderPainted" type="boolean" value="false"/>
-                <Property name="contentAreaFilled" type="boolean" value="false"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icons/logout (1).png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="   Regresar"/>
+                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="verticalTextPosition" type="int" value="3"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_actualizarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btn_salir">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Erick\Documents\NetBeansProjects\Control_Activos_Fijos\ControlActivosFijos\src\Icons\logout (1).png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Salir"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="null"/>
-                </Property>
-                <Property name="borderPainted" type="boolean" value="false"/>
-                <Property name="contentAreaFilled" type="boolean" value="false"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>

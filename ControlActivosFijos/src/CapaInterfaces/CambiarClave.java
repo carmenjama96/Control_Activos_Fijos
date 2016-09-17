@@ -19,6 +19,7 @@ public class CambiarClave extends javax.swing.JDialog {
     public CambiarClave(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
         setLocationRelativeTo(null);
     }
     
@@ -31,10 +32,6 @@ public class CambiarClave extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        label1 = new java.awt.Label();
-        label2 = new java.awt.Label();
-        label3 = new java.awt.Label();
-        label4 = new java.awt.Label();
         barra_tareas = new javax.swing.JToolBar();
         btn_actualizar = new javax.swing.JButton();
         btn_regresar = new javax.swing.JButton();
@@ -42,23 +39,13 @@ public class CambiarClave extends javax.swing.JDialog {
         txt_clave_usuario = new javax.swing.JPasswordField();
         txt_nuevaclave_usuario = new javax.swing.JPasswordField();
         txt_rnuevaclave_usuario = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setTitle("Cambiar Clave");
         setResizable(false);
-
-        label1.setAlignment(java.awt.Label.CENTER);
-        label1.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
-        label1.setForeground(new java.awt.Color(0, 0, 0));
-        label1.setText("Configuración de cuenta");
-
-        label2.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-        label2.setText("Clave Actual");
-
-        label3.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-        label3.setText("Confirmación");
-
-        label4.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
-        label4.setText("Clave Nueva");
 
         barra_tareas.setBackground(new java.awt.Color(117, 214, 255));
         barra_tareas.setFloatable(false);
@@ -117,6 +104,19 @@ public class CambiarClave extends javax.swing.JDialog {
         txt_rnuevaclave_usuario.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         txt_rnuevaclave_usuario.setNextFocusableComponent(btn_actualizar);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Configuración de Cuenta");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        jLabel2.setText("Clave Actual");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        jLabel3.setText("Clave Nueva");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
+        jLabel4.setText("Confirmación");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,21 +124,21 @@ public class CambiarClave extends javax.swing.JDialog {
             .addComponent(barra_tareas, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(127, 127, 127)
+                .addGap(146, 146, 146)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(txt_clave_usuario)
                     .addComponent(txt_nuevaclave_usuario)
                     .addComponent(txt_rnuevaclave_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(157, 157, 157))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,26 +146,22 @@ public class CambiarClave extends javax.swing.JDialog {
                 .addComponent(barra_tareas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_clave_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_clave_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_nuevaclave_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_nuevaclave_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_rnuevaclave_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_rnuevaclave_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addGap(29, 29, 29))
         );
-
-        label1.getAccessibleContext().setAccessibleName("lb_ConfiguraciónCuenta");
-        label2.getAccessibleContext().setAccessibleName("lb_Clave_Actual");
-        label3.getAccessibleContext().setAccessibleName("lb_Confirmacion");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -225,11 +221,11 @@ public class CambiarClave extends javax.swing.JDialog {
     private javax.swing.JToolBar barra_tareas;
     private javax.swing.JButton btn_actualizar;
     private javax.swing.JButton btn_regresar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private java.awt.Label label1;
-    private java.awt.Label label2;
-    private java.awt.Label label3;
-    private java.awt.Label label4;
     private javax.swing.JPasswordField txt_clave_usuario;
     private javax.swing.JPasswordField txt_nuevaclave_usuario;
     private javax.swing.JPasswordField txt_rnuevaclave_usuario;
