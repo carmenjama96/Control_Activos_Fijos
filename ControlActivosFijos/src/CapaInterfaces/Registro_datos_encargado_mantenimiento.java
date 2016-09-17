@@ -125,6 +125,11 @@ public class Registro_datos_encargado_mantenimiento extends javax.swing.JDialog 
         btn_regresar.setFocusable(false);
         btn_regresar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_regresar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_regresarActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btn_regresar);
 
         jPanel7.setBackground(new java.awt.Color(68, 69, 69));
@@ -219,6 +224,10 @@ public class Registro_datos_encargado_mantenimiento extends javax.swing.JDialog 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_guardarActionPerformed
+
+    private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
+        dispose();
+    }//GEN-LAST:event_btn_regresarActionPerformed
 
     /**
      * @param args the command line arguments
