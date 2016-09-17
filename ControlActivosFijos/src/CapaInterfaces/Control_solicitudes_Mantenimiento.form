@@ -184,6 +184,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="C&#xf3;digo Institucional"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rbtn_condigo_institucionalMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="combo_tipo_area">
           <Properties>
@@ -211,6 +214,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Fecha de solicitud"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="rbtn_fecha_docSolicitudMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbtn_estado_docSolicitud">
           <Properties>
@@ -229,7 +235,7 @@
               <Border info="null"/>
             </Property>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor de Mano"/>
+              <Color id="Default Cursor"/>
             </Property>
           </Properties>
         </Component>
@@ -609,7 +615,7 @@
                 </Property>
                 <Property name="contentAreaFilled" type="boolean" value="false"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Por defecto"/>
+                  <Color id="Default Cursor"/>
                 </Property>
                 <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
                   <ComponentRef name="btn_enviarMantenimiento"/>
