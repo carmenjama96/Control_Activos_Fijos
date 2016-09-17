@@ -5,7 +5,6 @@
  */
 package CapaInterfaces;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 
 /**
@@ -21,7 +20,9 @@ public class RegistroMantenimiento extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-
+    public void radioButton(){
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
