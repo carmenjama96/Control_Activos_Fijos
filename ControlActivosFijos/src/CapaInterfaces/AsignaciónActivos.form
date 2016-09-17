@@ -895,6 +895,9 @@
               <Image iconType="3" name="/Icons/icon_buscar.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JToolBar" name="jToolBar1">
           <Properties>
