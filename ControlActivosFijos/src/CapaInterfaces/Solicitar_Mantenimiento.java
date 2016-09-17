@@ -156,6 +156,11 @@ public class Solicitar_Mantenimiento extends javax.swing.JDialog {
         combo_tipo_area.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         combo_tipo_area.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
         combo_tipo_area.setNextFocusableComponent(combo_descripcion_area);
+        combo_tipo_area.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                combo_tipo_areaItemStateChanged(evt);
+            }
+        });
         combo_tipo_area.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 combo_tipo_areaFocusGained(evt);
@@ -164,6 +169,11 @@ public class Solicitar_Mantenimiento extends javax.swing.JDialog {
 
         jRadioButton1.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         jRadioButton1.setText("Tipo de Área");
+        jRadioButton1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButton1ItemStateChanged(evt);
+            }
+        });
 
         combo_descripcion_area.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         combo_descripcion_area.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -175,6 +185,7 @@ public class Solicitar_Mantenimiento extends javax.swing.JDialog {
 
         combo_tipo_rrhh.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         combo_tipo_rrhh.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        combo_tipo_rrhh.setEnabled(false);
         combo_tipo_rrhh.setNextFocusableComponent(btn_buscar);
 
         jRadioButton3.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
@@ -370,7 +381,7 @@ public class Solicitar_Mantenimiento extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+   
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
         dispose();
     }//GEN-LAST:event_btn_regresarActionPerformed
@@ -381,9 +392,17 @@ public class Solicitar_Mantenimiento extends javax.swing.JDialog {
 
     private void combo_tipo_areaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_combo_tipo_areaFocusGained
          if ("Seleccionar...".equals(combo_tipo_area.getSelectedItem().toString())) {
-            combo_Tipo_Area();
+            combo_Tipo_Area();           
         }    
     }//GEN-LAST:event_combo_tipo_areaFocusGained
+
+    private void jRadioButton1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton1ItemStateChanged
+       
+    }//GEN-LAST:event_jRadioButton1ItemStateChanged
+
+    private void combo_tipo_areaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_tipo_areaItemStateChanged
+        combo_Descripcion();
+    }//GEN-LAST:event_combo_tipo_areaItemStateChanged
 
     /**
      * @param args the command line arguments
