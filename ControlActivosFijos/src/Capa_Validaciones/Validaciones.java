@@ -1,6 +1,9 @@
 package Capa_Validaciones;
 
 import javax.swing.JOptionPane;
+import CapaInterfaces.Ingreso;
+import java.sql.Connection;
+import Capa_ConexionBD.Conexion;
 
 public class Validaciones {
     //Esta funcion se utiliza para validar tanto modelo como serie en activos
@@ -107,6 +110,10 @@ public class Validaciones {
         }
         return mensaje;        
     }
+    
+    
+    
+    
     
     public boolean validadorDeCedula(String cedula) {
         boolean cedulaCorrecta = false;
