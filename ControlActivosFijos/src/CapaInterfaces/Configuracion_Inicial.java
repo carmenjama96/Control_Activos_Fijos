@@ -5,6 +5,8 @@
  */
 package CapaInterfaces;
 import Capa_Validaciones.Validaciones;
+import Atxy2k.CustomTextField.RestrictedTextField;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +20,21 @@ public class Configuracion_Inicial extends javax.swing.JFrame {
      */
     public Configuracion_Inicial() {
         initComponents();
+        limitar_caracteres();
+    }
+    
+    // Dania Vèlez
+    public void limitar_caracteres(){
+        // limita el campo txt_nombre_institucion a que tenga tamaño 150
+        RestrictedTextField limite_nombreInstitucion = new RestrictedTextField(txt_nombre_institucion);
+        limite_nombreInstitucion.setLimit(150);
+                
+        // limita el campo txt_correo_institucion a que tenga tamaña 150
+        RestrictedTextField limite_correoInstitucion = new RestrictedTextField(txt_correo_institucion);
+        limite_correoInstitucion.setLimit(150);
+        
+        //LIMITAR el campo DIRECCION
+       
     }
 
     /**
