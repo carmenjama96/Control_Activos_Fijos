@@ -223,7 +223,11 @@ public class Ingreso extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cambiar_claveActionPerformed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
-        System.exit(0);
+        
+        if (JOptionPane.showConfirmDialog(null, "¿Está seguro de que desea salir de la aplicaciòn?", "Mensaje", 1) == 0) {
+              System.exit(0);
+         }
+      
     }//GEN-LAST:event_btn_salirActionPerformed
 
     private void txt_nombre_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombre_usuarioActionPerformed
