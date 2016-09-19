@@ -69,7 +69,7 @@ public class GestionAreas extends javax.swing.JDialog {
         jPanel6 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Gestón de Áreas");
+        setTitle("Gestión de Áreas");
         setResizable(false);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
