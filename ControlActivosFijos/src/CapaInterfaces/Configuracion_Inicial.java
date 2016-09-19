@@ -6,6 +6,13 @@
 package CapaInterfaces;
 import Capa_Validaciones.Validaciones;
 import Atxy2k.CustomTextField.RestrictedTextField;
+import java.sql.Connection;
+import Capa_ConexionBD.Conexion;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
@@ -263,18 +270,22 @@ public class Configuracion_Inicial extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // Dania Vélez
     private void btn_finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finalizarActionPerformed
         
         Validaciones validaciones = new Validaciones();
         
         if (validaciones.campos_vacios()==1){
+           // Insertar_Datos();
+        
             JOptionPane.showMessageDialog(null, "Instalación finalizada con éxito", "Aviso", JOptionPane.OK_OPTION);
         }
         
         
     }//GEN-LAST:event_btn_finalizarActionPerformed
 
+  
+    
     private void txt_nombre_institucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombre_institucionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_nombre_institucionActionPerformed
