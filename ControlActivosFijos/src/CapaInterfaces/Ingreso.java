@@ -222,7 +222,7 @@ public class Ingreso extends javax.swing.JFrame {
     private void btn_cambiar_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiar_claveActionPerformed
          
 
-        String correo = JOptionPane.showInputDialog("Ingrese su correo Porfavor");
+        String recuperar_clave = JOptionPane.showInputDialog("Ingrese su correo Porfavor");
         
         
         new CambiarClave(this, true).setVisible(true);
