@@ -4,6 +4,8 @@ import javax.swing.JOptionPane;
 import CapaInterfaces.Ingreso;
 import java.sql.Connection;
 import Capa_ConexionBD.Conexion;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Validaciones {
     //Esta funcion se utiliza para validar tanto modelo como serie en activos
@@ -161,7 +163,41 @@ public class Validaciones {
     }
     return cedulaCorrecta;
     }
+    
+    // Dania Vélez
+    // Validacion si el usuario que ingresa consta en la Base de Datos
+    public int validarLogin ()
+    {    
+         
+         Conexion conexion = new Conexion();
+         Connection conect = null;
+         conect = conexion.getConexion();
+         int resultado=0;
+        
+                 if(conexion.crearConexion()){
+                     String usuario= Ingreso.txt_nombre_usuario.getText();
+                     String clave = String.valueOf(Ingreso.txt_clave_usuario.getPassword());
+                     
+                     String sql = "Select * from tmaeusucon where nombre_usuario='"+usuario+"' and clave_usuario='"+clave+"' ";
+                     ResultSet rs = conexion.ejecutarSQLSelect(sql);
+                                      
+                     try{           
+                            if(rs.next()){
+                            resultado=1;
+                            
+                            }
 
+                      }catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, ex, "Error de conexión", JOptionPane.ERROR_MESSAGE);
+                        
+                      } 
+                 }
+       
+        return resultado;
+        
+                
+    }
+    
     
     
     
