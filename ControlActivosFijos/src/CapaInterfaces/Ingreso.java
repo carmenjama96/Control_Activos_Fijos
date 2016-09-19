@@ -193,8 +193,7 @@ public class Ingreso extends javax.swing.JFrame {
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
         
         Validaciones validaciones = new Validaciones();
-        
-        
+                
         if (validaciones.validarLogin()==1){
             this.dispose();
             new Principal().setVisible(true);
@@ -214,10 +213,11 @@ public class Ingreso extends javax.swing.JFrame {
                    + "Por favor ingrese un usuario y/o contraseña correctos", "Acceso denegado",
                   JOptionPane.ERROR_MESSAGE);
                   limpiar();
-
               }
+              
     }//GEN-LAST:event_btn_ingresarActionPerformed
 }
+    
     private void btn_cambiar_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiar_claveActionPerformed
          new CambiarClave(this, true).setVisible(true);
     }//GEN-LAST:event_btn_cambiar_claveActionPerformed
