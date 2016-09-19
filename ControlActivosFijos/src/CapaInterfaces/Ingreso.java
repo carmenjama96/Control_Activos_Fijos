@@ -193,84 +193,36 @@ public class Ingreso extends javax.swing.JFrame {
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
         
         
-        
         Validaciones validaciones = new Validaciones();
                 
         if (validaciones.validarLogin()==1){
             this.dispose();
             new Principal().setVisible(true);
           
-
-            
         }else {
             
-            try{
                 contador=contador+1;
-              if (contador==3){
+                if (contador==3){
                     JOptionPane.showMessageDialog(null, "Número de intentos agotados!!!!:\n"
                     + "Por favor ingrese Ingrese más tarde", "Número de intentos agotados",
                     JOptionPane.ERROR_MESSAGE);
                    limpiar();
-                  txt_nombre_usuario.disable();
-                  txt_clave_usuario.disable();
-                  Thread.sleep(10000);// invalida el formulario por el tiempo dado en segundos
-                  limpiar();
-                   txt_nombre_usuario.enable();
-                   txt_clave_usuario.enable();
+
                    
-              } else {
+                } else {
                   JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
                    + "Por favor ingrese un usuario y/o contraseña correctos", "Acceso denegado",
                   JOptionPane.ERROR_MESSAGE);
                   limpiar();
-              }
-            }
-            catch(InterruptedException e){
-                System.out.println(e);
-                
-            }
-            
-            
-            
-            
-            
-//              contador=contador+1;
-//              if (contador==3){
-//                    JOptionPane.showMessageDialog(null, "Número de intentos agotados!!!!:\n"
-//                    + "Por favor ingrese Ingrese más tarde", "Número de intentos agotados",
-//                    JOptionPane.ERROR_MESSAGE);
-//                   limpiar();
-//                   try
-//                   {
-//                       Thread.sleep(1000);
-//                       
-//                   }catch(InterruptedException e){
-//                       
-//                   }
-//                    
-//              } else {
-//                  JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
-//                   + "Por favor ingrese un usuario y/o contraseña correctos", "Acceso denegado",
-//                  JOptionPane.ERROR_MESSAGE);
-//                  limpiar();
-//              }
-              
+                }
     }//GEN-LAST:event_btn_ingresarActionPerformed
-}
+    }
     
     private void btn_cambiar_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiar_claveActionPerformed
          
-        String opcion=null;
         
-        if(JOptionPane.showInputDialog("Ingrese su correo Porfavor")==opcion){
-            
-          
-        }else{
-             JOptionPane.showMessageDialog(null, "Revise su correo:\n"
-                   + "Hemos enviado una clave temporal a su correo", "AVISO",
-                  JOptionPane.OK_OPTION); 
-            //new CambiarClave(this, true).setVisible(true);
-        }
+            new CambiarClave(this, true).setVisible(true);
+       
             
         
         
