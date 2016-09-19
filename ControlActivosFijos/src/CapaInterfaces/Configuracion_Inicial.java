@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package CapaInterfaces;
+import Capa_Validaciones.Validaciones;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -66,6 +68,12 @@ public class Configuracion_Inicial extends javax.swing.JFrame {
         jLabel5.setText("Correo");
 
         jLabel6.setText("Direccion");
+
+        txt_correo_institucion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_correo_institucionActionPerformed(evt);
+            }
+        });
 
         txt_nombre_institucion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,7 +231,14 @@ public class Configuracion_Inicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_finalizarActionPerformed
-        // TODO add your handling code here:
+        
+        Validaciones validaciones = new Validaciones();
+        
+        if (validaciones.campos_vacios()==1){
+            JOptionPane.showMessageDialog(null, "Instalación finalizada con éxito", "Aviso", JOptionPane.OK_OPTION);
+        }
+        
+        
     }//GEN-LAST:event_btn_finalizarActionPerformed
 
     private void txt_nombre_institucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombre_institucionActionPerformed
@@ -233,6 +248,10 @@ public class Configuracion_Inicial extends javax.swing.JFrame {
     private void txt_clave_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_clave_usuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_clave_usuarioActionPerformed
+
+    private void txt_correo_institucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_correo_institucionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_correo_institucionActionPerformed
 
     /**
      * @param args the command line arguments
