@@ -130,7 +130,7 @@ public class RegistroDocumentoAsignacion extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 21)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Registro de Documentación de Asignación ");
+        jLabel1.setText("Registro de Documento de Asignación ");
 
         tabla_documentos_asignacion.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         tabla_documentos_asignacion.setModel(new javax.swing.table.DefaultTableModel(
