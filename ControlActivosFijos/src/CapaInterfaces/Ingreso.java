@@ -197,6 +197,7 @@ public class Ingreso extends javax.swing.JFrame {
         if (validaciones.validarLogin()==1){
             this.dispose();
             new Principal().setVisible(true);
+           // new Principal().setVisible(true);
 
             
         }else {
