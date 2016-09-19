@@ -203,7 +203,7 @@ public class Validaciones {
     
     //Dania Vèlez
     // Mètodo para validar si hay campos vacios en la configuracion
-    public int campos_vacios()
+    public int campos_vacios_configuracion()
     {
         int vacio=0;
         
