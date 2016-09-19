@@ -21,8 +21,14 @@ public class Ingreso extends javax.swing.JFrame {
     }
     
     public void limitar_caracteres(){
+        // limita el campo nombre a que tenga tamaño 20
         RestrictedTextField limite_nombre = new RestrictedTextField(txt_nombre_usuario);
         limite_nombre.setLimit(20);
+        
+        
+        // limita el campo clave a que tenga tamaña 16
+        RestrictedTextField limite_clave = new RestrictedTextField(txt_clave_usuario);
+        limite_clave.setLimit(16);
     }
     
     int contador=0;
