@@ -60,6 +60,11 @@ public class Ingreso extends javax.swing.JFrame {
 
         txt_nombre_usuario.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         txt_nombre_usuario.setNextFocusableComponent(txt_clave_usuario);
+        txt_nombre_usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nombre_usuarioActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         jLabel4.setText("Clave");
@@ -181,6 +186,10 @@ public class Ingreso extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btn_salirActionPerformed
 
+    private void txt_nombre_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombre_usuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombre_usuarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -227,7 +236,7 @@ public class Ingreso extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel;
-    private javax.swing.JPasswordField txt_clave_usuario;
-    private javax.swing.JTextField txt_nombre_usuario;
+    public static javax.swing.JPasswordField txt_clave_usuario;
+    public static javax.swing.JTextField txt_nombre_usuario;
     // End of variables declaration//GEN-END:variables
 }
