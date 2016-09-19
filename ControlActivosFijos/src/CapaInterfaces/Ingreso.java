@@ -196,9 +196,11 @@ public class Ingreso extends javax.swing.JFrame {
         Validaciones validaciones = new Validaciones();
                 
         if (validaciones.validarLogin()==1){
+            
             this.dispose();
             new Principal().setVisible(true);
-          
+           
+           
         }else {
             
                 contador=contador+1;
@@ -220,12 +222,8 @@ public class Ingreso extends javax.swing.JFrame {
     
     private void btn_cambiar_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiar_claveActionPerformed
          
-        
             new CambiarClave(this, true).setVisible(true);
        
-            
-        
-        
         
     }//GEN-LAST:event_btn_cambiar_claveActionPerformed
 
