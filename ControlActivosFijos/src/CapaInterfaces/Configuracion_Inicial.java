@@ -29,12 +29,24 @@ public class Configuracion_Inicial extends javax.swing.JFrame {
         RestrictedTextField limite_nombreInstitucion = new RestrictedTextField(txt_nombre_institucion);
         limite_nombreInstitucion.setLimit(150);
                 
-        // limita el campo txt_correo_institucion a que tenga tamaña 150
+        // limita el campo txt_correo_institucion a que tenga tamaño 150
         RestrictedTextField limite_correoInstitucion = new RestrictedTextField(txt_correo_institucion);
         limite_correoInstitucion.setLimit(150);
         
         //LIMITAR el campo DIRECCION
-       
+        
+        // limita el campo txt_correo_persona a que tenga tamaño 150
+        RestrictedTextField limite_correoPersona = new RestrictedTextField(txt_correo_persona);
+        limite_correoPersona.setLimit(150);
+        
+        // limita el campo txt_correo_persona a que tenga tamaño 16
+        RestrictedTextField limite_claveUsuario = new RestrictedTextField(txt_clave_usuario);
+        limite_correoPersona.setLimit(16);
+        
+        // limita el campo txt_confirmarclave_usuario a que tenga tamaño 16
+        RestrictedTextField limite_confirmeClave_usuario = new RestrictedTextField(txt_confirmarclave_usuario);
+        limite_confirmeClave_usuario.setLimit(16);
+        
     }
 
     /**
