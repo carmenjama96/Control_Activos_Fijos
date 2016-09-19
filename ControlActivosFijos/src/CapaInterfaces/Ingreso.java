@@ -195,7 +195,7 @@ public class Ingreso extends javax.swing.JFrame {
 
             
         }else {
-            // cambiar el formato de los mensajes
+            // cambiar el formato de los mensajes xD
               contador=contador+1;
               if (contador==3){
                     JOptionPane.showMessageDialog(null, "Número de intentos agotados!!!!:\n"
