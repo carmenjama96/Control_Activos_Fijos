@@ -197,7 +197,7 @@ public class Ingreso extends javax.swing.JFrame {
         if (validaciones.validarLogin()==1){
             this.dispose();
             new Principal().setVisible(true);
-           // new Principal().setVisible(true);
+          
 
             
         }else {
@@ -220,7 +220,12 @@ public class Ingreso extends javax.swing.JFrame {
 }
     
     private void btn_cambiar_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiar_claveActionPerformed
-         new CambiarClave(this, true).setVisible(true);
+         
+
+        String correo = JOptionPane.showInputDialog("Ingrese su correo Porfavor");
+        
+        
+        new CambiarClave(this, true).setVisible(true);
     }//GEN-LAST:event_btn_cambiar_claveActionPerformed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
