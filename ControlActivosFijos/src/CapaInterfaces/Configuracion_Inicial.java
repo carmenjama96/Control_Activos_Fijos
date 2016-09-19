@@ -284,11 +284,11 @@ public class Configuracion_Inicial extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField txt_clave_usuario;
-    private javax.swing.JTextField txt_confirmarclave_usuario;
-    private javax.swing.JTextField txt_correo_institucion;
-    private javax.swing.JTextField txt_correo_persona;
-    private javax.swing.JTextArea txt_direccion_institucion;
-    private javax.swing.JTextField txt_nombre_institucion;
+    public static javax.swing.JTextField txt_clave_usuario;
+    public static javax.swing.JTextField txt_confirmarclave_usuario;
+    public static javax.swing.JTextField txt_correo_institucion;
+    public static javax.swing.JTextField txt_correo_persona;
+    public static javax.swing.JTextArea txt_direccion_institucion;
+    public static javax.swing.JTextField txt_nombre_institucion;
     // End of variables declaration//GEN-END:variables
 }
