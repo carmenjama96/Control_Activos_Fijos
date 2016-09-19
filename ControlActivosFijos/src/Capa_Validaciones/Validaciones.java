@@ -180,6 +180,7 @@ public class Validaciones {
                      String clave = String.valueOf(Ingreso.txt_clave_usuario.getPassword());
                      
                      String sql = "Select * from tmaeusucon where nombre_usuario='"+usuario+"' and clave_usuario='"+clave+"' ";
+                     //String sql2 = "Select tipo_usuario from tmaeusucon where nombre_usuario='"+usuario+"' and clave_usuario='"+clave+"' ";
                      ResultSet rs = conexion.ejecutarSQLSelect(sql);
                                       
                      try{           
