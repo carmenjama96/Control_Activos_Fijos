@@ -3,7 +3,8 @@ package CapaInterfaces;
 
 import java.awt.GridBagLayout;
 import Atxy2k.CustomTextField.RestrictedTextField;
-
+import Capa_Validaciones.Validaciones;
+import javax.swing.JOptionPane;   
 /**
  *
  * @author Carmen
@@ -23,6 +24,16 @@ public class Ingreso extends javax.swing.JFrame {
         RestrictedTextField limite_nombre = new RestrictedTextField(txt_nombre_usuario);
         limite_nombre.setLimit(20);
     }
+    
+    int contador=0;
+    
+    public void limpiar() 
+    {
+        txt_nombre_usuario.setText("");
+        txt_clave_usuario.setText("");
+            
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -174,10 +185,33 @@ public class Ingreso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
-        dispose();
-        new Principal().setVisible(true);
-    }//GEN-LAST:event_btn_ingresarActionPerformed
+        
+        Validaciones validaciones = new Validaciones();
+        
+        
+        if (validaciones.validarLogin()==1){
+            this.dispose();
+            new Principal().setVisible(true);
 
+            
+        }else {
+            // cambiar el formato de los mensajes
+              contador=contador+1;
+              if (contador==3){
+                    JOptionPane.showMessageDialog(null, "Número de intentos agotados!!!!:\n"
+                    + "Por favor ingrese Ingrese más tarde", "Número de intentos agotados",
+                    JOptionPane.ERROR_MESSAGE);
+                   limpiar();
+                    
+              } else {
+                  JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
+                   + "Por favor ingrese un usuario y/o contraseña correctos", "Acceso denegado",
+                  JOptionPane.ERROR_MESSAGE);
+                  limpiar();
+
+              }
+    }//GEN-LAST:event_btn_ingresarActionPerformed
+}
     private void btn_cambiar_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiar_claveActionPerformed
          new CambiarClave(this, true).setVisible(true);
     }//GEN-LAST:event_btn_cambiar_claveActionPerformed
