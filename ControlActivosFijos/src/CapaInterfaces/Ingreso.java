@@ -213,10 +213,11 @@ public class Ingreso extends javax.swing.JFrame {
                    limpiar();
                   txt_nombre_usuario.disable();
                   txt_clave_usuario.disable();
-                  Thread.sleep(10000);
+                  Thread.sleep(10000);// invalida el formulario por el tiempo dado en segundos
+                  limpiar();
                    txt_nombre_usuario.enable();
                    txt_clave_usuario.enable();
-                   limpiar();
+                   
               } else {
                   JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
                    + "Por favor ingrese un usuario y/o contraseña correctos", "Acceso denegado",
