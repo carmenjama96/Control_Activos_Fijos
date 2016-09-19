@@ -2,6 +2,7 @@ package Capa_Validaciones;
 
 import javax.swing.JOptionPane;
 import CapaInterfaces.Ingreso;
+import CapaInterfaces.Configuracion_Inicial;
 import java.sql.Connection;
 import Capa_ConexionBD.Conexion;
 import java.sql.ResultSet;
@@ -198,6 +199,16 @@ public class Validaciones {
                 
     }
     
+    
+    //Dania Vèlez
+    // Mètodo para validar si hay campos vacios en la configuracion
+    public int campos_vacios()
+    {
+       
+        return 0;
+        
+    }
+            
     
     
     
