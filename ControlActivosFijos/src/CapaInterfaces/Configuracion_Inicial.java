@@ -154,6 +154,11 @@ public class Configuracion_Inicial extends javax.swing.JFrame {
         );
 
         btn_cancelar.setText("Cancelar");
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Correo:");
 
@@ -281,6 +286,13 @@ public class Configuracion_Inicial extends javax.swing.JFrame {
     private void txt_correo_institucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_correo_institucionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_correo_institucionActionPerformed
+
+    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+               
+         if (JOptionPane.showConfirmDialog(null, "¿Está seguro de que desea cancelar la instalación?", "Mensaje", 1) == 0) {
+              System.exit(0);
+         }
+    }//GEN-LAST:event_btn_cancelarActionPerformed
 
     /**
      * @param args the command line arguments
