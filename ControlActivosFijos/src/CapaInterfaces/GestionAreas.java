@@ -20,7 +20,7 @@ public class GestionAreas extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        this.getContentPane().setLayout (new GridBagLayout());
+        this.getContentPane().setLayout(new GridBagLayout());
         table_area.getTableHeader().setReorderingAllowed(false);
     }
 

@@ -78,7 +78,8 @@ public class Ingreso extends javax.swing.JFrame {
         txt_clave_usuario.setNextFocusableComponent(btn_ingresar);
 
         btn_cambiar_clave.setBackground(new java.awt.Color(237, 237, 237));
-        btn_cambiar_clave.setText("¿Olvido su clave?");
+        btn_cambiar_clave.setText("¿Olvidó su clave?");
+        btn_cambiar_clave.setToolTipText("");
         btn_cambiar_clave.setBorder(null);
         btn_cambiar_clave.setContentAreaFilled(false);
         btn_cambiar_clave.addActionListener(new java.awt.event.ActionListener() {
@@ -174,7 +175,7 @@ public class Ingreso extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ingresarActionPerformed
 
     private void btn_cambiar_claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cambiar_claveActionPerformed
-         new CambiarClave(this, true).setVisible(true);
+         new OlvidoClave(this, true).setVisible(true);
     }//GEN-LAST:event_btn_cambiar_claveActionPerformed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
