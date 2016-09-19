@@ -204,8 +204,25 @@ public class Validaciones {
     // Mètodo para validar si hay campos vacios en la configuracion
     public int campos_vacios()
     {
-       
-        return 0;
+        int vacio=0;
+        
+        String nombre_institucion= Configuracion_Inicial.txt_nombre_institucion.getText();
+        String correo_institucion= Configuracion_Inicial.txt_correo_institucion.getText();
+        String direccion_institucion= Configuracion_Inicial.txt_direccion_institucion.getText();
+        String correo_persona= Configuracion_Inicial.txt_correo_persona.getText();
+        String clave_persona= Configuracion_Inicial.txt_clave_usuario.getText();
+        String confirmeClave_persona=Configuracion_Inicial.txt_confirmarclave_usuario.getText();
+        
+        if (nombre_institucion.equals("")|| correo_institucion.equals("")|| 
+            direccion_institucion.equals("")|| correo_persona.equals("")|| 
+                clave_persona.equals("")|| confirmeClave_persona.equals("")){
+            
+            JOptionPane.showMessageDialog(null, "No puede dejar un campo sin llenar.", "Campo(s) vacio(s)", JOptionPane.ERROR_MESSAGE);
+        } else
+            vacio=1;
+        
+        
+        return vacio;
         
     }
             
