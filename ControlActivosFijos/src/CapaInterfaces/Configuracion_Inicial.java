@@ -48,7 +48,7 @@ public class Configuracion_Inicial extends javax.swing.JFrame {
         
         // limita el campo txt_correo_persona a que tenga tamaño 16
         RestrictedTextField limite_claveUsuario = new RestrictedTextField(txt_clave_usuario);
-        limite_correoPersona.setLimit(16);
+        limite_claveUsuario.setLimit(16);
         
         // limita el campo txt_confirmarclave_usuario a que tenga tamaño 16
         RestrictedTextField limite_confirmeClave_usuario = new RestrictedTextField(txt_confirmarclave_usuario);
@@ -275,7 +275,7 @@ public class Configuracion_Inicial extends javax.swing.JFrame {
         
         Validaciones validaciones = new Validaciones();
         
-        if (validaciones.campos_vacios()==1){
+        if (validaciones.campos_vacios_configuracion()==1){
            // Insertar_Datos();
         
             JOptionPane.showMessageDialog(null, "Instalación finalizada con éxito", "Aviso", JOptionPane.OK_OPTION);
