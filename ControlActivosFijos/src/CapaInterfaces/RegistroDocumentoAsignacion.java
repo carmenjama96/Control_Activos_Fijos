@@ -12,17 +12,28 @@ import java.awt.GridBagLayout;
  * @author Alejandro
  */
 public class RegistroDocumentoAsignacion extends javax.swing.JDialog {
-
+    private String oficio;
     /**
      * Creates new form RegistroDocumentoAsignacion
      */
-    public RegistroDocumentoAsignacion(java.awt.Dialog parent, boolean modal) {
+    public RegistroDocumentoAsignacion(java.awt.Dialog parent, boolean modal, String oficio) {
         super(parent, modal);
         initComponents();
         this.getContentPane().setLayout (new GridBagLayout());
         this.setLocationRelativeTo(null);
+        this.oficio = oficio;
+        txt_codigoOficio_asigActivo.setText(oficio);
         tabla_documentos_asignacion.getTableHeader().setReorderingAllowed(false);
     }
+    
+    public RegistroDocumentoAsignacion(java.awt.Dialog parent, boolean modal) {
+        super(parent, modal);
+        initComponents();
+        this.getContentPane().setLayout (new GridBagLayout());
+        this.setLocationRelativeTo(null);        
+        tabla_documentos_asignacion.getTableHeader().setReorderingAllowed(false);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -324,7 +335,7 @@ public class RegistroDocumentoAsignacion extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        txt_codigoOficio_asigActivo.getAccessibleContext().setAccessibleName("txt_Codigo_Oficio");
+        txt_codigoOficio_asigActivo.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -411,6 +422,6 @@ public class RegistroDocumentoAsignacion extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JTable tabla_documentos_asignacion;
-    private javax.swing.JTextField txt_codigoOficio_asigActivo;
+    public static javax.swing.JTextField txt_codigoOficio_asigActivo;
     // End of variables declaration//GEN-END:variables
 }
