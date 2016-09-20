@@ -17,14 +17,13 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.security.auth.Subject;
-import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 
 public class CorreoActivosMantenimientoProgramado {
     
-   private  static final String cadena = "jdbc:postgresql://localhost:5432/ControlActivosInformaticos";
+    private  static final String cadena = "jdbc:postgresql://localhost:5432/ControlActivosInformaticos";
     private  static final String usuario = "postgres";
     private  static final String contrasenia = "12345";        
     
@@ -108,23 +107,20 @@ public class CorreoActivosMantenimientoProgramado {
 
            Session session = Session.getInstance(props,
                    new javax.mail.Authenticator() {
+                       @Override
                        protected PasswordAuthentication getPasswordAuthentication() {
                            return new PasswordAuthentication(Username, PassWord);
                        }
                    });
 
            try {
-
-               Message message = new MimeMessage(session);
-               message.setFrom(new InternetAddress(Username));
-               message.setRecipients(Message.RecipientType.TO,
-                       InternetAddress.parse(To));
-               message.setSubject(Subject);
-               message.setText(Mensage);
-
-               Transport.send(message);
-               System.out.println("Mensaje Enviado");
-
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress(Username));
+                message.setRecipients(Message.RecipientType.TO,
+                InternetAddress.parse(To));
+                message.setSubject(Subject);
+                message.setText(Mensage);
+                Transport.send(message);               
            } catch (MessagingException e) {
                throw new RuntimeException(e);
            }
