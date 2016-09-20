@@ -67,6 +67,7 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("ActiSoft");
         setExtendedState(6);
+        setMinimumSize(new java.awt.Dimension(800, 600));
         addWindowStateListener(new java.awt.event.WindowStateListener() {
             public void windowStateChanged(java.awt.event.WindowEvent evt) {
                 formWindowStateChanged(evt);
@@ -95,7 +96,7 @@ public class Principal extends javax.swing.JFrame {
         txt_actisoft.setFont(new java.awt.Font("Calibri Light", 0, 220)); // NOI18N
         txt_actisoft.setForeground(new java.awt.Color(61, 168, 255));
         txt_actisoft.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txt_actisoft.setText("actisoft");
+        txt_actisoft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/otros/fondo.png"))); // NOI18N
         txt_actisoft.setNextFocusableComponent(txt_actisoft);
 
         txt_nombre_institucion.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
@@ -265,8 +266,8 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_configuracion)
                     .addComponent(btn_ayuda))
-                .addGap(219, 219, 219)
-                .addComponent(txt_actisoft, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_actisoft, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())

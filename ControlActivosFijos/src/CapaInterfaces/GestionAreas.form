@@ -3,7 +3,7 @@
 <Form version="1.6" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Control de &#xc1;reas"/>
+    <Property name="title" type="java.lang.String" value="Gesti&#xf3;n de &#xc1;reas"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -71,7 +71,7 @@
                           <EmptySpace min="0" pref="7" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jPanel3" max="32767" attributes="0"/>
-                      <Component id="jPanel2" alignment="1" pref="796" max="32767" attributes="0"/>
+                      <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -115,7 +115,7 @@
               <Font name="Tahoma" size="21" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Control de &#xc1;reas"/>
+            <Property name="text" type="java.lang.String" value="Gesti&#xf3;n de &#xc1;reas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -195,7 +195,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btn_buscar_responsabl" min="-2" pref="45" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="7" max="32767" attributes="0"/>
                       <Component id="btn_buscar_responsable" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>

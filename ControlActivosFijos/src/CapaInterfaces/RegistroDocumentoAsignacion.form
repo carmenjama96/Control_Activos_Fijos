@@ -279,7 +279,7 @@
               <Font name="Tahoma" size="21" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Registro de Documentaci&#xf3;n de Asignaci&#xf3;n "/>
+            <Property name="text" type="java.lang.String" value="Registro de Documento de Asignaci&#xf3;n "/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane3">
