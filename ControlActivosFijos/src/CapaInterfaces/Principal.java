@@ -5,7 +5,6 @@
  */
 package CapaInterfaces;
 
-
 /**
  *
  * @author Erick
@@ -349,16 +348,15 @@ public class Principal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        }                
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-                
+            public void run() {                
+                new Principal().setVisible(true);                
             }
-        });
+        });                
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
