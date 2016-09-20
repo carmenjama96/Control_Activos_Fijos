@@ -991,19 +991,9 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         int[] row = tabla_activoSinResponsable.getSelectedRows();
         int numero = row.length;int id=0;String s="";
         for (int i = 0; i < (numero); i++) {
-            id = Integer.parseInt(tabla_activoSinResponsable.getValueAt(row[i], 0).toString());
-            row[i]=id;
-            if(i>0)
-            {
-                s+=" and id_activo ="+row[i];
-            }
-            else
-            {
-                s+="id_activo ="+row[i];
-            }                        
-        }                        
-        Capa_Negocio.NewClass.ingresarIdsActivos(s);
-        JOptionPane.showMessageDialog(null, Capa_Negocio.NewClass.returnIdsActivos());
+            id = Integer.parseInt(tabla_activoSinResponsable.getValueAt(row[i], 0).toString());            
+            RegistroDocumentoAsignacion.id_activoasignar.add(id);
+        }                                        
         new RegistroDocumentoAsignacion( this, true).setVisible(true);
     }//GEN-LAST:event_btn_asignarActionPerformed
 

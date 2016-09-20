@@ -6,6 +6,7 @@
 package CapaInterfaces;
 
 import java.awt.GridBagLayout;
+import java.util.ArrayList;
 
 /**
  *
@@ -25,7 +26,7 @@ public class RegistroDocumentoAsignacion extends javax.swing.JDialog {
         txt_codigoOficio_asigActivo.setText(oficio);
         tabla_documentos_asignacion.getTableHeader().setReorderingAllowed(false);
     }
-    
+    public static ArrayList<Integer> id_activoasignar = new ArrayList<Integer>();
     public RegistroDocumentoAsignacion(java.awt.Dialog parent, boolean modal) {
         super(parent, modal);
         initComponents();
