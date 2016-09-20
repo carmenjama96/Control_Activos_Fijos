@@ -9,10 +9,13 @@ import java.awt.GridBagLayout;
 import java.awt.event.KeyEvent;
 import javax.swing.table.DefaultTableModel;
 import Capa_ConexionBD.Conexion;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -23,17 +26,18 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
     /**
      * Creates new form BusquedaActivoResponsable
      */
-    public BusquedaActivoResponsable(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public BusquedaActivoResponsable(java.awt.Frame parent, boolean modal) {//Constructor
+        super(parent, modal);//Se inician todos los componentes del form según se requiera
         initComponents();
         this.getContentPane().setLayout (new GridBagLayout());
         this.setLocationRelativeTo(null);
         tabla_activos_responsable.getTableHeader().setReorderingAllowed(false);  
         combo_oficio.removeAllItems();
         combo_oficio.setEnabled(false);
+        check_oficio.setEnabled(false);
     }
 
-    Conexion conexion = new Conexion();
+    Conexion conexion = new Conexion();//Nuevo objeto de conexión con la BD
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,8 +95,13 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
         });
         tabla_activos_responsable.removeColumn(tabla_activos_responsable.getColumnModel().getColumn(0));
         tabla_activos_responsable.setNextFocusableComponent(btn_eliminar);
-        tabla_activos_responsable.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        tabla_activos_responsable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tabla_activos_responsable.getTableHeader().setReorderingAllowed(false);
+        tabla_activos_responsable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_activos_responsableMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tabla_activos_responsable);
 
         check_oficio.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
@@ -172,6 +181,11 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
         btn_imprimir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_imprimir.setNextFocusableComponent(txt_responsable);
         btn_imprimir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_imprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_imprimirActionPerformed(evt);
+            }
+        });
         jToolBar2.add(btn_imprimir);
 
         btn_regresar.setBackground(new java.awt.Color(117, 214, 255));
@@ -303,94 +317,121 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
     Integer numeroColumnas = 11;
     
-    
-    public void cargarComboOficio(){
-        combo_oficio.removeAllItems();
-        ArrayList<String> resultat;
+    public void cargarComboOficio(){//Método para cargar el comboBox de Oficio
+        combo_oficio.removeAllItems();//Primero se vacía el combo box
+        ArrayList<String> resultat;//Creamos las listas de array que necesitaremos
         ArrayList<String> ls = new ArrayList<String>();
-        String valResponsable = txt_responsable.getText().toString();
+        String valResponsable = txt_responsable.getText().toString();//Se obtiene el valor del JTextField de Responsable
         String sql = "select codigooficio_asigactivo from tmovdascon as a inner join tmaearecon as b on (a.idarea_asigactivo = b.id_area)\n" +
                      "inner join tmovrehcon as c on (b.idresponsable_area = c.id_rrhh) inner join tmaepercon as d on (c.idpersona_rrhh = d.id_persona) "
                      + "where (d.nombre_persona like '"+valResponsable+"%' and a.id_asigactivo > 2) or (d.nombre_persona like '"+valResponsable+"%' and a.id_asigactivo > 2);";
-        
-         ResultSet rs = conexion.ejecutarSQLSelect(sql);
+        //Se crea el query necesario para obtener los resultados a mostrar en el comboBox
+         ResultSet rs = conexion.ejecutarSQLSelect(sql);//Ejecutamos el query y lo guardamos en un ResultSet
                 try {
-                     while(rs.next()){
+                     while(rs.next()){//Mientras haya registros
                          
-                         ls.add(rs.getString("codigooficio_asigactivo"));
-                     }               
-                 } catch (SQLException ex) {
+                         ls.add(rs.getString("codigooficio_asigactivo"));//Se obtendrá el siguiente registro del campo mencionado
+                     }               //y se lo agrega a la lista de array -> ls
+                 } catch (SQLException ex) {//Si no se puede con el try obtener resultados
+                     JOptionPane.showMessageDialog(rootPane,"exception: "+ex);//Se mostrará un mensaje con el error
                  }
                  resultat = ls;//La consulta tiene que retornar un ArrayList
                  
-                 for(int i=0; i<resultat.size();i++){
-                     combo_oficio.addItem(resultat.get(i));
+                 for(int i=0; i<resultat.size();i++){// Se recorre la lista mientras las iteraciones sean menores a su tamaño
+                     combo_oficio.addItem(resultat.get(i));//Se obtendrá el objeto en la lista según su posición y será agregado al comboBox
                  }
     }
     
-    public void busquedaResponsable(){  
-        String valResponsable = txt_responsable.getText().toString();        
-        if (conexion.crearConexion() && !valResponsable.equals("")) {            
+    public void busquedaResponsable(){  //Método para buscar activos por responsables
+        String valResponsable = txt_responsable.getText().toString(); //Se obtiene el valor del JTextField de Responsable     
+        if (conexion.crearConexion() && !valResponsable.equals("")) { //Si se puede hacer la conexión y el texto de Responsable no está vacío           
             String[] titulos = {"Id","Tipo","Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Código Interno"};
-            DefaultTableModel modelo = new DefaultTableModel (null, titulos); 
-            Object[] fila = new Object[11];
+            DefaultTableModel modelo = new DefaultTableModel (null, titulos); //Se crea un vector String para titulos de table y con ellos un nuevo modelo de tabla
+            Object[] fila = new Object[11];//Se crea un vector de tipo Objeto
             String sql = "select  id_activo, idtipo_activo, marca_activo, precesador_acrtivo, memoria_activo, discoduro_activo, modelo_activo, \n" +
                          "serie_activo, costo_activo, fechacompra_activo, codigointernoinstitucional_activo from tmovactcon as a \n" +
                          "inner join tmovdascon as b on (a.iddocasignacion_activo = b.id_asigactivo)\n" +
                          "inner join tmaearecon as c on (b.idarea_asigactivo = c.id_area)\n" +
                          "inner join tmovrehcon as d on (c.idresponsable_area = d.id_rrhh)\n" +
-                         "inner join tmaepercon as e on (d.idpersona_rrhh = e.id_persona) where (e.apellido_persona like '"+valResponsable+"%' and b.id_asigactivo > 2) or (e.nombre_persona like '"+valResponsable+"%' and b.id_asigactivo > 2);";
-                        try{
-                            ResultSet rs = conexion.ejecutarSQLSelect(sql);
-
-                            while(rs.next()){
-                                  for (int i = 1; i <= numeroColumnas; i++) {                                      
-                                    fila[i - 1] = rs.getObject(i) ;                                      
+                         "inner join tmaepercon as e on (d.idpersona_rrhh = e.id_persona) where (e.apellido_persona like '"+valResponsable+"%' and b.id_asigactivo > 2) or (e.nombre_persona like '"+valResponsable+"%' and b.id_asigactivo > 2) order by a.id_activo asc;";
+                        try{//Se crea el query para hacer la búsqueda de activos
+                            ResultSet rs = conexion.ejecutarSQLSelect(sql);//Se ejecuta el query
+                            while(rs.next()){//Mientras exista registros
+                                  for (int i = 1; i <= numeroColumnas; i++) {    //Se seguirá recorriendo mientras el número de i sea menor a las columnas que queremos                                  
+                                    fila[i - 1] = rs.getObject(i) ;   //Se obtiene el objeto n´mero i de rs y se lo guarda en el vector fila en la posición i-1                                   
                                 } 
-                            modelo.addRow(fila);
+                            modelo.addRow(fila);//Se agrega la fila al modelo de la tabla
                             }
-                            tabla_activos_responsable.setModel(modelo);                            
-                        }catch(Exception ex){
+                            tabla_activos_responsable.setModel(modelo);  //Se coloca el modelo de la tabla en la tabla                          
+                        }catch(Exception ex){//Si no se obtiene resultados en el try
 
-                            JOptionPane.showMessageDialog(rootPane,"exception: "+ex);
+                            JOptionPane.showMessageDialog(rootPane,"exception: "+ex);//Se mostrará un mensaje con el error
                         }
         }   
     }
     
+    public void eliminarAsignación(){//Método para quitar la asignación de un activo a un responsable
+        if (!idActivo.equals("")) {//Si el objeto idActivo no está vacío
+            if (JOptionPane.showConfirmDialog(rootPane, "¿Desea realmente desasignar el activo de su responsable?",//Se muestra un cuadro de dialogo
+                "confirmar acción", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {//Pidiendo confirmación, si es afirmativo
+                if (conexion.crearConexion()) {//Se verifica la conexión
+                    String sql = "update tmovactcon set iddocasignacion_activo = 2 where id_activo = "+idActivo+";";//Se crea el query para la consulta
+                    conexion.ejecutarSQL(sql);//Se lleva a cabo la consulta
+                    JOptionPane.showMessageDialog(rootPane,"El activo ya no tiene responsable asignado");//Se confirma que el activo ya no está asignado
+                    idActivo = "";//Se coloca vacío el objeto idActivo
+                }
+                DefaultTableModel tablaResponsable = (DefaultTableModel) tabla_activos_responsable.getModel();//Se obtiene el modelo de la tabla 
+                tablaResponsable.removeRow(tabla_activos_responsable.getSelectedRow()); //Se remueve la fila que se desasignó
+            }            
+        } else{//Si idActivo está vacío
+            JOptionPane.showMessageDialog(rootPane,"No ha seleccionado ningún activo");//Se muestra el mensaje que no se ha seleccionado activos
+        }
+    }
+    
     private void txt_responsableKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_responsableKeyTyped
-        Character c = evt.getKeyChar();
-                if(Character.isLetter(c) || c == KeyEvent.VK_SPACE ) {
-                    evt.setKeyChar(c);     
-                    busquedaResponsable();                     
+        //Validación del campo de Responsable
+        Character c = evt.getKeyChar();//Se captura la tecla presionada
+                if(Character.isLetter(c) || c == KeyEvent.VK_SPACE || c == KeyEvent.VK_BACK_SPACE) {//Si el caracter es una letra, espacio o la tecla de borrar
+                    evt.setKeyChar(c);  //Se coloca el caracter                       
+                    if (txt_responsable.getText().equals("")) {//Se verifica si el textField de Responsable está vacío
+                        String[] titulos ={"Id","Tipo","Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Código Interno"};
+                        DefaultTableModel modelo = new DefaultTableModel (null, titulos); //Se crea un vector String para titulos de table y con ellos un nuevo modelo de tabla
+                        tabla_activos_responsable.setModel(modelo);//Se coloca el modelo en la tabla
+                        check_oficio.setEnabled(false);//Se pone como disable el check_oficio
+                    } else{//Si el TextField de Responsable no está vacío
+                        check_oficio.setEnabled(true);//Se pone como enable el check_oficio
+                    }
+                    busquedaResponsable(); //Se ejecuta el método para buscar responsable                   
                 }else{
-                        evt.consume();                                      
+                        evt.consume(); //Cualquier otro caracter no será ingresado al campo
                 }    
                 
-                if (check_oficio.isSelected()) {                    
-                    cargarComboOficio();
+                if (check_oficio.isSelected()) {     //Verifica si el check_oficio está seleccionado               
+                    cargarComboOficio();//Se carga el combo box de Oficios
                 }
     }//GEN-LAST:event_txt_responsableKeyTyped
 
     private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
         
-            if (!check_oficio.isSelected() || combo_oficio.getItemCount() <= 0) {
-                JOptionPane.showMessageDialog(rootPane,"Aquí: "+ combo_oficio.getItemCount());
-            } else{
-                
-                new RegistroDocumentoAsignacion( this, true).setVisible(true);
+            if (!check_oficio.isSelected() || combo_oficio.getItemCount() <= 0) {//Se verifica que la seleccion sea valida
+                JOptionPane.showMessageDialog(rootPane,"No ha seleccionado ningún oficio");//En caso de no serlo se mostrará el mensaje
+            } else{//Si la opción es válida
+                String oficio = combo_oficio.getSelectedItem().toString();  //Se obtiene el texto del Item seleccionado y se guarda              
+                new RegistroDocumentoAsignacion( this, true, oficio).setVisible(true);  //Se abre el nuevo formulario y se envía el dato requerido              
             }      
     }//GEN-LAST:event_btn_actualizarActionPerformed
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
-        dispose();
+        dispose();//Se cierra el formulario
     }//GEN-LAST:event_btn_regresarActionPerformed
 
     private void btn_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevoActionPerformed
         String[] titulos ={"Id","Tipo","Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Código Interno"};
         DefaultTableModel modelo = new DefaultTableModel (null, titulos); 
-        tabla_activos_responsable.setModel(modelo);
+        tabla_activos_responsable.setModel(modelo);//Se limpia el Jtable 
     }//GEN-LAST:event_btn_nuevoActionPerformed
 
     private void combo_oficioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_oficioActionPerformed
@@ -398,15 +439,17 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
     }//GEN-LAST:event_combo_oficioActionPerformed
 
     private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
-        //tabla_activos_responsable.
+        eliminarAsignación();//Se llama al método para eliminar una asignación
     }//GEN-LAST:event_btn_eliminarActionPerformed
 
     private void check_oficioStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_oficioStateChanged
-        if (check_oficio.isSelected()) {
-            combo_oficio.setEnabled(true);
+        if (check_oficio.isSelected()) {//Si el check_oficio está seleccionado
+            combo_oficio.setEnabled(true);//El combo_oficio saldrá activado
+            cargarComboOficio();//Se cargarán los datos al combo box
         }
-        else{
-            combo_oficio.setEnabled(false);
+        else{//Caso contrario
+            combo_oficio.setEnabled(false);//El combo_ofico se pondrá desactivado
+            combo_oficio.removeAllItems();//Se removerán todos los datos del combo
         }
     }//GEN-LAST:event_check_oficioStateChanged
 
@@ -417,6 +460,22 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
     private void check_oficioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_check_oficioMouseClicked
 
     }//GEN-LAST:event_check_oficioMouseClicked
+Object idActivo = new Object[1];
+
+    private void tabla_activos_responsableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_activos_responsableMouseClicked
+            JTable table =(JTable) evt.getSource();//Crea el evento para la tabla
+            idActivo = "";
+            Point point = evt.getPoint();//Para obtener posición del mouse
+            int row = table.rowAtPoint(point);//Para saber en que fila se hizo click            
+            if (evt.getClickCount() == 1) {//Si se ha dado un click
+                idActivo = tabla_activos_responsable.getValueAt(tabla_activos_responsable.getSelectedRow(), 0);                  
+            } //Se obtiene el valor de la columna 0 de la fila seleccionada y se guarda en idActivo              
+            
+    }//GEN-LAST:event_tabla_activos_responsableMouseClicked
+
+    private void btn_imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirActionPerformed
+        
+    }//GEN-LAST:event_btn_imprimirActionPerformed
 
     /**
      * @param args the command line arguments
