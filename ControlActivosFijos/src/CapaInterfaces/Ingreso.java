@@ -171,7 +171,7 @@ public class Ingreso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
-        //Capa_Negocio.CorreoActivosMantenimientoProgramado.SendMail();
+        Capa_Negocio.CorreoActivosMantenimientoProgramado.SendMail();
         dispose();
         new Principal().setVisible(true);
     }//GEN-LAST:event_btn_ingresarActionPerformed

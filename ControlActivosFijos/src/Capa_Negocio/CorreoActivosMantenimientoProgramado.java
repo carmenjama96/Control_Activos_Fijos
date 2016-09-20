@@ -5,8 +5,6 @@ package Capa_Negocio;
  * @author Kevin Muñiz
  */
 
-import com.oracle.jrockit.jfr.Transition;
-import static com.oracle.jrockit.jfr.Transition.To;
 import java.net.Socket;
 import java.util.Properties;
 import javax.mail.Message;
@@ -16,7 +14,6 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.security.auth.Subject;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
