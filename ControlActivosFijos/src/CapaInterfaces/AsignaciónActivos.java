@@ -2,6 +2,7 @@ package CapaInterfaces;
 
 import Capa_ConexionBD.Conexion;
 import java.awt.GridBagLayout;
+import java.awt.Checkbox;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,14 +15,13 @@ import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import Objetos.Cell_Editor;
-import Objetos.Cell_Render;
 
 public class AsignaciónActivos extends javax.swing.JDialog {
 
     /**
      * Creates new form AsignaciónActivos
      */
+        
      int banderaOculta = 0;
      String Tipos[] = {"Cámara de Vigilancia","CPU","Computadora de Escritorio","Detector de Huellas","Impresora","Mouse","Pantalla o Monitor","Portátil","Proyector","Servidores","Teclado","Otros"};
      String CamaraVigilancia[] = {"Samsung","Sony","EverFocus","Avtech","Otros"};
@@ -286,11 +286,11 @@ public class AsignaciónActivos extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Id", "Tipo ", "Marca", "Procesador", "Memoria ", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Cod. Institucional"
+                "Id", "Tipo ", "Marca", "Procesador", "Memoria ", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Cod. Institucional", "Seleccion"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -815,14 +815,21 @@ public class AsignaciónActivos extends javax.swing.JDialog {
                     if (conexion.crearConexion()) {
                         String[] titulos ={"Id","Tipo","Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Código Interno"};
                         DefaultTableModel modelo = new DefaultTableModel (null, titulos); 
-                        Object[] fila = new Object[11];                      
+                        Object[] fila = new Object[12];                      
                         String sql="select  id_activo, idtipo_activo, marca_activo, precesador_acrtivo, memoria_activo, discoduro_activo, modelo_activo, serie_activo, costo_activo, fechacompra_activo, codigointernoinstitucional_activo from tmovactcon where marca_activo = '"+valMarca+"' and idtipo_activo = '"+numTipo+"' and iddocasignacion_activo = 1";
                         try{
                             ResultSet rs = conexion.ejecutarSQLSelect(sql);
                             while(rs.next()){
-                                  for (int i = 1; i <= numeroColumnas; i++) {                                      
+                                  int i;
+                                  for (i = 1; i <= numeroColumnas; i++) {                                      
                                           fila[i - 1] = rs.getObject(i) ;                                                                          
-                                    }
+                                    }                                  
+                                Checkbox checkbox;
+                                checkbox =new Checkbox("checkB"+titulos[1], false);
+                                checkbox.setVisible(true);
+                                checkbox.setSize(20, 20);
+                                checkbox.setLabel("");
+                                fila[i+1]= (checkbox);
                                 modelo.addRow(fila);
                             }
                             tabla_activoSinResponsable.setModel(modelo);                              
@@ -979,8 +986,24 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
         dispose();
     }//GEN-LAST:event_btn_regresarActionPerformed
-
+    
     private void btn_asignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_asignarActionPerformed
+        int[] row = tabla_activoSinResponsable.getSelectedRows();
+        int numero = row.length;int id=0;String s="";
+        for (int i = 0; i < (numero); i++) {
+            id = Integer.parseInt(tabla_activoSinResponsable.getValueAt(row[i], 0).toString());
+            row[i]=id;
+            if(i>0)
+            {
+                s+=" and id_activo ="+row[i];
+            }
+            else
+            {
+                s+="id_activo ="+row[i];
+            }                        
+        }                        
+        Capa_Negocio.NewClass.ingresarIdsActivos(s);
+        JOptionPane.showMessageDialog(null, Capa_Negocio.NewClass.returnIdsActivos());
         new RegistroDocumentoAsignacion( this, true).setVisible(true);
     }//GEN-LAST:event_btn_asignarActionPerformed
 

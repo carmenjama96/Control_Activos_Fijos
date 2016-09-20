@@ -38,8 +38,8 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
         combo_oficio.removeAllItems();
         combo_oficio.setEnabled(false);
         check_oficio.setEnabled(false);
-    }
-
+    }    
+    
     Conexion conexion = new Conexion();//Nuevo objeto de conexión con la BD
     /**
      * This method is called from within the constructor to initialize the form.
