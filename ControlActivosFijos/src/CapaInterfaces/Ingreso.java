@@ -46,6 +46,7 @@ public class Ingreso extends javax.swing.JFrame {
         setTitle("Inicio Sesión");
         setBackground(new java.awt.Color(255, 255, 255));
         setExtendedState(6);
+        setMinimumSize(new java.awt.Dimension(420, 450));
 
         jPanel.setBackground(new java.awt.Color(243, 243, 243));
         jPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());

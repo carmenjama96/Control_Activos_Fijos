@@ -170,6 +170,9 @@
     <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="title" type="java.lang.String" value="ActiSoft"/>
     <Property name="extendedState" type="int" value="6"/>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[800, 600]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -220,8 +223,8 @@
                   <Component id="btn_configuracion" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_ayuda" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
-              <Component id="txt_actisoft" min="-2" pref="198" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="txt_actisoft" min="-2" pref="323" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel2" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -275,7 +278,9 @@
           <Color blue="ff" green="a8" red="3d" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="actisoft"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/Icons/otros/fondo.png"/>
+        </Property>
         <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
           <ComponentRef name="txt_actisoft"/>
         </Property>
