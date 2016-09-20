@@ -11,9 +11,12 @@ import javax.swing.table.DefaultTableModel;
 import Capa_ConexionBD.Conexion;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
+import java.awt.print.PrinterException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
@@ -402,7 +405,9 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
                         tabla_activos_responsable.setModel(modelo);//Se coloca el modelo en la tabla
                         check_oficio.setEnabled(false);//Se pone como disable el check_oficio
                     } else{//Si el TextField de Responsable no está vacío
-                        check_oficio.setEnabled(true);//Se pone como enable el check_oficio
+                        if (tabla_activos_responsable.getRowCount() > 0) {//Si hay datos en la tabla
+                            check_oficio.setEnabled(true);//Se pone como enable el check_oficio
+                        }
                     }
                     busquedaResponsable(); //Se ejecuta el método para buscar responsable                   
                 }else{
@@ -474,7 +479,15 @@ Object idActivo = new Object[1];
     }//GEN-LAST:event_tabla_activos_responsableMouseClicked
 
     private void btn_imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_imprimirActionPerformed
-        
+        if (tabla_activos_responsable.getRowCount() > 0) {//Si hay datos en la tabla
+            try {
+                tabla_activos_responsable.print();//envia los datos de la tabla a la impresora
+            } catch (PrinterException ex) { //Si no se cumple nada en el try mostrará el error
+                Logger.getLogger(BusquedaActivoResponsable.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane,"No hay datos para imprimir");//Si no hay datos se moestrará el mensaje
+        }
     }//GEN-LAST:event_btn_imprimirActionPerformed
 
     /**
