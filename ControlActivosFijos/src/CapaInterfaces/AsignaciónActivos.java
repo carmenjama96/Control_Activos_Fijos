@@ -1,41 +1,61 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CapaInterfaces;
 
 import Capa_ConexionBD.Conexion;
 import java.awt.GridBagLayout;
+import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import Objetos.Cell_Editor;
+import Objetos.Cell_Render;
 
-/**
- *
- * @author Alejandro
- */
 public class AsignaciónActivos extends javax.swing.JDialog {
 
     /**
      * Creates new form AsignaciónActivos
      */
      int banderaOculta = 0;
+     String Tipos[] = {"Cámara de Vigilancia","CPU","Computadora de Escritorio","Detector de Huellas","Impresora","Mouse","Pantalla o Monitor","Portátil","Proyector","Servidores","Teclado","Otros"};
+     String CamaraVigilancia[] = {"Samsung","Sony","EverFocus","Avtech","Otros"};
+     String CPU[] = {"HP","DELL","TOSHIBA","ACER","Otros"};
+     String DetectorHuellas[] = {"Secugeu Hamster Plus"};
+     String Impresora[] = {"Epson","Canon","HP","Xerox","Otros"};
+     String Mouse[] = {"Genius","Compac","HP","Microsoft","Otros"};
+     String Pantalla[] = {"LG","ACER","HP","LENOVO","BENQ","Otros"};
+     String Proyector[] = {"EPSON","SONY","PANASONIC","INFOCUS","Otros"};
+     String Servidores[] = {"IBM","TOSHIBA","DELL","COMPAQ","Otros"};
+     String Teclado[] = {"DELL","Genius","DLINK","Microsoft","Otros"};
+     String Otros[] = {"Otros"};
+     String Procesador[] = {"Core i7", "Core i5", "Core i3"};
+     String Memoria[] = {"8 GB", "4 GB", "2 GB", "1 GB"};
+     String DiscoDuro[] = {"160 GB","250 GB","320 GB","500 GB","1 TB","1.5 TB","2 TB","2.5 TB","3TB"};
+     
     public AsignaciónActivos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         panelBusquedaTipo.setVisible(false);
+        rbtn_marca_activo.setSelected(true);
         this.setLocationRelativeTo(null);
         //this.getContentPane().setLayout (new GridBagLayout());
-        cargar();
-        
-            
+        cargar();           
+        cargarMarcas();
     }
     
     Conexion conexion = new Conexion();
-   
+
+    public AsignaciónActivos() {
+        
+    }
+
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -84,7 +104,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         txt_serie_activo = new javax.swing.JTextField();
         rbtn_codigoinstitucional_activo = new javax.swing.JRadioButton();
         txt_codigoInternoInsticucional_activo = new javax.swing.JTextField();
-        jButton9 = new javax.swing.JButton();
+        btn_buscar = new javax.swing.JButton();
         jToolBar1 = new javax.swing.JToolBar();
         btn_nuevo = new javax.swing.JButton();
         btn_asignar = new javax.swing.JButton();
@@ -266,27 +286,25 @@ public class AsignaciónActivos extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Id", "Tipo ", "Marca", "Procesador", "Memoria ", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Cod. Institucional", ""
+                "Id", "Tipo ", "Marca", "Procesador", "Memoria ", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Cod. Institucional"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, true
+                false, false, false, false, false, false, false, false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
         tabla_activoSinResponsable.setNextFocusableComponent(btn_asignar);
-        tabla_activoSinResponsable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tabla_activoSinResponsable.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         tabla_activoSinResponsable.getTableHeader().setReorderingAllowed(false);
+        tabla_activoSinResponsable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_activoSinResponsableMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tabla_activoSinResponsable);
         tabla_activoSinResponsable.getAccessibleContext().setAccessibleName("Tabla_Busqueda_Sin_Responsable");
 
@@ -324,19 +342,39 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         combo_marca_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         combo_marca_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
         combo_marca_activo.setNextFocusableComponent(btn_buscar_activo);
+        combo_marca_activo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                combo_marca_activoItemStateChanged(evt);
+            }
+        });
 
         combo_procesador_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         combo_procesador_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
         combo_procesador_activo.setNextFocusableComponent(btn_buscar_activo);
+        combo_procesador_activo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                combo_procesador_activoItemStateChanged(evt);
+            }
+        });
 
         combo_memoria_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         combo_memoria_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
         combo_memoria_activo.setName(""); // NOI18N
         combo_memoria_activo.setNextFocusableComponent(btn_buscar_activo);
+        combo_memoria_activo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                combo_memoria_activoItemStateChanged(evt);
+            }
+        });
 
         combo_discoduro_activo.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         combo_discoduro_activo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
         combo_discoduro_activo.setNextFocusableComponent(btn_buscar_activo);
+        combo_discoduro_activo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                combo_discoduro_activoItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelBusquedaTipoLayout = new javax.swing.GroupLayout(panelBusquedaTipo);
         panelBusquedaTipo.setLayout(panelBusquedaTipoLayout);
@@ -478,15 +516,15 @@ public class AsignaciónActivos extends javax.swing.JDialog {
             }
         });
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icon_buscar(1).png"))); // NOI18N
-        jButton9.setBorder(null);
-        jButton9.setContentAreaFilled(false);
-        jButton9.setNextFocusableComponent(btn_asignar);
-        jButton9.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icon_buscar(1).png"))); // NOI18N
-        jButton9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icon_buscar.png"))); // NOI18N
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icon_buscar(1).png"))); // NOI18N
+        btn_buscar.setBorder(null);
+        btn_buscar.setContentAreaFilled(false);
+        btn_buscar.setNextFocusableComponent(btn_asignar);
+        btn_buscar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icon_buscar(1).png"))); // NOI18N
+        btn_buscar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icon_buscar.png"))); // NOI18N
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                btn_buscarActionPerformed(evt);
             }
         });
 
@@ -501,6 +539,11 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         btn_nuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_nuevo.setNextFocusableComponent(combo_tipo_activo);
         btn_nuevo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_nuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nuevoActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btn_nuevo);
 
         btn_asignar.setBackground(new java.awt.Color(117, 214, 255));
@@ -548,6 +591,11 @@ public class AsignaciónActivos extends javax.swing.JDialog {
 
         btn_seleccionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/1/seleccionar.png"))); // NOI18N
         btn_seleccionar.setContentAreaFilled(false);
+        btn_seleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_seleccionarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -597,7 +645,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
                                     .addComponent(rbtn_codigoinstitucional_activo)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(txt_codigoInternoInsticucional_activo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jButton9, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(btn_buscar, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane3)
@@ -611,9 +659,9 @@ public class AsignaciónActivos extends javax.swing.JDialog {
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -633,7 +681,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_buscar_activo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton9)))
+                        .addComponent(btn_buscar)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
@@ -657,127 +705,90 @@ public class AsignaciónActivos extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    public void verificarBusqueda(){
+        if (!rbtn_serie_activo.isSelected() && !rbtn_codigoinstitucional_activo.isSelected() && !rbtn_tipo.isSelected()) {
+                JOptionPane.showMessageDialog(rootPane,"Debe elegir un criterio de búsqueda");
+            } else{
+                if ((rbtn_serie_activo.isSelected() && txt_serie_activo.getText().equals(""))||(rbtn_codigoinstitucional_activo.isSelected() && txt_codigoInternoInsticucional_activo.getText().equals(""))) {
+                        JOptionPane.showMessageDialog(rootPane,"Debe ingresar un dato para la búsqueda");
+                    } else{
+                            buscar();
+                        }
+                }    
+    }
+    
     public void cargar(){
-    if (conexion.crearConexion()) {
-                combo_tipo_activo.removeAllItems(); //Vaciamos el JComboBox
-                ArrayList<String> resultat;
-                ArrayList<String> ls = new ArrayList<String>();
-                String sql="select nombre_tipoactivo from tmaetaccon";
-                ResultSet rs = conexion.ejecutarSQLSelect(sql);
-                try {
-                    while(rs.next()){
-                        
-                        ls.add(rs.getString("nombre_tipoactivo"));
-                    }               
-                } catch (SQLException ex) {
-                }
-                resultat = ls;//La consulta tiene que retornar un ArrayList
-                
-                for(int i=0; i<resultat.size();i++){
-                    combo_tipo_activo.addItem(resultat.get(i));
-                }
-        }
-         
+        combo_tipo_activo.setModel(new javax.swing.DefaultComboBoxModel(Tipos));                 
     }
     
-    public void cargarMarcas(){
-    if (conexion.crearConexion()) {
-                combo_marca_activo.removeAllItems(); //Vaciamos el JComboBox
-                Integer valTipoActivo = combo_tipo_activo.getSelectedIndex() +1;
-                ArrayList<String> resultat;
-                ArrayList<String> ls = new ArrayList<String>();
-                String sql="select distinct marca_activo from tmovactcon where idtipo_activo = '"+valTipoActivo+"'";
-                ResultSet rs = conexion.ejecutarSQLSelect(sql);
-                try {
-                    while(rs.next()){
-                        
-                        ls.add(rs.getString("marca_activo"));
-                    }               
-                } catch (SQLException ex) {
-                }
-                resultat = ls;//La consulta tiene que retornar un ArrayList
-                
-                for(int i=0; i<resultat.size();i++){
-                    combo_marca_activo.addItem(resultat.get(i));
-                }
-        }
-         
+    public void cargarComponentes(){
+        combo_procesador_activo.setModel(new javax.swing.DefaultComboBoxModel(Procesador));
+        combo_memoria_activo.setModel(new javax.swing.DefaultComboBoxModel(Memoria));
+        combo_discoduro_activo.setModel(new javax.swing.DefaultComboBoxModel(DiscoDuro));
     }
     
-    public void cargarProcesador(){
-    if (conexion.crearConexion()) {
-                combo_procesador_activo.removeAllItems(); //Vaciamos el JComboBox
-                Integer valTipoActivo = combo_tipo_activo.getSelectedIndex() +1;
-                ArrayList<String> resultat;
-                ArrayList<String> ls = new ArrayList<String>();
-                String sql="select distinct precesador_acrtivo from tmovactcon where idtipo_activo = '"+valTipoActivo+"'";
-                ResultSet rs = conexion.ejecutarSQLSelect(sql);
-                try {
-                    while(rs.next()){
-                        
-                        ls.add(rs.getString("precesador_acrtivo"));
-                    }               
-                } catch (SQLException ex) {
-                }
-                resultat = ls;//La consulta tiene que retornar un ArrayList
-                
-                for(int i=0; i<resultat.size();i++){
-                    combo_procesador_activo.addItem(resultat.get(i));
-                }
-        }
-         
+    public void vaciarComponentes(){
+        combo_procesador_activo.removeAllItems();
+        combo_memoria_activo.removeAllItems();
+        combo_discoduro_activo.removeAllItems();
     }
     
-    public void cargarMemoria(){
-    if (conexion.crearConexion()) {
-                combo_memoria_activo.removeAllItems(); //Vaciamos el JComboBox
-                Integer valTipoActivo = combo_tipo_activo.getSelectedIndex() +1;
-                ArrayList<String> resultat;
-                ArrayList<String> ls = new ArrayList<String>();
-                String sql="select distinct memoria_activo from tmovactcon where idtipo_activo = '"+valTipoActivo+"'";
-                ResultSet rs = conexion.ejecutarSQLSelect(sql);
-                try {
-                    while(rs.next()){
-                        
-                        ls.add(rs.getString("memoria_activo"));
-                    }               
-                } catch (SQLException ex) {
-                }
-                resultat = ls;//La consulta tiene que retornar un ArrayList
-                
-                for(int i=0; i<resultat.size();i++){
-                    combo_memoria_activo.addItem(resultat.get(i));
-                }
-        }
-         
+   public void cargarMarcas(){
+       String tipoActivo = combo_tipo_activo.getSelectedItem().toString();
+       if (combo_tipo_activo.getSelectedItem().equals("Computadora de Escritorio") || 
+                combo_tipo_activo.getSelectedItem().equals("Portátil") || combo_tipo_activo.getSelectedItem().equals("CPU")){
+           combo_marca_activo.setModel(new javax.swing.DefaultComboBoxModel(CPU));
+           cargarComponentes();
+       } else{
+           if (combo_tipo_activo.getSelectedItem().equals("Cámara de Vigilancia")) {
+               combo_marca_activo.setModel(new javax.swing.DefaultComboBoxModel(CamaraVigilancia));
+               vaciarComponentes();
+           } else{
+               if (combo_tipo_activo.getSelectedItem().equals("Detector de Huellas")) {
+                    combo_marca_activo.setModel(new javax.swing.DefaultComboBoxModel(DetectorHuellas));
+                    vaciarComponentes();
+               } else{
+                   if (combo_tipo_activo.getSelectedItem().equals("Impresora")) {
+                        combo_marca_activo.setModel(new javax.swing.DefaultComboBoxModel(Impresora));
+                        vaciarComponentes();
+                   } else{
+                        if (combo_tipo_activo.getSelectedItem().equals("Mouse")) {
+                            combo_marca_activo.setModel(new javax.swing.DefaultComboBoxModel(Mouse));
+                            vaciarComponentes();
+                        }  else{
+                            if (combo_tipo_activo.getSelectedItem().equals("Pantalla o Monitor")) {
+                                combo_marca_activo.setModel(new javax.swing.DefaultComboBoxModel(Pantalla));
+                                vaciarComponentes();
+                            } else{
+                                if (combo_tipo_activo.getSelectedItem().equals("Proyector")) {
+                                    combo_marca_activo.setModel(new javax.swing.DefaultComboBoxModel(Proyector));
+                                    vaciarComponentes();
+                                }  else{
+                                    if (combo_tipo_activo.getSelectedItem().equals("Servidores")) {
+                                        combo_marca_activo.setModel(new javax.swing.DefaultComboBoxModel(Servidores));
+                                        vaciarComponentes();
+                                    } else{
+                                        if (combo_tipo_activo.getSelectedItem().equals("Teclado")) {
+                                            combo_marca_activo.setModel(new javax.swing.DefaultComboBoxModel(Teclado));
+                                            vaciarComponentes();
+                                        } else{
+                                            if (combo_tipo_activo.getSelectedItem().equals("Otros")) {
+                                                combo_marca_activo.setModel(new javax.swing.DefaultComboBoxModel(Otros));
+                                                vaciarComponentes();
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                   }
+               }
+           }
+       }
     }
     
-    public void cargarDiscoduro(){
-    if (conexion.crearConexion()) {
-                combo_discoduro_activo.removeAllItems(); //Vaciamos el JComboBox
-                Integer valTipoActivo = combo_tipo_activo.getSelectedIndex() +1;
-                ArrayList<String> resultat;
-                ArrayList<String> ls = new ArrayList<String>();
-                String sql="select distinct discoduro_activo from tmovactcon where idtipo_activo = '"+valTipoActivo+"'";
-                ResultSet rs = conexion.ejecutarSQLSelect(sql);
-                try {
-                    while(rs.next()){
-                        
-                        ls.add(rs.getString("discoduro_activo"));
-                    }               
-                } catch (SQLException ex) {
-                }
-                resultat = ls;//La consulta tiene que retornar un ArrayList
-                
-                for(int i=0; i<resultat.size();i++){
-                    combo_discoduro_activo.addItem(resultat.get(i));
-                }
-        }
-         
-    }
-    
-    public void activarBusqueaTipos(){
-        if (combo_tipo_activo.getSelectedItem().equals("Computadora de escritorio") || 
+    public void activarBusquedaTipos(){
+        if (combo_tipo_activo.getSelectedItem().equals("Computadora de Escritorio") || 
                 combo_tipo_activo.getSelectedItem().equals("Portátil") || combo_tipo_activo.getSelectedItem().equals("CPU")) {
             combo_procesador_activo.setEnabled(true);
             combo_memoria_activo.setEnabled(true);
@@ -794,37 +805,27 @@ public class AsignaciónActivos extends javax.swing.JDialog {
             rbtn_discoduro_activo.setEnabled(false);           
         }
     }
+    Integer numeroColumnas = 11;
     
     public void buscar(){
         if (rbtn_tipo.isSelected()) {
             if (rbtn_marca_activo.isSelected()) {
                 String valMarca = combo_marca_activo.getSelectedItem().toString();
+                Integer numTipo = combo_tipo_activo.getSelectedIndex() + 1;
                     if (conexion.crearConexion()) {
-
                         String[] titulos ={"Id","Tipo","Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Código Interno"};
                         DefaultTableModel modelo = new DefaultTableModel (null, titulos); 
-                        String[] fila = new String[11];    
-
-                        String sql="select  id_activo, idtipo_activo, marca_activo, precesador_acrtivo, memoria_activo, discoduro_activo, modelo_activo, serie_activo, costo_activo, fechacompra_activo, codigointernoinstitucional_activo from tmovactcon where marca_activo = '"+valMarca+"'";
+                        Object[] fila = new Object[11];                      
+                        String sql="select  id_activo, idtipo_activo, marca_activo, precesador_acrtivo, memoria_activo, discoduro_activo, modelo_activo, serie_activo, costo_activo, fechacompra_activo, codigointernoinstitucional_activo from tmovactcon where marca_activo = '"+valMarca+"' and idtipo_activo = '"+numTipo+"' and iddocasignacion_activo = 1";
                         try{
                             ResultSet rs = conexion.ejecutarSQLSelect(sql);
-
                             while(rs.next()){
-
-                                fila[0] = rs.getString(1);
-                                fila[1] = rs.getString(2);
-                                fila[2] = rs.getString(3);
-                                fila[3] = rs.getString(4);
-                                fila[4] = rs.getString(5);
-                                fila[5] = rs.getString(6);
-                                fila[6] = rs.getString(7);
-                                fila[7] = rs.getString(8);
-                                fila[8] = rs.getString(9);
-                                fila[9] = rs.getString(10);
-                                fila[10] = rs.getString(11);
-                                 modelo.addRow(fila);
+                                  for (int i = 1; i <= numeroColumnas; i++) {                                      
+                                          fila[i - 1] = rs.getObject(i) ;                                                                          
+                                    }
+                                modelo.addRow(fila);
                             }
-                            tabla_activoSinResponsable.setModel(modelo);
+                            tabla_activoSinResponsable.setModel(modelo);                              
                         }catch(Exception ex){
 
                             JOptionPane.showMessageDialog(rootPane,"exception: "+ex);
@@ -833,32 +834,22 @@ public class AsignaciónActivos extends javax.swing.JDialog {
             } else{
                 if (rbtn_procesador_activo.isSelected()) {
                     String valProcesador = combo_procesador_activo.getSelectedItem().toString();
-                    if (conexion.crearConexion()) {
-
+                    if (conexion.crearConexion()) {    
                         String[] titulos ={"Id","Tipo","Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Código Interno"};
                         DefaultTableModel modelo = new DefaultTableModel (null, titulos); 
-                        String[] fila = new String[11];    
+                        Object[] fila = new Object[11];                      
 
-                        String sql="select  id_activo, idtipo_activo, marca_activo, precesador_acrtivo, memoria_activo, discoduro_activo, modelo_activo, serie_activo, costo_activo, fechacompra_activo, codigointernoinstitucional_activo from tmovactcon where precesador_acrtivo = '"+valProcesador+"'";
+                        String sql="select  id_activo, idtipo_activo, marca_activo, precesador_acrtivo, memoria_activo, discoduro_activo, modelo_activo, serie_activo, costo_activo, fechacompra_activo, codigointernoinstitucional_activo from tmovactcon where precesador_acrtivo = '"+valProcesador+"' and iddocasignacion_activo = 1";
                         try{
                             ResultSet rs = conexion.ejecutarSQLSelect(sql);
 
                             while(rs.next()){
-
-                                fila[0] = rs.getString(1);
-                                fila[1] = rs.getString(2);
-                                fila[2] = rs.getString(3);
-                                fila[3] = rs.getString(4);
-                                fila[4] = rs.getString(5);
-                                fila[5] = rs.getString(6);
-                                fila[6] = rs.getString(7);
-                                fila[7] = rs.getString(8);
-                                fila[8] = rs.getString(9);
-                                fila[9] = rs.getString(10);
-                                fila[10] = rs.getString(11);
-                                 modelo.addRow(fila);
+                                  for (int i = 1; i <= numeroColumnas; i++) {                                      
+                                          fila[i - 1] = rs.getObject(i) ;                                                                          
+                                    }
+                                modelo.addRow(fila);
                             }
-                            tabla_activoSinResponsable.setModel(modelo);
+                            tabla_activoSinResponsable.setModel(modelo);                             
                         }catch(Exception ex){
 
                             JOptionPane.showMessageDialog(rootPane,"exception: "+ex);
@@ -868,31 +859,21 @@ public class AsignaciónActivos extends javax.swing.JDialog {
                     if (rbtn_memoria_activo.isSelected()) {
                         String valMemoria = combo_memoria_activo.getSelectedItem().toString();
                         if (conexion.crearConexion()) {
-
                             String[] titulos ={"Id","Tipo","Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Código Interno"};
                             DefaultTableModel modelo = new DefaultTableModel (null, titulos); 
-                            String[] fila = new String[11];    
+                            Object[] fila = new Object[11];                      
 
-                            String sql="select  id_activo, idtipo_activo, marca_activo, precesador_acrtivo, memoria_activo, discoduro_activo, modelo_activo, serie_activo, costo_activo, fechacompra_activo, codigointernoinstitucional_activo from tmovactcon where memoria_activo = '"+valMemoria+"'";
+                            String sql="select  id_activo, idtipo_activo, marca_activo, precesador_acrtivo, memoria_activo, discoduro_activo, modelo_activo, serie_activo, costo_activo, fechacompra_activo, codigointernoinstitucional_activo from tmovactcon where memoria_activo = '"+valMemoria+"' and iddocasignacion_activo = 1";
                             try{
                                 ResultSet rs = conexion.ejecutarSQLSelect(sql);
 
                                 while(rs.next()){
-
-                                    fila[0] = rs.getString(1);
-                                    fila[1] = rs.getString(2);
-                                    fila[2] = rs.getString(3);
-                                    fila[3] = rs.getString(4);
-                                    fila[4] = rs.getString(5);
-                                    fila[5] = rs.getString(6);
-                                    fila[6] = rs.getString(7);
-                                    fila[7] = rs.getString(8);
-                                    fila[8] = rs.getString(9);
-                                    fila[9] = rs.getString(10);
-                                    fila[10] = rs.getString(11);
-                                     modelo.addRow(fila);
+                                  for (int i = 1; i <= numeroColumnas; i++) {                                      
+                                          fila[i - 1] = rs.getObject(i) ;                                                                          
+                                    }
+                                 modelo.addRow(fila);
                                 }
-                                tabla_activoSinResponsable.setModel(modelo);
+                            tabla_activoSinResponsable.setModel(modelo); 
                             }catch(Exception ex){
 
                                 JOptionPane.showMessageDialog(rootPane,"exception: "+ex);
@@ -900,33 +881,23 @@ public class AsignaciónActivos extends javax.swing.JDialog {
                         }
                     } else{
                         if (rbtn_discoduro_activo.isSelected()) {
-                            String valProcesador = combo_procesador_activo.getSelectedItem().toString();
+                            String valDiscoDuro = combo_discoduro_activo.getSelectedItem().toString();
                             if (conexion.crearConexion()) {
-
                                 String[] titulos ={"Id","Tipo","Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Código Interno"};
                                 DefaultTableModel modelo = new DefaultTableModel (null, titulos); 
-                                String[] fila = new String[11];    
+                                Object[] fila = new Object[11];                      
 
-                                String sql="select  id_activo, idtipo_activo, marca_activo, precesador_acrtivo, memoria_activo, discoduro_activo, modelo_activo, serie_activo, costo_activo, fechacompra_activo, codigointernoinstitucional_activo from tmovactcon where discoduro_activo = '"+valProcesador+"'";
+                                String sql="select id_activo, idtipo_activo, marca_activo, precesador_acrtivo, memoria_activo, discoduro_activo, modelo_activo, serie_activo, costo_activo, fechacompra_activo, codigointernoinstitucional_activo from tmovactcon where discoduro_activo = '"+valDiscoDuro+"' and iddocasignacion_activo = 1";
                                 try{
                                     ResultSet rs = conexion.ejecutarSQLSelect(sql);
 
                                     while(rs.next()){
-
-                                        fila[0] = rs.getString(1);
-                                        fila[1] = rs.getString(2);
-                                        fila[2] = rs.getString(3);
-                                        fila[3] = rs.getString(4);
-                                        fila[4] = rs.getString(5);
-                                        fila[5] = rs.getString(6);
-                                        fila[6] = rs.getString(7);
-                                        fila[7] = rs.getString(8);
-                                        fila[8] = rs.getString(9);
-                                        fila[9] = rs.getString(10);
-                                        fila[10] = rs.getString(11);
-                                         modelo.addRow(fila);
+                                        for (int i = 1; i <= numeroColumnas; i++) {                                      
+                                          fila[i - 1] = rs.getObject(i) ;                                                                          
+                                        }
+                                      modelo.addRow(fila);
                                     }
-                                    tabla_activoSinResponsable.setModel(modelo);
+                                  tabla_activoSinResponsable.setModel(modelo);                                  
                                 }catch(Exception ex){
 
                                     JOptionPane.showMessageDialog(rootPane,"exception: "+ex);
@@ -940,31 +911,20 @@ public class AsignaciónActivos extends javax.swing.JDialog {
             if (rbtn_serie_activo.isSelected()) {
                 String valSerie = txt_serie_activo.getText();
                     if (conexion.crearConexion()) {
-
                         String[] titulos ={"Id","Tipo","Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Código Interno"};
                         DefaultTableModel modelo = new DefaultTableModel (null, titulos); 
-                        String[] fila = new String[11];    
+                        Object[] fila = new Object[11];                      
 
-                        String sql="select  id_activo, idtipo_activo, marca_activo, precesador_acrtivo, memoria_activo, discoduro_activo, modelo_activo, serie_activo, costo_activo, fechacompra_activo, codigointernoinstitucional_activo from tmovactcon where serie_activo = '"+valSerie+"'";
+                        String sql="select  id_activo, idtipo_activo, marca_activo, precesador_acrtivo, memoria_activo, discoduro_activo, modelo_activo, serie_activo, costo_activo, fechacompra_activo, codigointernoinstitucional_activo from tmovactcon where serie_activo = '"+valSerie+"' and iddocasignacion_activo = 1";
                         try{
-                            ResultSet rs = conexion.ejecutarSQLSelect(sql);
-
-                            while(rs.next()){
-
-                                fila[0] = rs.getString(1);
-                                fila[1] = rs.getString(2);
-                                fila[2] = rs.getString(3);
-                                fila[3] = rs.getString(4);
-                                fila[4] = rs.getString(5);
-                                fila[5] = rs.getString(6);
-                                fila[6] = rs.getString(7);
-                                fila[7] = rs.getString(8);
-                                fila[8] = rs.getString(9);
-                                fila[9] = rs.getString(10);
-                                fila[10] = rs.getString(11);
-                                 modelo.addRow(fila);
-                            }
-                            tabla_activoSinResponsable.setModel(modelo);
+                            ResultSet rs = conexion.ejecutarSQLSelect(sql);                   
+                                while(rs.next()){
+                                    for (int i = 1; i <= numeroColumnas; i++) {                                      
+                                           fila[i - 1] = rs.getObject(i) ;                                                                          
+                                        }
+                                     modelo.addRow(fila);
+                                }                                                                                                                              
+                            tabla_activoSinResponsable.setModel(modelo);                             
                         }catch(Exception ex){
 
                             JOptionPane.showMessageDialog(rootPane,"exception: "+ex);
@@ -973,31 +933,20 @@ public class AsignaciónActivos extends javax.swing.JDialog {
             } else{
                 String valCodigoInstitucional = txt_codigoInternoInsticucional_activo.getText();
                     if (conexion.crearConexion()) {
-
                         String[] titulos ={"Id","Tipo","Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Código Interno"};
                         DefaultTableModel modelo = new DefaultTableModel (null, titulos); 
-                        String[] fila = new String[11];    
-
-                        String sql="select  id_activo, idtipo_activo, marca_activo, precesador_acrtivo, memoria_activo, discoduro_activo, modelo_activo, serie_activo, costo_activo, fechacompra_activo, codigointernoinstitucional_activo from tmovactcon where codigointernoinstitucional_activo = '"+valCodigoInstitucional+"'";
+                        Object[] fila = new Object[11];                      
+                        
+                        String sql="select  id_activo, idtipo_activo, marca_activo, precesador_acrtivo, memoria_activo, discoduro_activo, modelo_activo, serie_activo, costo_activo, fechacompra_activo, codigointernoinstitucional_activo from tmovactcon where codigointernoinstitucional_activo = '"+valCodigoInstitucional+"' and iddocasignacion_activo = 1";
                         try{
-                            ResultSet rs = conexion.ejecutarSQLSelect(sql);
-
-                            while(rs.next()){
-
-                                fila[0] = rs.getString(1);
-                                fila[1] = rs.getString(2);
-                                fila[2] = rs.getString(3);
-                                fila[3] = rs.getString(4);
-                                fila[4] = rs.getString(5);
-                                fila[5] = rs.getString(6);
-                                fila[6] = rs.getString(7);
-                                fila[7] = rs.getString(8);
-                                fila[8] = rs.getString(9);
-                                fila[9] = rs.getString(10);
-                                fila[10] = rs.getString(11);
-                                 modelo.addRow(fila);
-                            }
-                            tabla_activoSinResponsable.setModel(modelo);
+                            ResultSet rs = conexion.ejecutarSQLSelect(sql);                           
+                                while(rs.next()){
+                                        for (int i = 1; i <= numeroColumnas; i++) {                                      
+                                              fila[i - 1] = rs.getObject(i) ;                                                                          
+                                        }
+                                    modelo.addRow(fila);
+                                }                            
+                            tabla_activoSinResponsable.setModel(modelo);                            
                         }catch(Exception ex){
 
                             JOptionPane.showMessageDialog(rootPane,"exception: "+ex);
@@ -1052,13 +1001,17 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     }//GEN-LAST:event_txt_serie_activoKeyTyped
 
     private void txt_codigoInternoInsticucional_activoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoInternoInsticucional_activoKeyTyped
-        char c=evt.getKeyChar(); 
-           
-          if(!Character.isDigit(c)) {  //Si el dato ingresado no es un número verificará:
+        char c=evt.getKeyChar();
+        
+        if(!Character.isDigit(c)) {  //Si el dato ingresado no es un número verificará:
                if(Character.isLetter(c)) {//si es una letra
                      evt.setKeyChar(Character.toUpperCase(c));//la registra pero como mayúscula
                  }else{//todo lo demás será ignorado
-                     evt.consume();
+                     if (c == KeyEvent.VK_MINUS) {
+                       evt.setKeyChar(c);
+                   } else{
+                         evt.consume();
+                     }
                  } 
            }
           
@@ -1111,34 +1064,63 @@ public class AsignaciónActivos extends javax.swing.JDialog {
 
     private void combo_tipo_activoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_tipo_activoItemStateChanged
         cargarMarcas();
-        cargarMemoria();
-        cargarProcesador();
-        cargarDiscoduro();
+        activarBusquedaTipos();
+        if (!rbtn_tipo.isSelected()) {
+            rbtn_tipo.setSelected(true);
+            panelBusquedaTipo.setVisible(true); 
+            rbtn_marca_activo.setSelected(true); 
+        }
     }//GEN-LAST:event_combo_tipo_activoItemStateChanged
 
     private void combo_tipo_activoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combo_tipo_activoMouseEntered
-       activarBusqueaTipos(); 
-       cargarMarcas();
-       cargarMemoria();
-       cargarProcesador();
-       cargarDiscoduro();
+       activarBusquedaTipos(); 
     }//GEN-LAST:event_combo_tipo_activoMouseEntered
 
     private void combo_tipo_activoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combo_tipo_activoMouseExited
-        activarBusqueaTipos();
-        cargarMarcas();
-        cargarMemoria();
-        cargarProcesador();
-        cargarDiscoduro();
+        activarBusquedaTipos();
     }//GEN-LAST:event_combo_tipo_activoMouseExited
 
     private void jPanel4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseMoved
-        activarBusqueaTipos();
+        activarBusquedaTipos();
     }//GEN-LAST:event_jPanel4MouseMoved
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        buscar();
-    }//GEN-LAST:event_jButton9ActionPerformed
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+        verificarBusqueda();           
+    }//GEN-LAST:event_btn_buscarActionPerformed
+
+    private void combo_marca_activoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_marca_activoItemStateChanged
+        
+    }//GEN-LAST:event_combo_marca_activoItemStateChanged
+
+    private void combo_procesador_activoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_procesador_activoItemStateChanged
+       
+    }//GEN-LAST:event_combo_procesador_activoItemStateChanged
+
+    private void combo_memoria_activoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_memoria_activoItemStateChanged
+        
+    }//GEN-LAST:event_combo_memoria_activoItemStateChanged
+
+    private void combo_discoduro_activoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_combo_discoduro_activoItemStateChanged
+
+    }//GEN-LAST:event_combo_discoduro_activoItemStateChanged
+
+    private void btn_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevoActionPerformed
+        String[] titulos ={"Id","Tipo","Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Código Interno"};
+        DefaultTableModel modelo = new DefaultTableModel (null, titulos); 
+        tabla_activoSinResponsable.setModel(modelo);
+    }//GEN-LAST:event_btn_nuevoActionPerformed
+
+    private void tabla_activoSinResponsableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_activoSinResponsableMouseClicked
+
+    }//GEN-LAST:event_tabla_activoSinResponsableMouseClicked
+
+    private void btn_seleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_seleccionarActionPerformed
+        for (int i = 0; i < tabla_activoSinResponsable.getRowCount(); i++) {
+                                                     
+                  tabla_activoSinResponsable.selectAll();
+            
+        }
+    }//GEN-LAST:event_btn_seleccionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1187,17 +1169,17 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     private javax.swing.ButtonGroup GrupoBusquedaPorTipo;
     private javax.swing.ButtonGroup GrupoCriterioBusquedaActivosNoAsignados;
     private javax.swing.JButton btn_asignar;
+    public javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_buscar_activo;
     private javax.swing.JButton btn_nuevo;
     private javax.swing.JButton btn_regresar;
     private javax.swing.JButton btn_seleccionar;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox combo_discoduro_activo;
-    private javax.swing.JComboBox combo_marca_activo;
-    private javax.swing.JComboBox combo_memoria_activo;
-    private javax.swing.JComboBox combo_procesador_activo;
-    private javax.swing.JComboBox combo_tipo_activo;
-    private javax.swing.JButton jButton9;
+    public javax.swing.JComboBox combo_discoduro_activo;
+    public javax.swing.JComboBox combo_marca_activo;
+    public javax.swing.JComboBox combo_memoria_activo;
+    public javax.swing.JComboBox combo_procesador_activo;
+    public javax.swing.JComboBox combo_tipo_activo;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
@@ -1207,7 +1189,7 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    public javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
@@ -1226,15 +1208,15 @@ public class AsignaciónActivos extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JPanel panelBusquedaTipo;
-    private javax.swing.JRadioButton rbtn_codigoinstitucional_activo;
-    private javax.swing.JRadioButton rbtn_discoduro_activo;
-    private javax.swing.JRadioButton rbtn_marca_activo;
-    private javax.swing.JRadioButton rbtn_memoria_activo;
-    private javax.swing.JRadioButton rbtn_procesador_activo;
-    private javax.swing.JRadioButton rbtn_serie_activo;
-    private javax.swing.JRadioButton rbtn_tipo;
-    private javax.swing.JTable tabla_activoSinResponsable;
-    private javax.swing.JTextField txt_codigoInternoInsticucional_activo;
-    private javax.swing.JTextField txt_serie_activo;
+    public javax.swing.JRadioButton rbtn_codigoinstitucional_activo;
+    public javax.swing.JRadioButton rbtn_discoduro_activo;
+    public javax.swing.JRadioButton rbtn_marca_activo;
+    public javax.swing.JRadioButton rbtn_memoria_activo;
+    public javax.swing.JRadioButton rbtn_procesador_activo;
+    public javax.swing.JRadioButton rbtn_serie_activo;
+    public javax.swing.JRadioButton rbtn_tipo;
+    public javax.swing.JTable tabla_activoSinResponsable;
+    public javax.swing.JTextField txt_codigoInternoInsticucional_activo;
+    public javax.swing.JTextField txt_serie_activo;
     // End of variables declaration//GEN-END:variables
 }

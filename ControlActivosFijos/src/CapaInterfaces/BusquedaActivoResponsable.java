@@ -7,6 +7,12 @@ package CapaInterfaces;
 
 import java.awt.GridBagLayout;
 import java.awt.event.KeyEvent;
+import javax.swing.table.DefaultTableModel;
+import Capa_ConexionBD.Conexion;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,9 +28,12 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
         initComponents();
         this.getContentPane().setLayout (new GridBagLayout());
         this.setLocationRelativeTo(null);
-        tabla_activos_responsable.getTableHeader().setReorderingAllowed(false);
+        tabla_activos_responsable.getTableHeader().setReorderingAllowed(false);  
+        combo_oficio.removeAllItems();
+        combo_oficio.setEnabled(false);
     }
 
+    Conexion conexion = new Conexion();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -82,16 +91,36 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
         });
         tabla_activos_responsable.removeColumn(tabla_activos_responsable.getColumnModel().getColumn(0));
         tabla_activos_responsable.setNextFocusableComponent(btn_eliminar);
-        tabla_activos_responsable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tabla_activos_responsable.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         tabla_activos_responsable.getTableHeader().setReorderingAllowed(false);
         jScrollPane3.setViewportView(tabla_activos_responsable);
 
         check_oficio.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         check_oficio.setText("Oficio");
+        check_oficio.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                check_oficioStateChanged(evt);
+            }
+        });
+        check_oficio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                check_oficioMouseClicked(evt);
+            }
+        });
+        check_oficio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                check_oficioActionPerformed(evt);
+            }
+        });
 
         combo_oficio.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         combo_oficio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar...", "Item 1", "Item 2", "Item 3", "Item 4" }));
         combo_oficio.setNextFocusableComponent(btn_actualizar);
+        combo_oficio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_oficioActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         jLabel2.setText("Responsable ");
@@ -115,6 +144,11 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
         btn_nuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btn_nuevo.setNextFocusableComponent(txt_responsable);
         btn_nuevo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btn_nuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nuevoActionPerformed(evt);
+            }
+        });
         jToolBar2.add(btn_nuevo);
 
         btn_actualizar.setBackground(new java.awt.Color(117, 214, 255));
@@ -172,6 +206,11 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
         btn_eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/1/rubbish-bin (1).png"))); // NOI18N
         btn_eliminar.setContentAreaFilled(false);
         btn_eliminar.setNextFocusableComponent(tabla_activos_responsable);
+        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -264,23 +303,120 @@ public class BusquedaActivoResponsable extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    Integer numeroColumnas = 11;
+    
+    
+    public void cargarComboOficio(){
+        combo_oficio.removeAllItems();
+        ArrayList<String> resultat;
+        ArrayList<String> ls = new ArrayList<String>();
+        String valResponsable = txt_responsable.getText().toString();
+        String sql = "select codigooficio_asigactivo from tmovdascon as a inner join tmaearecon as b on (a.idarea_asigactivo = b.id_area)\n" +
+                     "inner join tmovrehcon as c on (b.idresponsable_area = c.id_rrhh) inner join tmaepercon as d on (c.idpersona_rrhh = d.id_persona) "
+                     + "where (d.nombre_persona like '"+valResponsable+"%' and a.id_asigactivo > 2) or (d.nombre_persona like '"+valResponsable+"%' and a.id_asigactivo > 2);";
+        
+         ResultSet rs = conexion.ejecutarSQLSelect(sql);
+                try {
+                     while(rs.next()){
+                         
+                         ls.add(rs.getString("codigooficio_asigactivo"));
+                     }               
+                 } catch (SQLException ex) {
+                 }
+                 resultat = ls;//La consulta tiene que retornar un ArrayList
+                 
+                 for(int i=0; i<resultat.size();i++){
+                     combo_oficio.addItem(resultat.get(i));
+                 }
+    }
+    
+    public void busquedaResponsable(){  
+        String valResponsable = txt_responsable.getText().toString();        
+        if (conexion.crearConexion() && !valResponsable.equals("")) {            
+            String[] titulos = {"Id","Tipo","Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Código Interno"};
+            DefaultTableModel modelo = new DefaultTableModel (null, titulos); 
+            Object[] fila = new Object[11];
+            String sql = "select  id_activo, idtipo_activo, marca_activo, precesador_acrtivo, memoria_activo, discoduro_activo, modelo_activo, \n" +
+                         "serie_activo, costo_activo, fechacompra_activo, codigointernoinstitucional_activo from tmovactcon as a \n" +
+                         "inner join tmovdascon as b on (a.iddocasignacion_activo = b.id_asigactivo)\n" +
+                         "inner join tmaearecon as c on (b.idarea_asigactivo = c.id_area)\n" +
+                         "inner join tmovrehcon as d on (c.idresponsable_area = d.id_rrhh)\n" +
+                         "inner join tmaepercon as e on (d.idpersona_rrhh = e.id_persona) where (e.apellido_persona like '"+valResponsable+"%' and b.id_asigactivo > 2) or (e.nombre_persona like '"+valResponsable+"%' and b.id_asigactivo > 2);";
+                        try{
+                            ResultSet rs = conexion.ejecutarSQLSelect(sql);
 
+                            while(rs.next()){
+                                  for (int i = 1; i <= numeroColumnas; i++) {                                      
+                                    fila[i - 1] = rs.getObject(i) ;                                      
+                                } 
+                            modelo.addRow(fila);
+                            }
+                            tabla_activos_responsable.setModel(modelo);                            
+                        }catch(Exception ex){
+
+                            JOptionPane.showMessageDialog(rootPane,"exception: "+ex);
+                        }
+        }   
+    }
+    
     private void txt_responsableKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_responsableKeyTyped
         Character c = evt.getKeyChar();
-                if(Character.isLetter(c) || c == KeyEvent.VK_SPACE) {
-                    evt.setKeyChar(c);
-                }else{                    
-                    evt.consume();
+                if(Character.isLetter(c) || c == KeyEvent.VK_SPACE ) {
+                    evt.setKeyChar(c);     
+                    busquedaResponsable();                     
+                }else{
+                        evt.consume();                                      
+                }    
+                
+                if (check_oficio.isSelected()) {                    
+                    cargarComboOficio();
                 }
     }//GEN-LAST:event_txt_responsableKeyTyped
 
     private void btn_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarActionPerformed
-        new RegistroDocumentoAsignacion( this, true).setVisible(true);
+        
+            if (!check_oficio.isSelected() || combo_oficio.getItemCount() <= 0) {
+                JOptionPane.showMessageDialog(rootPane,"Aquí: "+ combo_oficio.getItemCount());
+            } else{
+                
+                new RegistroDocumentoAsignacion( this, true).setVisible(true);
+            }      
     }//GEN-LAST:event_btn_actualizarActionPerformed
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
         dispose();
     }//GEN-LAST:event_btn_regresarActionPerformed
+
+    private void btn_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevoActionPerformed
+        String[] titulos ={"Id","Tipo","Marca", "Procesador", "Memoria", "Disco Duro", "Modelo", "Serie", "Costo", "Fecha Compra", "Código Interno"};
+        DefaultTableModel modelo = new DefaultTableModel (null, titulos); 
+        tabla_activos_responsable.setModel(modelo);
+    }//GEN-LAST:event_btn_nuevoActionPerformed
+
+    private void combo_oficioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_oficioActionPerformed
+        
+    }//GEN-LAST:event_combo_oficioActionPerformed
+
+    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
+        //tabla_activos_responsable.
+    }//GEN-LAST:event_btn_eliminarActionPerformed
+
+    private void check_oficioStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_check_oficioStateChanged
+        if (check_oficio.isSelected()) {
+            combo_oficio.setEnabled(true);
+        }
+        else{
+            combo_oficio.setEnabled(false);
+        }
+    }//GEN-LAST:event_check_oficioStateChanged
+
+    private void check_oficioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_check_oficioActionPerformed
+
+    }//GEN-LAST:event_check_oficioActionPerformed
+
+    private void check_oficioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_check_oficioMouseClicked
+
+    }//GEN-LAST:event_check_oficioMouseClicked
 
     /**
      * @param args the command line arguments
